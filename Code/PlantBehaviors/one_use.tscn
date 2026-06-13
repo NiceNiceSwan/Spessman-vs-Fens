@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://biv0y2aahc1cl"]
+
+[ext_resource type="Script" path="res://Code/PlantBehaviors/OneUse.gd" id="1_8awhi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoy70"]
+size = Vector2(128, 128)
+
+[node name="OneUse" type="Node"]
+script = ExtResource("1_8awhi")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="DetectionShape" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_aoy70")
+
+[node name="UseSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ArmingTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ArmingTimer" to="." method="_on_arming_timer_timeout"]

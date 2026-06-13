@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="PlantData" load_steps=3 format=3 uid="uid://cfadfydrw2uuu"]
 
 [ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_out2u"]
-[ext_resource type="Texture2D" uid="uid://bbbyryg4r7wap" path="res://Graphics/dura_tank_large.png" id="2_boh4q"]
+[ext_resource type="SpriteFrames" uid="uid://rbdwlyqp5r4l" path="res://Graphics/Animated/dura_tank.tres" id="2_xy455"]
 
 [resource]
 script = ExtResource("1_out2u")
 name = "Shielder"
-max_health = 500
+max_health = 100
 cost = 50
 behaviors = Array[Resource("res://Resources/PlantBehaviors/Behavior.gd")]([])
-texture = ExtResource("2_boh4q")
+sprite_frames = ExtResource("2_xy455")

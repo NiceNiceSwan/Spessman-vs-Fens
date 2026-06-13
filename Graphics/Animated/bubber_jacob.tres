@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://c5ndrkdy6hjax"]
+
+[ext_resource type="Texture2D" uid="uid://bgi8jhl7g6vrj" path="res://Graphics/bubber_jacob.png" id="1_5kpjy"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5kpjy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

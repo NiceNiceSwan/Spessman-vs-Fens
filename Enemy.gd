@@ -22,7 +22,8 @@ func _process(delta):
 		position -= Vector2(speed, 0) * delta
 
 func _on_hitbox_area_entered(projectile: Projectile):
-	_on_hit(projectile._hit())
+	if projectile.health > 0:
+		_on_hit(projectile._hit())
 
 func _on_attack_range_area_entered(area: Area2D):
 	target_plant = area.get_parent()

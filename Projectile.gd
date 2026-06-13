@@ -3,6 +3,7 @@ class_name Projectile extends Area2D
 ## movespeed in pixels per second
 var speed: int = 100
 var damage: float = 1
+var health: int = 1
 
 @export var projectile_data: Projectiles
 
@@ -13,6 +14,7 @@ func _ready():
 	
 	speed = projectile_data.speed
 	damage = projectile_data.damage
+	$Sprite2D.texture = projectile_data.texture
 
 func _process(delta):
 	position += Vector2(speed, 0) * delta
@@ -21,7 +23,9 @@ func _process(delta):
 	rotation_degrees += 360 * delta
 
 func _hit() -> float:
-	queue_free()
+	health -= 1
+	if health <= 0:
+		queue_free()
 	return damage
 
 func _on_life_timer_timeout():

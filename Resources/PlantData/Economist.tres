@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_53rkp"]
 [ext_resource type="Resource" uid="uid://dwa5x0errtt40" path="res://Resources/PlantBehaviors/MoneyMaking/MoneyMaker.tres" id="1_jr8rl"]
-[ext_resource type="Texture2D" uid="uid://c5ud8o4ihkfml" path="res://Graphics/cynthia.png" id="3_gfsao"]
+[ext_resource type="SpriteFrames" uid="uid://bdhpyyerlbsv3" path="res://Graphics/Animated/cynthia.tres" id="3_m2njd"]
 
 [resource]
 script = ExtResource("1_53rkp")
@@ -10,4 +10,4 @@ name = "Economist"
 max_health = 5
 cost = 50
 behaviors = Array[Resource("res://Resources/PlantBehaviors/Behavior.gd")]([ExtResource("1_jr8rl")])
-texture = ExtResource("3_gfsao")
+sprite_frames = ExtResource("3_m2njd")

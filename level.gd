@@ -111,8 +111,8 @@ func add_money(_money: int):
 
 func select_plant(plant: PlantData):
 	if money >= plant.cost:
-		var plant_image: Sprite2D = load("res://PlantImage.tscn").instantiate()
-		plant_image.texture = plant.texture
+		var plant_image: AnimatedSprite2D = load("res://PlantImage.tscn").instantiate()
+		plant_image.sprite_frames = plant.sprite_frames
 		add_child(plant_image)
 		selected_plant = plant
 		$PlantPlaceTimer.start()

@@ -17,8 +17,8 @@ config/icon="res://Graphics/icon.svg"
 
 [autoload]
 
-Global="*res://global/Global.gd"
-Signals="*res://global/Signals.gd"
+Enums="*res://Global/Enums.gd"
+Signals="*res://Global/Signals.gd"
 
 [display]
 

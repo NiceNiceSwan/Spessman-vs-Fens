@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=7 format=3 uid="uid://ca05qda34nmag"]
+
+[ext_resource type="PackedScene" uid="uid://brwnmd6g8jmnt" path="res://Code/PlantBehaviors/Firing.tscn" id="1_svrmq"]
+[ext_resource type="Resource" uid="uid://bayoy5ykwva7" path="res://Resources/PlantBehaviors/ShooterResources/Gunner.tres" id="2_avj55"]
+[ext_resource type="Script" path="res://Resources/PlantBehaviors/Behavior.gd" id="3_mba4v"]
+[ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="4_q131s"]
+[ext_resource type="SpriteFrames" uid="uid://c5ndrkdy6hjax" path="res://Graphics/Animated/bubber_jacob.tres" id="5_qwfqf"]
+
+[sub_resource type="Resource" id="Resource_k1oth"]
+script = ExtResource("3_mba4v")
+node = ExtResource("1_svrmq")
+resource = ExtResource("2_avj55")
+
+[resource]
+script = ExtResource("4_q131s")
+name = "Gunner"
+max_health = 5
+cost = 100
+behaviors = Array[ExtResource("3_mba4v")]([SubResource("Resource_k1oth")])
+sprite_frames = ExtResource("5_qwfqf")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Shooters" load_steps=4 format=3 uid="uid://ctikiak4t3uf2"]
+
+[ext_resource type="AudioStream" uid="uid://dar0qo2rokws6" path="res://Sound/devour.ogg" id="1_tnwed"]
+[ext_resource type="Resource" uid="uid://dxyxhv5kl2jye" path="res://Resources/Projectiles/InstaKill.tres" id="2_bumry"]
+[ext_resource type="Script" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="3_oj6or"]
+
+[resource]
+script = ExtResource("3_oj6or")
+bullets_per_fire = 1
+fire_delay = 30.0
+projectile = ExtResource("2_bumry")
+range = 2
+fire_sound = ExtResource("1_tnwed")

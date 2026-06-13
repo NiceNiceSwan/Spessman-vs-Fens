@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Behavior" load_steps=4 format=3 uid="uid://clijatrdfw4s5"]
+
+[ext_resource type="PackedScene" uid="uid://biv0y2aahc1cl" path="res://Code/PlantBehaviors/one_use.tscn" id="1_cdtpf"]
+[ext_resource type="Resource" uid="uid://boydxu4xtn421" path="res://Resources/PlantBehaviors/OneUseResources/LandMineResource.tres" id="2_2ya4a"]
+[ext_resource type="Script" path="res://Resources/PlantBehaviors/Behavior.gd" id="3_6iptf"]
+
+[resource]
+script = ExtResource("3_6iptf")
+node = ExtResource("1_cdtpf")
+resource = ExtResource("2_2ya4a")

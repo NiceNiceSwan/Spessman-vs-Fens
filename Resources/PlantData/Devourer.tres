@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=7 format=3 uid="uid://ddlfe1ghkv2vh"]
+
+[ext_resource type="PackedScene" uid="uid://brwnmd6g8jmnt" path="res://Code/PlantBehaviors/Firing.tscn" id="1_13gqa"]
+[ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_remej"]
+[ext_resource type="Resource" uid="uid://ctikiak4t3uf2" path="res://Resources/PlantBehaviors/ShooterResources/Devourer.tres" id="2_gxbgs"]
+[ext_resource type="Script" path="res://Resources/PlantBehaviors/Behavior.gd" id="3_iwr31"]
+[ext_resource type="SpriteFrames" uid="uid://b6g301ynvo3fc" path="res://Graphics/Animated/protoblob.tres" id="5_orbvg"]
+
+[sub_resource type="Resource" id="Resource_ppjj4"]
+script = ExtResource("3_iwr31")
+node = ExtResource("1_13gqa")
+resource = ExtResource("2_gxbgs")
+
+[resource]
+script = ExtResource("1_remej")
+name = "Devourer"
+max_health = 5
+cost = 150
+behaviors = Array[ExtResource("3_iwr31")]([SubResource("Resource_ppjj4")])
+sprite_frames = ExtResource("5_orbvg")

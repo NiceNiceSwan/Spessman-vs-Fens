@@ -4,4 +4,4 @@ class_name PlantData extends Resource
 @export var max_health: int
 @export var cost: int
 @export var behaviors: Array[Behavior]
-@export var texture: Texture2D
+@export var sprite_frames: SpriteFrames
