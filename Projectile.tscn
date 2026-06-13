@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8c0jxf63waum"]
+
+[ext_resource type="Script" path="res://Projectile.gd" id="1_g1utx"]
+[ext_resource type="Texture2D" uid="uid://c38h18qm5nn5o" path="res://Graphics/wrench.png" id="2_s8vhb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_et8s4"]
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_g1utx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_et8s4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.4075e-07, -4.61936e-07)
+texture = ExtResource("2_s8vhb")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 100.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

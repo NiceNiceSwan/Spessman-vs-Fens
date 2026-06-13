@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3np1cef23mrd"]
+
+[ext_resource type="Script" path="res://Currency.gd" id="1_knbc6"]
+[ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="2_edq1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kgnt"]
+size = Vector2(64, 64)
+
+[node name="Currency" type="Node2D"]
+script = ExtResource("1_knbc6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_edq1o")
+
+[node name="ClickArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="ClickAreaHitbox" type="CollisionShape2D" parent="ClickArea"]
+shape = SubResource("RectangleShape2D_1kgnt")
+
+[node name="LifeTimer" type="Timer" parent="."]
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

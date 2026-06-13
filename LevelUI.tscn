@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://drv8t61jomhsi"]
+
+[ext_resource type="Script" path="res://LevelUI.gd" id="1_jinag"]
+[ext_resource type="PackedScene" uid="uid://chlj85f22rb4l" path="res://PlantHolder.tscn" id="2_gqnwp"]
+[ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="3_8ryok"]
+[ext_resource type="Resource" uid="uid://ca05qda34nmag" path="res://Resources/PlantData/Shooter.tres" id="3_cdifg"]
+[ext_resource type="Resource" uid="uid://cfadfydrw2uuu" path="res://Resources/PlantData/Shielder.tres" id="4_5oa16"]
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource("1_jinag")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 120.0
+offset_bottom = 53.0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Money" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Money"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(64, 64)
+offset_left = 120.0
+offset_right = 184.0
+offset_bottom = 64.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlantHolder" parent="HBoxContainer" instance=ExtResource("2_gqnwp")]
+layout_mode = 2
+size_flags_vertical = 1
+plant = ExtResource("3_8ryok")
+
+[node name="PlantHolder2" parent="HBoxContainer" instance=ExtResource("2_gqnwp")]
+layout_mode = 2
+size_flags_vertical = 1
+plant = ExtResource("3_cdifg")
+
+[node name="PlantHolder3" parent="HBoxContainer" instance=ExtResource("2_gqnwp")]
+layout_mode = 2
+plant = ExtResource("4_5oa16")

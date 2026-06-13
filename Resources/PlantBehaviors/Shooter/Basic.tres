@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Shooters" load_steps=3 format=3 uid="uid://bayoy5ykwva7"]
+
+[ext_resource type="Resource" uid="uid://ctmlwv442ff4h" path="res://Resources/Projectiles/fast.tres" id="1_rrmbn"]
+[ext_resource type="Script" path="res://Resources/PlantBehaviors/Shooter/Shooters.gd" id="2_invxv"]
+
+[resource]
+script = ExtResource("2_invxv")
+bullets_per_fire = 1
+fire_rate = 1.0
+projectile = ExtResource("1_rrmbn")
+range = 9

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Projectiles" load_steps=2 format=3 uid="uid://ctmlwv442ff4h"]
+
+[ext_resource type="Script" path="res://Resources/Projectiles/Projectiles.gd" id="1_tcjsc"]
+
+[resource]
+script = ExtResource("1_tcjsc")
+speed = 1000
+damage = 1.0

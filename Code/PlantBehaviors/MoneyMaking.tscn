@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cduwmcrn5w5v1"]
+
+[ext_resource type="Script" path="res://Code/PlantBehaviors/MoneyMaking.gd" id="1_2tn4c"]
+
+[node name="MoneyMaking" type="Node"]
+script = ExtResource("1_2tn4c")
+
+[node name="MoneyTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]

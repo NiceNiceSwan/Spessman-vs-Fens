@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://chlj85f22rb4l"]
+
+[ext_resource type="Script" path="res://PlantHolder.gd" id="1_07f8t"]
+[ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="2_xehqy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_87v6c"]
+font_size = 12
+
+[node name="PlantHolder" type="Control"]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 3
+anchor_right = 0.025
+anchor_bottom = 0.083
+offset_bottom = 0.255997
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_07f8t")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 64.0
+action_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Button"]
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="Button/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_xehqy")
+expand_mode = 4
+
+[node name="Cost" type="Label" parent="Button/VBoxContainer"]
+layout_mode = 2
+text = "Cost"
+label_settings = SubResource("LabelSettings_87v6c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

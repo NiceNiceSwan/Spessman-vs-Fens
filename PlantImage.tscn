@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1d4hmfthef4a"]
+
+[ext_resource type="Script" path="res://PlantImage.gd" id="1_jta22"]
+
+[node name="PlantImage" type="Sprite2D"]
+script = ExtResource("1_jta22")
+
+[node name="NoClickTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="NoClickTimer" to="." method="_on_no_click_timer_timeout"]

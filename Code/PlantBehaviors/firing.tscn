@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://brwnmd6g8jmnt"]
+
+[ext_resource type="Script" path="res://Code/PlantBehaviors/Firing.gd" id="1_d3r7r"]
+[ext_resource type="AudioStream" uid="uid://dw63i2jr7osei" path="res://Sound/ratchet.ogg" id="2_k8eex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jdjo"]
+size = Vector2(128, 126)
+
+[node name="Firing" type="Node"]
+script = ExtResource("1_d3r7r")
+
+[node name="firing_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="EnemyDetector" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_6jdjo")
+
+[node name="FireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k8eex")
+volume_db = -50.0
+pitch_scale = 0.71
+
+[connection signal="timeout" from="firing_timer" to="." method="_on_firing_timer_timeout"]
