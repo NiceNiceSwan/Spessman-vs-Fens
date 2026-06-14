@@ -1,4 +1,4 @@
-class_name OneUseResource extends Resource
+class_name OneUseResource extends PlantBehaviorResource
 
 @export var damage: int = 250
 @export var range: int = 1

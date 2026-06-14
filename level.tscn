@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://beg53cvd5kur8"]
+[gd_scene load_steps=10 format=3 uid="uid://beg53cvd5kur8"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_oq420"]
 [ext_resource type="PackedScene" uid="uid://d3np1cef23mrd" path="res://Currency.tscn" id="2_t4bmn"]
-[ext_resource type="PackedScene" uid="uid://drv8t61jomhsi" path="res://LevelUI.tscn" id="5_4owyg"]
+[ext_resource type="PackedScene" uid="uid://drv8t61jomhsi" path="res://Code/UI/Level/LevelUI.tscn" id="5_4owyg"]
+[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Enemy.tscn" id="6_ep0u1"]
 [ext_resource type="Texture2D" uid="uid://ufnh6gx67nuk" path="res://Graphics/tile_map.png" id="6_knfsg"]
 
 [sub_resource type="Curve2D" id="Curve2D_7k82x"]
@@ -68,8 +69,11 @@ wait_time = 0.05
 one_shot = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 8.0
 autostart = true
+
+[node name="Enemy" parent="." instance=ExtResource("6_ep0u1")]
+position = Vector2(768, 384)
 
 [connection signal="timeout" from="CurrencyTimer" to="." method="_on_currency_timer_timeout"]
 [connection signal="timeout" from="PlantPlaceTimer" to="." method="_on_plant_place_timer_timeout"]

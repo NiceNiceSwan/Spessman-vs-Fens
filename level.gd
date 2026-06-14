@@ -7,6 +7,8 @@ const ENEMY_WAVE_AMOUNT = 75
 
 @export var currency_scene: PackedScene
 var selected_plant: PlantData
+var selected_plant_scene: PackedScene
+
 var can_place_plant: bool = false
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 var enemies_spawned: int = 0
@@ -17,16 +19,17 @@ var wave_tick_counter: int = 0
 var plant_grid: Array[Array]
 
 func _ready():
+	Signals.plant_selected.connect(select_plant)
 	plant_grid.resize(9)
 	for i in 9:
 		plant_grid[i].resize(5)
 	$LevelUI.update_money(money)
 
 func _normalise_mouse_position_to_grid(mouse_position: Vector2) -> Vector2:
-	mouse_position.x += 64
-	mouse_position.y += 64
-	mouse_position.x -= (int(mouse_position.x) % 128)
-	mouse_position.y -= (int(mouse_position.y) % 128)
+	mouse_position.x += Defines.TILE_MAP_X_OFFSET
+	mouse_position.y += Defines.TILE_MAP_Y_OFFSET
+	mouse_position.x -= (int(mouse_position.x) % Defines.TILE_SIZE)
+	mouse_position.y -= (int(mouse_position.y) % Defines.TILE_SIZE)
 	return mouse_position
 
 func _process(delta):
@@ -40,11 +43,13 @@ func _process(delta):
 		_handle_click()
 
 func _buy_plant(plant_to_spawn: PlantData, coordinates: Vector2):
-	var plant: Plant = load("res://Plant.tscn").instantiate()
+	#var plant: Plant = load("res://Code/Plants/Plant.tscn").instantiate()
+	var plant: Plant = selected_plant_scene.instantiate()
 	plant.plant_data = plant_to_spawn
+	plant.global_position = coordinates
 	add_child(plant)
-	plant.initialize_with_position(coordinates)
 	add_money(-selected_plant.cost)
+	plant.plant_died.connect(kill_plant)
 
 func _handle_click():
 	if not selected_plant:
@@ -60,9 +65,9 @@ func _handle_click():
 	
 	mouse_position = _normalise_mouse_position_to_grid(mouse_position)
 	var grid_coordinates: Vector2 = mouse_position
-	grid_coordinates.x /= 128
+	grid_coordinates.x /= Defines.TILE_SIZE
 	grid_coordinates.x -= 1
-	grid_coordinates.y /= 128
+	grid_coordinates.y /= Defines.TILE_SIZE
 	grid_coordinates.y -= 1
 	
 	if plant_grid[grid_coordinates.x][grid_coordinates.y]:
@@ -89,10 +94,10 @@ func _handle_wave():
 		spawn_wave = false
 
 func is_mouse_within_bounds(mouse_position: Vector2) -> bool:
-	if mouse_position.x < 64 or mouse_position.x > (1280 - 64):
+	if mouse_position.x < Defines.TILE_MAP_X_OFFSET or mouse_position.x > (1280 - 64):
 		return false
 	
-	if mouse_position.y < 64 or mouse_position.y > (768 - 64):
+	if mouse_position.y < Defines.TILE_MAP_Y_OFFSET or mouse_position.y > (768 - 64):
 		return false
 	
 	return true
@@ -109,12 +114,13 @@ func add_money(_money: int):
 	money += _money
 	Signals.money_changed.emit(money)
 
-func select_plant(plant: PlantData):
+func select_plant(plant: PlantData, plant_scene: PackedScene):
 	if money >= plant.cost:
 		var plant_image: AnimatedSprite2D = load("res://PlantImage.tscn").instantiate()
 		plant_image.sprite_frames = plant.sprite_frames
 		add_child(plant_image)
 		selected_plant = plant
+		selected_plant_scene = plant_scene
 		$PlantPlaceTimer.start()
 		can_place_plant = false
 

@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://brwnmd6g8jmnt"]
+[gd_scene load_steps=2 format=3 uid="uid://brwnmd6g8jmnt"]
 
 [ext_resource type="Script" path="res://Code/PlantBehaviors/Firing.gd" id="1_hfa2q"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jdjo"]
-size = Vector2(128, 126)
 
 [node name="Firing" type="Node"]
 script = ExtResource("1_hfa2q")
@@ -12,16 +9,14 @@ script = ExtResource("1_hfa2q")
 one_shot = true
 autostart = true
 
-[node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="EnemyDetector" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(64, 0)
-shape = SubResource("RectangleShape2D_6jdjo")
-
 [node name="FireSound" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
 pitch_scale = 0.71
+
+[node name="DetectionRay" type="RayCast2D" parent="."]
+target_position = Vector2(128, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
 
 [connection signal="timeout" from="FiringTimer" to="." method="_on_firing_timer_timeout"]

@@ -1,4 +1,4 @@
-class_name Shooters extends Resource
+class_name Shooters extends PlantBehaviorResource
 
 ## How many bullets are fired per shot
 @export_range(1, 100, 1) var bullets_per_fire: int = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8ps18euscuwr"]
 
-[ext_resource type="Script" path="res://Plant.gd" id="1_6d4wv"]
+[ext_resource type="Script" path="res://Code/Plants/Plant.gd" id="1_6d4wv"]
 [ext_resource type="Resource" uid="uid://ca05qda34nmag" path="res://Resources/PlantData/Gunner.tres" id="2_56bhi"]
 [ext_resource type="SpriteFrames" uid="uid://d1l2mec2y2m0q" path="res://Graphics/Animated/DefaultAnimation.tres" id="3_tnd1d"]
 

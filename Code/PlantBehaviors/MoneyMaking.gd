@@ -1,4 +1,4 @@
-extends Node
+class_name MoneyMaking extends Node
 
 var money: int = 25
 var money_delay: float = 10
