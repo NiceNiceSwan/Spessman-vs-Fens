@@ -8,5 +8,5 @@ script = ExtResource("1_out2u")
 name = "Shielder"
 max_health = 100
 cost = 50
-behaviors = Array[Resource("res://Resources/PlantBehaviors/Behavior.gd")]([])
 sprite_frames = ExtResource("2_xy455")
+plant_cooldown = 20.0

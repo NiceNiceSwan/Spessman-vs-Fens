@@ -5,5 +5,6 @@ class_name Shooters extends PlantBehaviorResource
 ## Amount of seconds between each shot.
 @export_range(0.05, 60) var fire_delay: float = 1
 @export var projectile: Projectiles
+@export var projectile_scene: PackedScene = load("res://Code/Projectile.tscn")
 @export_range(1, 10, 1) var range: int = 1
 @export var fire_sound: AudioStream

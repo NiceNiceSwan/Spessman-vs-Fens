@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2oxhvddtuy3c"]
+
+[ext_resource type="Script" path="res://Code/cleanbot.gd" id="1_hln6g"]
+[ext_resource type="SpriteFrames" uid="uid://ieaq2q8wufif" path="res://Graphics/Animated/cleanbot.tres" id="1_hvm5d"]
+
+[node name="Cleanbot" type="Node2D"]
+script = ExtResource("1_hln6g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_hvm5d")
+
+[node name="StartRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(32, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false

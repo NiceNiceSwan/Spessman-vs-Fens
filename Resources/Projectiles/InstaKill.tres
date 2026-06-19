@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Projectiles" load_steps=2 format=3 uid="uid://dxyxhv5kl2jye"]
-
-[ext_resource type="Script" path="res://Resources/Projectiles/Projectiles.gd" id="1_qk613"]
-
-[resource]
-script = ExtResource("1_qk613")
-speed = 5000
-damage = 100000.0
-health = 1

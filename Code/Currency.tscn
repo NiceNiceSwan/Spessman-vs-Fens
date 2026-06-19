@@ -1,17 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3np1cef23mrd"]
 
-[ext_resource type="Script" path="res://Currency.gd" id="1_knbc6"]
-[ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="2_edq1o"]
+[ext_resource type="Script" path="res://Code/Currency.gd" id="1_knbc6"]
+[ext_resource type="Texture2D" uid="uid://dbi25dn27krlh" path="res://Graphics/burger_1.png" id="2_d3aps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kgnt"]
-size = Vector2(64, 64)
+size = Vector2(60, 64)
 
 [node name="Currency" type="Node2D"]
 script = ExtResource("1_knbc6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_edq1o")
+texture = ExtResource("2_d3aps")
 
 [node name="ClickArea" type="Area2D" parent="."]
 collision_layer = 8

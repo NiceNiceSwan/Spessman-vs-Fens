@@ -1,0 +1,16 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk1deg1kexh5h"]
+
+[ext_resource type="PackedScene" uid="uid://b8ps18euscuwr" path="res://Code/Plants/Plant.tscn" id="1_arwng"]
+[ext_resource type="Script" path="res://Code/Plants/Shooter.gd" id="2_3dx48"]
+[ext_resource type="SpriteFrames" uid="uid://c5ndrkdy6hjax" path="res://Graphics/Animated/bubber_jacob.tres" id="2_d7wdp"]
+[ext_resource type="PackedScene" uid="uid://brwnmd6g8jmnt" path="res://Code/PlantBehaviors/Firing.tscn" id="3_ic544"]
+[ext_resource type="Resource" uid="uid://bayoy5ykwva7" path="res://Resources/PlantBehaviors/ShooterResources/Gunner.tres" id="4_fxd7i"]
+
+[node name="Shooter" instance=ExtResource("1_arwng")]
+script = ExtResource("2_3dx48")
+
+[node name="Firing" parent="." index="0" instance=ExtResource("3_ic544")]
+resource = ExtResource("4_fxd7i")
+
+[node name="AnimatedSprite" parent="." index="1"]
+sprite_frames = ExtResource("2_d7wdp")

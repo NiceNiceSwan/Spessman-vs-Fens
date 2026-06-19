@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Projectiles" load_steps=3 format=3 uid="uid://b4f5ic6rp7t45"]
+
+[ext_resource type="Script" path="res://Resources/Projectiles/Projectiles.gd" id="1_2m156"]
+[ext_resource type="SpriteFrames" uid="uid://cs5sgurf02ip3" path="res://Graphics/Animated/ice_bolt.tres" id="2_veisr"]
+
+[resource]
+script = ExtResource("1_2m156")
+speed = 1000
+damage = 1.0
+health = 1
+range = 9
+sprite_frames = ExtResource("2_veisr")
+rotates = false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Code/PlantBehaviors/MoneyMaking.gd" id="1_rx4ps"]
 
-[node name="MoneyMaking" type="Node"]
+[node name="MoneyMaking" type="Node2D"]
 script = ExtResource("1_rx4ps")
 
 [node name="MoneyTimer" type="Timer" parent="."]

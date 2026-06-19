@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://faosajqdtip0"]
+
+[ext_resource type="Texture2D" uid="uid://ct0dkdrf3mht4" path="res://Graphics/Anne.png" id="1_vw6vm"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vw6vm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

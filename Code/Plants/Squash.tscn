@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv0nkl87p1qfv"]
+
+[ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/explosive.tscn" id="1_66k11"]
+[ext_resource type="Script" path="res://Code/Plants/Squash.gd" id="2_62i1b"]
+[ext_resource type="Resource" uid="uid://dji2bkexucl2g" path="res://Resources/PlantData/Squash.tres" id="3_uvxfi"]
+[ext_resource type="Resource" uid="uid://cdxoxtlvkavsn" path="res://Resources/PlantBehaviors/OneUseResources/Squash.tres" id="4_h524a"]
+[ext_resource type="SpriteFrames" uid="uid://butvh3qq51x58" path="res://Graphics/Animated/Kiki.tres" id="6_ur4d4"]
+
+[node name="Squash" instance=ExtResource("1_66k11")]
+script = ExtResource("2_62i1b")
+plant_data = ExtResource("3_uvxfi")
+
+[node name="OneUse" parent="." index="0"]
+resource = ExtResource("4_h524a")
+
+[node name="AnimatedSprite" parent="." index="1"]
+sprite_frames = ExtResource("6_ur4d4")
+animation = &"default"
+
+[node name="DeathTimeout" type="Timer" parent="." index="3"]
+wait_time = 0.25
+
+[connection signal="wants_to_explode" from="OneUse" to="." method="_on_one_use_wants_to_explode"]
+[connection signal="timeout" from="DeathTimeout" to="." method="_on_death_timeout_timeout"]

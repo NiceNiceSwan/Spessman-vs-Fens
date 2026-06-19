@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://sgd6sq2s3osf"]
+
+[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="1_33qf2"]
+[ext_resource type="Script" path="res://Code/Plants/Dragon.gd" id="2_07p2u"]
+[ext_resource type="Resource" uid="uid://chmfycdgjaj5c" path="res://Resources/PlantBehaviors/ShooterResources/Dragon.tres" id="3_ju522"]
+[ext_resource type="PackedScene" uid="uid://brwnmd6g8jmnt" path="res://Code/PlantBehaviors/Firing.tscn" id="3_vm3r2"]
+[ext_resource type="SpriteFrames" uid="uid://of1xhjpc8dvk" path="res://Graphics/Animated/nom.tres" id="4_kai1o"]
+
+[node name="Dragon" instance=ExtResource("1_33qf2")]
+script = ExtResource("2_07p2u")
+plant_data = null
+
+[node name="Firing" parent="." index="0"]
+resource = ExtResource("3_ju522")
+
+[node name="FiringNorth" parent="Firing" index="3" instance=ExtResource("3_vm3r2")]
+position = Vector2(0, -128)
+resource = ExtResource("3_ju522")
+
+[node name="FiringSouth" parent="Firing" index="4" instance=ExtResource("3_vm3r2")]
+position = Vector2(0, 128)
+resource = ExtResource("3_ju522")
+
+[node name="AnimatedSprite" parent="." index="1"]
+sprite_frames = ExtResource("4_kai1o")

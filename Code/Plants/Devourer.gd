@@ -1,10 +1,13 @@
-class_name Devourer extends Plant
+class_name Devourer extends Shooter
 
 var is_tweening: bool = false
 
+@onready var money_maker_node: MoneyMaking = $MoneyMaking
+
 func initialize():
 	super()
-	$Firing.reloaded.connect(_reset_animation)
+	firing_node.reloaded.connect(_reset_animation)
+	firing_node.fired.connect(after_behavior)
 
 func after_behavior():
 	super()
@@ -32,3 +35,4 @@ func _play_dash():
 
 func _reset_animation():
 	animated_sprite.stop()
+	money_maker_node.create_money()

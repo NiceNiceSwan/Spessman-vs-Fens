@@ -1,29 +1,47 @@
 class_name level extends Node2D
 
-var money: int = 5000
+@export var waves: Array[Wave]
 
-const ENEMY_WAVE_THRESHOLD = 15
-const ENEMY_WAVE_AMOUNT = 75
-
-@export var currency_scene: PackedScene
+var money: int = 500
 var selected_plant: PlantData
 var selected_plant_scene: PackedScene
-
-var can_place_plant: bool = false
-@onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
+var selected_plant_index: int
+var remove_plant: bool = false
 var enemies_spawned: int = 0
 var spawn_wave: bool = false
 var wave_enemy_counter: int = 0
 var wave_tick_counter: int = 0
-
 var plant_grid: Array[Array]
+
+var enemy_death_counter: int = 0
+var wave_counter: int = 0
+var enemy_sequence_counter: int = 0
+var individual_enemy_counter: int = 0
+var total_enemies_in_level: int = 0
+
+var game_over_announced: bool = false
+
+@onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
+@onready var wave_timeout: Timer = $WaveTimeout
+@onready var user_interface: UserInterface =  $LevelUI
+@onready var enemy_spawn_path: Path2D = $EnemySpawnPath
 
 func _ready():
 	Signals.plant_selected.connect(select_plant)
 	plant_grid.resize(9)
 	for i in 9:
 		plant_grid[i].resize(5)
-	$LevelUI.update_money(money)
+	user_interface.update_money(money)
+	
+	for wave in waves:
+		if wave.major_wave:
+			pass
+		
+		for enemy_sequence in wave.enemy_sequences:
+			wave.total_amount_of_enemies += enemy_sequence.amount
+			total_enemies_in_level += enemy_sequence.amount
+	
+	user_interface.initialize_progress_bar(total_enemies_in_level)
 
 func _normalise_mouse_position_to_grid(mouse_position: Vector2) -> Vector2:
 	mouse_position.x += Defines.TILE_MAP_X_OFFSET
@@ -32,30 +50,25 @@ func _normalise_mouse_position_to_grid(mouse_position: Vector2) -> Vector2:
 	mouse_position.y -= (int(mouse_position.y) % Defines.TILE_SIZE)
 	return mouse_position
 
-func _process(delta):
-	if spawn_wave:
-		_handle_wave()
-	
-	if Input.is_action_just_pressed("alt_click"):
+func _input(event: InputEvent):
+	if event.is_action_pressed("alt_click"):
 		_handle_alt_click()
 	
-	if Input.is_action_just_pressed("click"):
+	if event.is_action_pressed("click"):
 		_handle_click()
 
-func _buy_plant(plant_to_spawn: PlantData, coordinates: Vector2):
-	#var plant: Plant = load("res://Code/Plants/Plant.tscn").instantiate()
+func _buy_plant(plant_to_spawn: PlantData, coordinates: Vector2) -> Plant:
 	var plant: Plant = selected_plant_scene.instantiate()
 	plant.plant_data = plant_to_spawn
 	plant.global_position = coordinates
 	add_child(plant)
 	add_money(-selected_plant.cost)
 	plant.plant_died.connect(kill_plant)
+	Signals.plant_placed.emit(selected_plant_index)
+	return plant
 
 func _handle_click():
-	if not selected_plant:
-		return
-	
-	if not can_place_plant:
+	if not selected_plant and not remove_plant:
 		return
 	
 	var mouse_position: Vector2 = get_viewport().get_mouse_position()
@@ -71,27 +84,22 @@ func _handle_click():
 	grid_coordinates.y -= 1
 	
 	if plant_grid[grid_coordinates.x][grid_coordinates.y]:
+		if remove_plant:
+			var plant_to_remove: Plant = plant_grid[grid_coordinates.x][grid_coordinates.y]
+			plant_to_remove.queue_free()
+			remove_plant = false
+			plant_grid[grid_coordinates.x][grid_coordinates.y] = null
 		return
 	
-	plant_grid[grid_coordinates.x][grid_coordinates.y] = true
-	_buy_plant(selected_plant, mouse_position)
-	can_place_plant = false
+	plant_grid[grid_coordinates.x][grid_coordinates.y] = _buy_plant(selected_plant, mouse_position)
 	selected_plant = null
+	remove_plant = false
 
 func _handle_alt_click():
 	if not selected_plant:
 		return
 
 	selected_plant = null
-
-func _handle_wave():
-	wave_tick_counter += 1
-	if wave_tick_counter % 6 != 0:
-		return
-	_spawn_enemy()
-	wave_enemy_counter += 1
-	if wave_enemy_counter % ENEMY_WAVE_AMOUNT == 0:
-		spawn_wave = false
 
 func is_mouse_within_bounds(mouse_position: Vector2) -> bool:
 	if mouse_position.x < Defines.TILE_MAP_X_OFFSET or mouse_position.x > (1280 - 64):
@@ -103,7 +111,7 @@ func is_mouse_within_bounds(mouse_position: Vector2) -> bool:
 	return true
 
 func _on_currency_timer_timeout():
-	var currency = currency_scene.instantiate()
+	var currency = load("res://Code/Currency.tscn").instantiate()
 	var currency_spawn_location: PathFollow2D = $CurrencyPath/CurrencySpawnLocation
 	currency_spawn_location.set_progress_ratio(randf())
 	
@@ -114,43 +122,76 @@ func add_money(_money: int):
 	money += _money
 	Signals.money_changed.emit(money)
 
-func select_plant(plant: PlantData, plant_scene: PackedScene):
+func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int):
 	if money >= plant.cost:
 		var plant_image: AnimatedSprite2D = load("res://PlantImage.tscn").instantiate()
 		plant_image.sprite_frames = plant.sprite_frames
 		add_child(plant_image)
 		selected_plant = plant
 		selected_plant_scene = plant_scene
-		$PlantPlaceTimer.start()
-		can_place_plant = false
+		selected_plant_index = plant_index
 
-func _on_plant_place_timer_timeout():
-	can_place_plant = true
-
-func _spawn_enemy():
-	var enemy: Enemy = load("res://Enemy.tscn").instantiate()
-	var enemy_spawn_path: Curve2D = $EnemySpawnPath.get_curve()
+func _spawn_enemy(enemy_scene: PackedScene, enemy_data: EnemyResource):
+	var enemy: Enemy = enemy_scene.instantiate()
+	enemy.enemy_resource = enemy_data
+	var enemy_spawn_curve: Curve2D = enemy_spawn_path.get_curve()
 	
 	var spawn_point = randi_range(0, 4)
 	
-	enemy.global_position = enemy_spawn_path.get_point_position(spawn_point)
-	enemy.global_position.x += $EnemySpawnPath.global_position.x
+	enemy.global_position = enemy_spawn_curve.get_point_position(spawn_point)
+	enemy.global_position.x += enemy_spawn_path.global_position.x
 	enemy.global_position.y += 128
+	enemy.died.connect(_on_enemy_death)
+	enemy.game_over.connect(game_over)
 	add_child(enemy)
+	enemy.initialize()
 
 func _on_enemy_spawn_timer_timeout():
-	_spawn_enemy()
+	var wave: Wave = waves[wave_counter]
+	var enemy_sequence: EnemySequence = wave.enemy_sequences[enemy_sequence_counter]
+	if individual_enemy_counter < enemy_sequence.amount:
+		individual_enemy_counter += 1
+		_spawn_enemy(enemy_sequence.enemy, enemy_sequence.enemy_data)
+		return
 	
-	if enemy_spawn_timer.wait_time >= 5:
-		enemy_spawn_timer.wait_time -= 3
-	enemies_spawned += 1
+	individual_enemy_counter = 0
+	if enemy_sequence_counter < wave.enemy_sequences.size() - 1:
+		enemy_sequence_counter += 1
+		enemy_sequence =  wave.enemy_sequences[enemy_sequence_counter]
+		_spawn_enemy(enemy_sequence.enemy, enemy_sequence.enemy_data)
+		return
 	
-	if enemies_spawned % ENEMY_WAVE_THRESHOLD == 0:
-		spawn_wave = true
+	enemy_sequence_counter = 0
+	enemy_spawn_timer.stop()
+	wave_timeout.start()
 
-func kill_plant(position: Vector2):
-	position.x /= 128
-	position.x -= 1
-	position.y /= 128
-	position.y -= 1
-	plant_grid[position.x][position.y] = false
+func kill_plant(_position: Vector2):
+	_position.x /= 128
+	_position.x -= 1
+	_position.y /= 128
+	_position.y -= 1
+	plant_grid[_position.x][_position.y] = false
+
+func _on_level_ui_plant_remover_selected() -> void:
+	remove_plant = true
+
+func _on_enemy_death():
+	enemy_death_counter += 1
+	user_interface.update_progress_bar(enemy_death_counter)
+
+func _on_wave_timeout_timeout():
+	if wave_counter >= waves.size() - 1:
+		return
+	
+	wave_counter += 1
+	if waves[wave_counter].major_wave:
+		user_interface.announce_wave()
+	
+	enemy_spawn_timer.start()
+
+func game_over() -> void:
+	if game_over_announced:
+		return
+	
+	game_over_announced = true
+	user_interface.announce_defeat()

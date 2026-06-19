@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=3 format=3 uid="uid://dji2bkexucl2g"]
+
+[ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_lspmv"]
+[ext_resource type="SpriteFrames" uid="uid://butvh3qq51x58" path="res://Graphics/Animated/Kiki.tres" id="2_vljvu"]
+
+[resource]
+script = ExtResource("1_lspmv")
+name = "Squash"
+max_health = 10000
+cost = 50
+sprite_frames = ExtResource("2_vljvu")
+plant_cooldown = 20.0

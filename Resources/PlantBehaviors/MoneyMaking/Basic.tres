@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="MoneyMakers" load_steps=2 format=3 uid="uid://btf2j13kc1qo"]
+[gd_resource type="Resource" script_class="MoneyMakers" load_steps=3 format=3 uid="uid://btf2j13kc1qo"]
 
 [ext_resource type="Script" path="res://Resources/PlantBehaviors/MoneyMaking/MoneyMakers.gd" id="1_5rnb0"]
+[ext_resource type="Texture2D" uid="uid://dbi25dn27krlh" path="res://Graphics/burger_1.png" id="1_ae2ww"]
 
 [resource]
 script = ExtResource("1_5rnb0")
 money = 25
-money_delay = 10.0
+currency_texture = ExtResource("1_ae2ww")
+automatic_generation = true
+money_delay = 1.0

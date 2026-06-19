@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://r00t813bi150"]
+
+[ext_resource type="Script" path="res://Code/UI/LevelHolder.gd" id="1_5ddvy"]
+
+[node name="LevelHolder" type="Control"]
+layout_mode = 3
+anchor_right = 0.1
+anchor_bottom = 0.167
+offset_right = -128.0
+offset_bottom = -128.256
+script = ExtResource("1_5ddvy")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

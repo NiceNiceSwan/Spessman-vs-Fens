@@ -42,4 +42,8 @@ label_settings = SubResource("LabelSettings_87v6c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PlantDelay" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="PlantDelay" to="." method="_on_plant_delay_timeout"]

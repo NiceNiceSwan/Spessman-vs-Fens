@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=3 format=3 uid="uid://bm8ljk4qt5hfn"]
+
+[ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_uh8o4"]
+[ext_resource type="SpriteFrames" uid="uid://of1xhjpc8dvk" path="res://Graphics/Animated/nom.tres" id="5_7wcun"]
+
+[resource]
+script = ExtResource("1_uh8o4")
+name = "Dragon"
+max_health = 10
+cost = 150
+sprite_frames = ExtResource("5_7wcun")
+plant_cooldown = 6.0

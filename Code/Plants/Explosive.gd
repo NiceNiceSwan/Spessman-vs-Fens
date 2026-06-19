@@ -1,0 +1,21 @@
+class_name Explosive extends Plant
+
+@onready var one_use_node: OneUse = $OneUse
+
+func _ready():
+	super()
+	animated_sprite.set_animation("arming")
+
+func _on_animated_sprite_animation_finished():
+	animated_sprite.animation_finished.disconnect(_on_animated_sprite_animation_finished)
+	animated_sprite.set_animation("armed")
+	animated_sprite.play()
+
+func _on_one_use_explode():
+	animated_sprite.set_animation("exploding")
+	animated_sprite.play()
+	plant_died.emit(global_position)
+	animated_sprite.animation_finished.connect(_die)
+
+func _on_one_use_finished_arming():
+	animated_sprite.play()

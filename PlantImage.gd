@@ -2,16 +2,16 @@ extends AnimatedSprite2D
 
 var can_be_closed: bool = false
 
-func is_within_bounds(position: Vector2) -> bool:
-	if position.x < 64 or position.x > (1280 - 64):
+func is_within_bounds(_position: Vector2) -> bool:
+	if _position.x < 64 or _position.x > (1280 - 64):
 		return false
 	
-	if position.y < 64 or position.y > (768 - 64):
+	if _position.y < 64 or _position.y > (768 - 64):
 		return false
 	
 	return true
 
-func _process(delta):
+func _process(_delta):
 	global_position = get_viewport().get_mouse_position()
 	visible = true
 	if not is_within_bounds(global_position):

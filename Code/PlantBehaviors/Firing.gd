@@ -1,12 +1,12 @@
-class_name Firing extends Node
+class_name Firing extends PlantBehavior
 
 var bullets_per_fire: int = 1
 ## Amount of times this fires per second
 var fire_delay: float = 1
 var projectile: Projectiles
+var projectile_scene: PackedScene = load("res://Code/Projectile.tscn")
 var _range: int = 1
 var ready_to_fire: bool = true
-var global_position: Vector2
 
 var fire_delay_milliseconds: int
 
@@ -16,48 +16,55 @@ var fire_delay_milliseconds: int
 @onready var fire_sound: AudioStreamPlayer = $FireSound
 @onready var detection_ray: RayCast2D = $DetectionRay
 
-signal behavior_action
 signal reloaded
+signal fired
+signal detected_enemy
 
 func _ready():
 	if not resource:
-		push_warning("Instantiating money maker without any data!")
+		push_warning("Instantiating firing node without any data!")
 		return
 
 	bullets_per_fire = resource.bullets_per_fire
 	fire_delay = resource.fire_delay
 	projectile = resource.projectile
+	if resource.projectile_scene:
+		projectile_scene = resource.projectile_scene
 	_range = resource.range
 	fire_sound.stream = resource.fire_sound
 	
-	global_position = get_parent().global_position
 	firing_timer.wait_time = fire_delay
-	detection_ray.global_position = global_position
 	
 	var max_ray_range: float
 	var board_edge: float = get_viewport().get_visible_rect().size.x - Defines.TILE_MAP_X_OFFSET
 	max_ray_range = board_edge - global_position.x
 	
-	detection_ray.target_position.x = min(Defines.TILE_SIZE * _range, max_ray_range)
+	detection_ray.target_position.x = min(Defines.TILE_SIZE * _range + Defines.TILE_MAP_X_OFFSET, max_ray_range)
 
 func _process(delta):
-	if not ready_to_fire:
-		return
-	
-	#if detection_area.has_overlapping_areas():
 	if detection_ray.is_colliding():
+		detected_enemy.emit()
 		while fire_delay_milliseconds > 0:
 			fire_delay_milliseconds -= 1 * (delta * 1000)
 			return
 		
-		var new_projectile: Projectile = load("res://Projectile.tscn").instantiate()
-		new_projectile.projectile_data = projectile
-		get_tree().current_scene.add_child(new_projectile)
-		new_projectile.global_position = global_position
+		fire()
+
+func fire(forced: bool = false, play_sound: bool = true):
+	if not ready_to_fire and not forced:
+		return
+	
+	var new_projectile: Projectile = projectile_scene.instantiate()
+	new_projectile.projectile_data = projectile
+	get_tree().current_scene.add_child(new_projectile)
+	new_projectile.global_position = global_position
+	
+	if play_sound:
 		fire_sound.play()
-		behavior_action.emit()
-		firing_timer.start()
-		ready_to_fire = false
+	
+	ready_to_fire = false
+	firing_timer.start()
+	fired.emit()
 
 func _on_firing_timer_timeout():
 	ready_to_fire = true

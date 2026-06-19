@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr7qn7ups4xpk"]
+
+[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="1_r2i35"]
+[ext_resource type="Resource" uid="uid://bouxrtdvwi7kj" path="res://Resources/PlantBehaviors/ShooterResources/SlowingGunner.tres" id="2_741qw"]
+[ext_resource type="SpriteFrames" uid="uid://faosajqdtip0" path="res://Graphics/Animated/anne.tres" id="2_q2loi"]
+
+[node name="SlowingShooter" instance=ExtResource("1_r2i35")]
+
+[node name="Firing" parent="." index="0"]
+resource = ExtResource("2_741qw")
+
+[node name="AnimatedSprite" parent="." index="1"]
+sprite_frames = ExtResource("2_q2loi")

@@ -2,23 +2,29 @@
 
 [ext_resource type="Script" path="res://Code/PlantBehaviors/OneUse.gd" id="1_8awhi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoy70"]
-size = Vector2(128, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayxfh"]
+size = Vector2(192, 126)
 
-[node name="OneUse" type="Node"]
+[node name="OneUse" type="Node2D"]
 script = ExtResource("1_8awhi")
 
-[node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 0
+[node name="DetectionRay" type="RayCast2D" parent="."]
+target_position = Vector2(64, 0)
 collision_mask = 4
-
-[node name="DetectionShape" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(32, 0)
-shape = SubResource("RectangleShape2D_aoy70")
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="UseSound" type="AudioStreamPlayer2D" parent="."]
 
 [node name="ArmingTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ExplosionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="ExplosionArea" type="CollisionShape2D" parent="ExplosionArea"]
+shape = SubResource("RectangleShape2D_ayxfh")
 
 [connection signal="timeout" from="ArmingTimer" to="." method="_on_arming_timer_timeout"]

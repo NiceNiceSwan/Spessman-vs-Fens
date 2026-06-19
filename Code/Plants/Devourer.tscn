@@ -1,9 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://j6lu1go6815i"]
+[gd_scene load_steps=8 format=3 uid="uid://drhb7h3lugbaw"]
 
-[ext_resource type="PackedScene" uid="uid://b8ps18euscuwr" path="res://Code/Plants/Plant.tscn" id="1_jpxhe"]
+[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="1_012vf"]
 [ext_resource type="Script" path="res://Code/Plants/Devourer.gd" id="2_utbuh"]
+[ext_resource type="Resource" uid="uid://ctikiak4t3uf2" path="res://Resources/PlantBehaviors/ShooterResources/Devourer.tres" id="3_m7bjw"]
 [ext_resource type="Resource" uid="uid://ddlfe1ghkv2vh" path="res://Resources/PlantData/Devourer.tres" id="3_q1qvd"]
+[ext_resource type="Resource" uid="uid://dotcn8tbgsrcu" path="res://Resources/PlantBehaviors/MoneyMaking/Milk.tres" id="4_arvku"]
+[ext_resource type="PackedScene" uid="uid://cduwmcrn5w5v1" path="res://Code/PlantBehaviors/MoneyMaking.tscn" id="4_urru5"]
+[ext_resource type="SpriteFrames" uid="uid://b6g301ynvo3fc" path="res://Graphics/Animated/protoblob.tres" id="4_ybxw7"]
 
-[node name="Devourer" instance=ExtResource("1_jpxhe")]
+[node name="Devourer" instance=ExtResource("1_012vf")]
 script = ExtResource("2_utbuh")
 plant_data = ExtResource("3_q1qvd")
+
+[node name="MoneyMaking" parent="." index="0" instance=ExtResource("4_urru5")]
+resource = ExtResource("4_arvku")
+
+[node name="Firing" parent="." index="1"]
+resource = ExtResource("3_m7bjw")
+
+[node name="AnimatedSprite" parent="." index="2"]
+sprite_frames = ExtResource("4_ybxw7")

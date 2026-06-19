@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqqsgca2ug8rx"]
+
+[ext_resource type="PackedScene" uid="uid://ds42pcaya52k" path="res://Code/StatusEffects/StatusEffect.tscn" id="1_rb65f"]
+[ext_resource type="Script" path="res://Code/StatusEffects/Slowdown.gd" id="2_aiihe"]
+
+[node name="Slowdown" instance=ExtResource("1_rb65f")]
+script = ExtResource("2_aiihe")
+ID = 1

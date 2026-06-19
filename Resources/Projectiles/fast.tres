@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="Projectiles" load_steps=3 format=3 uid="uid://ctmlwv442ff4h"]
 
 [ext_resource type="Script" path="res://Resources/Projectiles/Projectiles.gd" id="1_tcjsc"]
-[ext_resource type="Texture2D" uid="uid://c38h18qm5nn5o" path="res://Graphics/wrench.png" id="2_i0mou"]
+[ext_resource type="SpriteFrames" uid="uid://47kgbb786etk" path="res://Graphics/Animated/Wrench.tres" id="2_08kjy"]
 
 [resource]
 script = ExtResource("1_tcjsc")
 speed = 1000
 damage = 1.0
 health = 1
-texture = ExtResource("2_i0mou")
+range = 9
+sprite_frames = ExtResource("2_08kjy")
+rotates = true

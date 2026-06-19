@@ -7,4 +7,5 @@ script = ExtResource("1_77x3k")
 damage = 250
 range = 1
 armed = false
-arming_time = 18
+arming_time = 10
+delayed_explosion = false

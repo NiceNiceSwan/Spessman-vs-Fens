@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="OneUseResource" load_steps=2 format=3 uid="uid://cdxoxtlvkavsn"]
+
+[ext_resource type="Script" path="res://Resources/PlantBehaviors/OneUseResources/OneUseResources.gd" id="1_0tkyl"]
+
+[resource]
+script = ExtResource("1_0tkyl")
+damage = 250
+range = 1
+armed = true
+arming_time = 0
+delayed_explosion = true

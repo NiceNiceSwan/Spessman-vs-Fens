@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MoneyMakers" load_steps=3 format=3 uid="uid://dotcn8tbgsrcu"]
+
+[ext_resource type="Texture2D" uid="uid://d2uyefaifautp" path="res://Graphics/milk.png" id="1_0iib4"]
+[ext_resource type="Script" path="res://Resources/PlantBehaviors/MoneyMaking/MoneyMakers.gd" id="1_40fv4"]
+
+[resource]
+script = ExtResource("1_40fv4")
+money = 75
+currency_texture = ExtResource("1_0iib4")
+automatic_generation = false
+money_delay = 10.0

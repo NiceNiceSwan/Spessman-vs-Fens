@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="Behavior" load_steps=2 format=3 uid="uid://b23l2iwvtghtj"]
-
-[ext_resource type="Script" path="res://Resources/PlantBehaviors/Behavior.gd" id="1_fc033"]
-
-[resource]
-script = ExtResource("1_fc033")

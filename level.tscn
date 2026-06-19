@@ -1,10 +1,88 @@
-[gd_scene load_steps=10 format=3 uid="uid://beg53cvd5kur8"]
+[gd_scene load_steps=28 format=3 uid="uid://beg53cvd5kur8"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_oq420"]
-[ext_resource type="PackedScene" uid="uid://d3np1cef23mrd" path="res://Currency.tscn" id="2_t4bmn"]
+[ext_resource type="Script" path="res://Resources/Waves/EnemySequence.gd" id="3_7d7ko"]
+[ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="3_feky3"]
+[ext_resource type="Script" path="res://Resources/Waves/Wave.gd" id="4_0o6rt"]
 [ext_resource type="PackedScene" uid="uid://drv8t61jomhsi" path="res://Code/UI/Level/LevelUI.tscn" id="5_4owyg"]
-[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Enemy.tscn" id="6_ep0u1"]
+[ext_resource type="PackedScene" uid="uid://b2oxhvddtuy3c" path="res://Code/cleanbot.tscn" id="5_v7ary"]
+[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="6_23thr"]
 [ext_resource type="Texture2D" uid="uid://ufnh6gx67nuk" path="res://Graphics/tile_map.png" id="6_knfsg"]
+[ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="7_sswl1"]
+[ext_resource type="Resource" uid="uid://pkcyo0on86kb" path="res://Resources/Enemies/HeavyShark.tres" id="8_2qgiw"]
+
+[sub_resource type="Resource" id="Resource_k0ocf"]
+script = ExtResource("3_7d7ko")
+enemy = ExtResource("6_23thr")
+enemy_data = ExtResource("3_feky3")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_lg47w"]
+script = ExtResource("4_0o6rt")
+enemy_sequences = Array[ExtResource("3_7d7ko")]([SubResource("Resource_k0ocf")])
+major_wave = false
+
+[sub_resource type="Resource" id="Resource_wchjb"]
+script = ExtResource("3_7d7ko")
+enemy = ExtResource("6_23thr")
+enemy_data = ExtResource("3_feky3")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_qkrqn"]
+script = ExtResource("4_0o6rt")
+enemy_sequences = Array[ExtResource("3_7d7ko")]([SubResource("Resource_wchjb")])
+major_wave = false
+
+[sub_resource type="Resource" id="Resource_ysc7o"]
+script = ExtResource("3_7d7ko")
+enemy = ExtResource("6_23thr")
+enemy_data = ExtResource("3_feky3")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_f2x7e"]
+script = ExtResource("4_0o6rt")
+enemy_sequences = Array[ExtResource("3_7d7ko")]([SubResource("Resource_ysc7o")])
+major_wave = false
+
+[sub_resource type="Resource" id="Resource_7akx1"]
+script = ExtResource("3_7d7ko")
+enemy = ExtResource("6_23thr")
+enemy_data = ExtResource("3_feky3")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_v1128"]
+script = ExtResource("3_7d7ko")
+enemy = ExtResource("6_23thr")
+enemy_data = ExtResource("7_sswl1")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_yxi54"]
+script = ExtResource("4_0o6rt")
+enemy_sequences = Array[ExtResource("3_7d7ko")]([SubResource("Resource_7akx1"), SubResource("Resource_v1128")])
+major_wave = false
+
+[sub_resource type="Resource" id="Resource_i4rqt"]
+script = ExtResource("3_7d7ko")
+enemy = ExtResource("6_23thr")
+enemy_data = ExtResource("3_feky3")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_xmrcg"]
+script = ExtResource("3_7d7ko")
+enemy = ExtResource("6_23thr")
+enemy_data = ExtResource("7_sswl1")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_hl2eg"]
+script = ExtResource("3_7d7ko")
+enemy = ExtResource("6_23thr")
+enemy_data = ExtResource("8_2qgiw")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_w0plc"]
+script = ExtResource("4_0o6rt")
+enemy_sequences = Array[ExtResource("3_7d7ko")]([SubResource("Resource_i4rqt"), SubResource("Resource_xmrcg"), SubResource("Resource_hl2eg")])
+major_wave = true
 
 [sub_resource type="Curve2D" id="Curve2D_7k82x"]
 _data = {
@@ -39,7 +117,7 @@ sources/0 = SubResource("TileSetAtlasSource_2d1yl")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_oq420")
-currency_scene = ExtResource("2_t4bmn")
+waves = Array[ExtResource("4_0o6rt")]([SubResource("Resource_lg47w"), SubResource("Resource_qkrqn"), SubResource("Resource_f2x7e"), SubResource("Resource_yxi54"), SubResource("Resource_w0plc")])
 
 [node name="EnemySpawnPath" type="Path2D" parent="."]
 position = Vector2(1344, 128)
@@ -64,17 +142,47 @@ format = 2
 layer_0/z_index = -1
 layer_0/tile_data = PackedInt32Array(1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 262148, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 196614, 0, 0, 196613, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131078, 0, 0, 131077, 0, 0, 0, 0, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, 393215, 65536, 0, 327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 262143, 65536, 0, 327679, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 0, 1, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0)
 
-[node name="PlantPlaceTimer" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
-
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 0.25
 autostart = true
 
-[node name="Enemy" parent="." instance=ExtResource("6_ep0u1")]
-position = Vector2(768, 384)
+[node name="Cleanbots" type="Node" parent="."]
+
+[node name="Cleanbot1" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+position = Vector2(0, 128)
+
+[node name="Cleanbot2" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+position = Vector2(0, 256)
+
+[node name="Cleanbot3" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+position = Vector2(0, 384)
+
+[node name="Cleanbot4" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+position = Vector2(0, 512)
+
+[node name="Cleanbot5" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+position = Vector2(0, 640)
+
+[node name="WaveTimeout" type="Timer" parent="."]
+wait_time = 12.0
+one_shot = true
+
+[node name="Enemy" parent="." instance=ExtResource("6_23thr")]
+position = Vector2(128, 256)
+
+[node name="Enemy3" parent="." instance=ExtResource("6_23thr")]
+position = Vector2(128, 640)
+
+[node name="Enemy4" parent="." instance=ExtResource("6_23thr")]
+position = Vector2(128, 128)
+
+[node name="Enemy5" parent="." instance=ExtResource("6_23thr")]
+position = Vector2(128, 512)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_23thr")]
+position = Vector2(128, 384)
 
 [connection signal="timeout" from="CurrencyTimer" to="." method="_on_currency_timer_timeout"]
-[connection signal="timeout" from="PlantPlaceTimer" to="." method="_on_plant_place_timer_timeout"]
+[connection signal="plant_remover_selected" from="LevelUI" to="." method="_on_level_ui_plant_remover_selected"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="WaveTimeout" to="." method="_on_wave_timeout_timeout"]

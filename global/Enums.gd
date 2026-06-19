@@ -1,1 +1,17 @@
 extends Node
+
+enum STATUS_EFFECTS {
+	NONE,
+	SLOW,
+	FIRE
+}
+
+enum UNLOCKS {
+	SUNFLOWER,
+	POTATO_MINE,
+	WALLNUT,
+	ICEPEA,
+	CHOMPER,
+	DRAGON,
+	SQUASH
+}
