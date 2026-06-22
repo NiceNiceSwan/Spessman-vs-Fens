@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Code/UI/SettingsMenu.gd" id="1_11ynm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk3ly"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -59,8 +59,8 @@ text = "Master"
 [node name="MasterSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MasterBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -80.0
-max_value = 0.0
+min_value = -50.0
+max_value = 6.0
 value = -40.0
 
 [node name="SFXBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
@@ -74,8 +74,8 @@ text = "SFX"
 [node name="SFXSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SFXBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -80.0
-max_value = 0.0
+min_value = -50.0
+max_value = 6.0
 value = -40.0
 
 [node name="ButtonBox" type="HBoxContainer" parent="PanelContainer"]

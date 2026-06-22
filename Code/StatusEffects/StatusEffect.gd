@@ -32,7 +32,7 @@ func apply(_enemy: Enemy) -> bool:
 	duration.start()
 	return true
 
-func _process(delta: float):
+func _process(_delta: float):
 	pass
 
 func extend_duration():

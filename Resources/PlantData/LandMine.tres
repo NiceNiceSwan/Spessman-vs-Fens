@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("1_8h1f0")
+ID = 2
 name = "LandMine"
 max_health = 5
 cost = 25
 sprite_frames = ExtResource("3_iopjy")
 plant_cooldown = 20.0
+description = "After a long arming time, will explode on contact with the first enemy."

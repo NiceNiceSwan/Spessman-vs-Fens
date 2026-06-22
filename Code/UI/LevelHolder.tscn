@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://r00t813bi150"]
+[gd_scene load_steps=4 format=3 uid="uid://r00t813bi150"]
 
 [ext_resource type="Script" path="res://Code/UI/LevelHolder.gd" id="1_5ddvy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmaxm"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jg3jm"]
+resource_local_to_scene = true
 
 [node name="LevelHolder" type="Control"]
 layout_mode = 3
@@ -14,6 +20,8 @@ script = ExtResource("1_5ddvy")
 layout_mode = 1
 offset_right = 128.0
 offset_bottom = 128.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmaxm")
 
 [node name="Label" type="Label" parent="Button"]
 layout_mode = 1
@@ -25,6 +33,7 @@ offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Level"
+label_settings = SubResource("LabelSettings_jg3jm")
 horizontal_alignment = 1
 vertical_alignment = 1
 

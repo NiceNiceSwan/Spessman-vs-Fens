@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("1_uh8o4")
+ID = 6
 name = "Dragon"
 max_health = 10
 cost = 150
 sprite_frames = ExtResource("5_7wcun")
 plant_cooldown = 6.0
+description = "Attacks in 3 lanes at the same time. Its projectiles pass through enemies, though it has limited range."

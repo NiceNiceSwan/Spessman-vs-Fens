@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0hcx6paj23ug"]
+
+[ext_resource type="Script" path="res://Code/PlantBehaviors/HitScan.gd" id="2_3mado"]
+
+[node name="HitScan" type="Node2D"]
+script = ExtResource("2_3mado")
+
+[node name="FiringTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FireSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="DetectionRay" type="RayCast2D" parent="."]
+target_position = Vector2(128, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="timeout" from="FiringTimer" to="." method="_on_firing_timer_timeout"]

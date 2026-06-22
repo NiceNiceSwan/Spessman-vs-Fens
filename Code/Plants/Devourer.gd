@@ -1,8 +1,10 @@
-class_name Devourer extends Shooter
+class_name Devourer extends Plant
 
 var is_tweening: bool = false
 
 @onready var money_maker_node: MoneyMaking = $MoneyMaking
+@onready var digest_sound: AudioStreamPlayer = $DigestSound
+@onready var firing_node: HitScan = $HitScan
 
 func initialize():
 	super()
@@ -10,8 +12,8 @@ func initialize():
 	firing_node.fired.connect(after_behavior)
 
 func after_behavior():
-	super()
 	_play_dash()
+	animated_sprite.play()
 
 func _play_dash():
 	if is_tweening:
@@ -36,3 +38,4 @@ func _play_dash():
 func _reset_animation():
 	animated_sprite.stop()
 	money_maker_node.create_money()
+	digest_sound.play()

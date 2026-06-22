@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HitScanResource" load_steps=3 format=3 uid="uid://b3alwyjhbpevk"]
+
+[ext_resource type="Script" path="res://Resources/PlantBehaviors/HitScans/HitScanResource.gd" id="1_hq52l"]
+[ext_resource type="AudioStream" uid="uid://dar0qo2rokws6" path="res://Sound/devour.ogg" id="1_ohbvb"]
+
+[resource]
+script = ExtResource("1_hq52l")
+fire_delay = 18.0
+_range = 2
+damage = 250
+attack_sound = ExtResource("1_ohbvb")

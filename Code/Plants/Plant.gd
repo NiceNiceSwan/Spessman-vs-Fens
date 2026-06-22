@@ -28,6 +28,3 @@ func _process(_delta):
 func _die():
 	plant_died.emit(global_position)
 	queue_free()
-
-func after_behavior():
-	animated_sprite.play()

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemySequence" load_steps=3 format=3 uid="uid://cx4uuo408fwxt"]
+
+[ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="1_m7w8e"]
+[ext_resource type="Script" path="res://Resources/Waves/EnemySequence.gd" id="2_x8raw"]
+
+[resource]
+script = ExtResource("2_x8raw")
+enemy_data = ExtResource("1_m7w8e")
+amount = 1

@@ -8,4 +8,4 @@ script = ExtResource("1_5rnb0")
 money = 25
 currency_texture = ExtResource("1_ae2ww")
 automatic_generation = true
-money_delay = 1.0
+money_delay = 10.0

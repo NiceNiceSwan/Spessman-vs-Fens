@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("1_53rkp")
+ID = 1
 name = "Economist"
 max_health = 5
 cost = 50
 sprite_frames = ExtResource("3_m2njd")
 plant_cooldown = 3.0
+description = "Generates money over time."

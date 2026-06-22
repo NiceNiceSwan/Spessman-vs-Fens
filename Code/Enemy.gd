@@ -16,6 +16,7 @@ var status_effects: Array[StatusEffect]
 @onready var detection_ray: RayCast2D = $DetectionRay
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var status_effects_holder: Node = $StatusEffects
+@onready var hitbox_shape: CollisionShape2D = $Hitbox/HitboxShape
 
 signal died
 signal game_over
@@ -32,13 +33,28 @@ func initialize():
 	speed = enemy_resource.speed
 	attack_delay = enemy_resource.attack_delay
 	sprite.texture = enemy_resource.texture
+	var texture_size: Vector2 = sprite.texture.get_size()
+	var rectangle_shape: RectangleShape2D = RectangleShape2D.new()
+	rectangle_shape.set_size(Vector2(texture_size.x, 126))
+	hitbox_shape.shape = rectangle_shape
+	
+	if texture_size.y > 128:
+		sprite.position.y -= (texture_size.y - 128) / 2
+	
+	detection_ray.position.x = texture_size.x / 2
+	detection_ray.target_position.x = -texture_size.x
 
 func on_hit(_damage: float):
 	health -= _damage
 	if health <= 0:
-		died.emit()
-		queue_free()
+		die()
 	$HitSound.play()
+
+func die():
+	if is_queued_for_deletion():
+		return
+	died.emit()
+	queue_free()
 
 func _process(delta):
 	if detection_ray.is_colliding() and not attacking:
@@ -48,7 +64,6 @@ func _process(delta):
 		return
 	
 	if not attacking:
-		var move_speed: float = speed * move_speed_modifier * delta
 		position -= Vector2(speed * move_speed_modifier * delta, 0)
 	
 	if position.x <= 16:

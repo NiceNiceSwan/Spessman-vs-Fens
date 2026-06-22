@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("1_5r02a")
-name = "Anne"
+ID = 4
+name = "Slowing Shooter"
 max_health = 10
 cost = 175
 sprite_frames = ExtResource("2_qtkp0")
 plant_cooldown = 3.0
+description = "Fires projectiles which slow down enemies."

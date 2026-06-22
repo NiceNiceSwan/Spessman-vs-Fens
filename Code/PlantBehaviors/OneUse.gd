@@ -14,6 +14,7 @@ var delay_explosion: bool = false
 @onready var arming_timer: Timer = $ArmingTimer
 @onready var use_sound: AudioStreamPlayer2D = $UseSound
 @onready var detection_ray: RayCast2D = $DetectionRay
+var exploded: bool = false
 
 signal finished_arming
 signal explode
@@ -56,6 +57,9 @@ func _prepare_explosion():
 	wants_to_explode.emit()
 
 func _detonate():
+	if exploded:
+		return
+	exploded = true
 	explode.emit()
 	for enemy in explosion_area.get_overlapping_areas():
 		enemy.get_parent().on_hit(damage)

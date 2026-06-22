@@ -15,6 +15,8 @@ var starting_position: Vector2
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var status_effects: Node = $StatusEffects
 
+signal killed_enemy
+
 func _ready():
 	if not projectile_data:
 		push_warning("Projectile initialized without any data! Using default values!")
@@ -53,7 +55,12 @@ func _on_life_timer_timeout():
 func _on_area_entered(area: Area2D):
 	if health <= 0:
 		return
+	
 	var enemy: Enemy = area.get_parent()
 	enemy.on_hit(_hit())
+	
+	if enemy.health <= 0:
+		killed_enemy.emit()
+
 	for child: StatusEffect in status_effects.get_children():
 		child.apply(enemy)

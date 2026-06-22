@@ -1,20 +1,33 @@
-[gd_resource type="Resource" script_class="LevelResource" load_steps=10 format=3 uid="uid://cehu2etroilun"]
+[gd_resource type="Resource" script_class="LevelResource" load_steps=14 format=3 uid="uid://cehu2etroilun"]
 
 [ext_resource type="Script" path="res://Resources/Levels/Level.gd" id="1_bwj87"]
 [ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="2_blpf0"]
+[ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="2_x34s8"]
 [ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="3_0d3dh"]
+[ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_7fyrm"]
 [ext_resource type="Script" path="res://Resources/Waves/EnemySequence.gd" id="4_qf3n5"]
 [ext_resource type="Script" path="res://Resources/Waves/Wave.gd" id="5_u605k"]
 
-[sub_resource type="Resource" id="Resource_kp34t"]
+[sub_resource type="Resource" id="Resource_bdm74"]
+script = ExtResource("4_qf3n5")
+enemy = ExtResource("2_blpf0")
+enemy_data = ExtResource("3_0d3dh")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_opn0p"]
+script = ExtResource("5_u605k")
+enemy_sequences = Array[ExtResource("4_qf3n5")]([SubResource("Resource_bdm74")])
+major_wave = false
+
+[sub_resource type="Resource" id="Resource_aixkj"]
 script = ExtResource("4_qf3n5")
 enemy = ExtResource("2_blpf0")
 enemy_data = ExtResource("3_0d3dh")
 amount = 3
 
-[sub_resource type="Resource" id="Resource_opn0p"]
+[sub_resource type="Resource" id="Resource_8taf7"]
 script = ExtResource("5_u605k")
-enemy_sequences = Array[ExtResource("4_qf3n5")]([SubResource("Resource_kp34t")])
+enemy_sequences = Array[ExtResource("4_qf3n5")]([SubResource("Resource_aixkj")])
 major_wave = false
 
 [sub_resource type="Resource" id="Resource_o8aig"]
@@ -30,5 +43,5 @@ major_wave = true
 
 [resource]
 script = ExtResource("1_bwj87")
-waves = Array[ExtResource("5_u605k")]([SubResource("Resource_opn0p"), SubResource("Resource_opn0p"), SubResource("Resource_opn0p"), SubResource("Resource_opn0p"), SubResource("Resource_nhtt0")])
-unlocks = 0
+waves = Array[ExtResource("5_u605k")]([ExtResource("3_7fyrm"), ExtResource("3_7fyrm"), ExtResource("3_7fyrm"), ExtResource("3_7fyrm"), ExtResource("3_7fyrm"), SubResource("Resource_opn0p"), ExtResource("3_7fyrm"), SubResource("Resource_8taf7"), SubResource("Resource_nhtt0")])
+unlocks = ExtResource("2_x34s8")

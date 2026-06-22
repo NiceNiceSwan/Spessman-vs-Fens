@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("1_remej")
+ID = 5
 name = "Devourer"
 max_health = 5
-cost = 150
+cost = 125
 sprite_frames = ExtResource("5_orbvg")
 plant_cooldown = 4.0
+description = "Devours one enemy in front of it, after which it goes on cooldown. When that cooldown expires, generates additional currency."

@@ -4,7 +4,8 @@ class_name Explosive extends Plant
 
 func _ready():
 	super()
-	animated_sprite.set_animation("arming")
+	if animated_sprite.sprite_frames.has_animation("arming"):
+		animated_sprite.set_animation("arming")
 
 func _on_animated_sprite_animation_finished():
 	animated_sprite.animation_finished.disconnect(_on_animated_sprite_animation_finished)

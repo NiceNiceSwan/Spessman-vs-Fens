@@ -60,7 +60,7 @@ func _on_click_area_input_event(_viewport, event, _shape_idx):
 
 ## Called when the currency was spawned on the ground, and must play a jump out animation
 func fall_out():
-	falling_distance = position.y + 32
+	falling_distance = int(position.y + 32)
 	falling = false
 	speed_y = -250
 	var distance_to_the_side: float = randf_range(-64, 64)

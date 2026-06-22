@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_40fv4")
-money = 75
+money = 50
 currency_texture = ExtResource("1_0iib4")
 automatic_generation = false
 money_delay = 10.0

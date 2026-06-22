@@ -1,22 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://drhb7h3lugbaw"]
+[gd_scene load_steps=10 format=3 uid="uid://drhb7h3lugbaw"]
 
-[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="1_012vf"]
 [ext_resource type="Script" path="res://Code/Plants/Devourer.gd" id="2_utbuh"]
-[ext_resource type="Resource" uid="uid://ctikiak4t3uf2" path="res://Resources/PlantBehaviors/ShooterResources/Devourer.tres" id="3_m7bjw"]
 [ext_resource type="Resource" uid="uid://ddlfe1ghkv2vh" path="res://Resources/PlantData/Devourer.tres" id="3_q1qvd"]
 [ext_resource type="Resource" uid="uid://dotcn8tbgsrcu" path="res://Resources/PlantBehaviors/MoneyMaking/Milk.tres" id="4_arvku"]
 [ext_resource type="PackedScene" uid="uid://cduwmcrn5w5v1" path="res://Code/PlantBehaviors/MoneyMaking.tscn" id="4_urru5"]
 [ext_resource type="SpriteFrames" uid="uid://b6g301ynvo3fc" path="res://Graphics/Animated/protoblob.tres" id="4_ybxw7"]
+[ext_resource type="PackedScene" uid="uid://b0hcx6paj23ug" path="res://Code/PlantBehaviors/HitScan.tscn" id="5_pymcu"]
+[ext_resource type="Resource" uid="uid://b3alwyjhbpevk" path="res://Resources/PlantBehaviors/HitScans/DevourerBite.tres" id="6_pe6xx"]
+[ext_resource type="AudioStream" uid="uid://dhpv3unjyuo7s" path="res://Sound/moo.ogg" id="8_l4tlc"]
 
-[node name="Devourer" instance=ExtResource("1_012vf")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekaga"]
+size = Vector2(128, 126)
+
+[node name="Devourer" type="Node2D"]
 script = ExtResource("2_utbuh")
 plant_data = ExtResource("3_q1qvd")
 
-[node name="MoneyMaking" parent="." index="0" instance=ExtResource("4_urru5")]
+[node name="MoneyMaking" parent="." instance=ExtResource("4_urru5")]
 resource = ExtResource("4_arvku")
 
-[node name="Firing" parent="." index="1"]
-resource = ExtResource("3_m7bjw")
+[node name="HitScan" parent="." instance=ExtResource("5_pymcu")]
+resource = ExtResource("6_pe6xx")
 
-[node name="AnimatedSprite" parent="." index="2"]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("4_ybxw7")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_ekaga")
+
+[node name="DigestSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_l4tlc")
+bus = &"SFX"

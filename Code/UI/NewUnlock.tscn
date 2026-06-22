@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://h4enakc44q1a"]
+
+[ext_resource type="Script" path="res://Code/UI/NewUnlock.gd" id="1_yiqcn"]
+[ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="2_f6rr6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fng3h"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[node name="NewUnlock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yiqcn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -147.5
+offset_right = 160.0
+offset_bottom = 147.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fng3h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "New tower unlocked!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("2_f6rr6")
+stretch_mode = 3
+
+[node name="Description" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(320, 128)
+layout_mode = 2
+text = "A, wie pan, moim zdaniem to nie ma tak, że dobrze, albo że niedobrze. Gdybym miał powiedzieć, co cenię w życiu najbardziej, powiedziałbym, że ludzi. "
+autowrap_mode = 2
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]

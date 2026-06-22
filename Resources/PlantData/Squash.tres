@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("1_lspmv")
+ID = 7
 name = "Squash"
 max_health = 10000
 cost = 50
 sprite_frames = ExtResource("2_vljvu")
 plant_cooldown = 20.0
+description = "Jumps onto the enemies in front of it, crushing them."

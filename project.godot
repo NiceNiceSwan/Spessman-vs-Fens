@@ -20,6 +20,7 @@ config/icon="res://Graphics/bubber_jacob.png"
 Enums="*res://Global/Enums.gd"
 Signals="*res://Global/Signals.gd"
 Defines="*res://Global/defines.gd"
+SaveData="*res://Global/SaveData.gd"
 
 [display]
 
@@ -33,6 +34,10 @@ window/vsync/vsync_mode=0
 movie_writer/movie_file="F:/programy/godot projects/pvz_clone/video/video.avi"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

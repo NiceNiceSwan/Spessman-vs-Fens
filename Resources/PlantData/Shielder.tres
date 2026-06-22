@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("1_out2u")
+ID = 3
 name = "Shielder"
-max_health = 100
+max_health = 150
 cost = 50
 sprite_frames = ExtResource("2_xy455")
 plant_cooldown = 20.0
+description = "Has a very large health pool."

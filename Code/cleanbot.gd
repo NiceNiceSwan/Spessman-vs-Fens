@@ -21,7 +21,7 @@ func _process(delta):
 		return
 	
 	if enemy:
-		enemy.queue_free()
+		enemy.die()
 	
 	position += Vector2(speed, 0) * delta
 	if position.x > 2000:

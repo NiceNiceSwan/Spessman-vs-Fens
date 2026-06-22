@@ -1,4 +1,4 @@
-extends Control
+class_name PlantHolder extends Control
 
 @export var plant: PlantData
 @export var plant_scene: PackedScene = load("res://Code/Plants/Plant.tscn")
@@ -20,11 +20,9 @@ func _ready():
 	texture_rect.texture = plant.sprite_frames.get_frame_texture("default", 0)
 	Signals.plant_placed.connect(_on_plant_placed)
 
-func _process(delta):
+func _process(_delta):
 	if plant_delay.is_stopped():
 		return
-	
-	var fill: float = 1 - plant_delay.time_left / wait_time
 
 func _on_button_pressed():
 	Signals.plant_selected.emit(plant, plant_scene, index)

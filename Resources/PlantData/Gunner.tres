@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("4_q131s")
+ID = -1
 name = "Gunner"
 max_health = 5
 cost = 100
 sprite_frames = ExtResource("5_qwfqf")
 plant_cooldown = 3.0
+description = "Shoots projectiles at enemies."

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_wekdk")
-speed = 5000
+speed = 2500
 damage = 250.0
 health = 1
 range = 2

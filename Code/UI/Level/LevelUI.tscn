@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://drv8t61jomhsi"]
+[gd_scene load_steps=25 format=3 uid="uid://drv8t61jomhsi"]
 
 [ext_resource type="Script" path="res://Code/UI/Level/LevelUI.gd" id="1_jinag"]
 [ext_resource type="PackedScene" uid="uid://chlj85f22rb4l" path="res://Code/UI/Level/PlantHolder.tscn" id="2_gqnwp"]
@@ -14,10 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://dx80ev1g32ot2" path="res://Code/UI/PauseMenu.tscn" id="9_g0w4m"]
 [ext_resource type="PackedScene" uid="uid://dxyyjikdu8g7c" path="res://Code/UI/SettingsMenu.tscn" id="10_dmajk"]
 [ext_resource type="PackedScene" uid="uid://sgd6sq2s3osf" path="res://Code/Plants/dragon.tscn" id="10_dpokb"]
-[ext_resource type="Texture2D" uid="uid://ddrqdlpg6d50c" path="res://Graphics/sm_crystal.png" id="11_qwvhp"]
 [ext_resource type="PackedScene" uid="uid://dv0nkl87p1qfv" path="res://Code/Plants/Squash.tscn" id="12_mj8hy"]
 [ext_resource type="Resource" uid="uid://ovellveb3yvl" path="res://Resources/PlantData/SlowingShooter.tres" id="13_i0xlm"]
 [ext_resource type="PackedScene" uid="uid://dr7qn7ups4xpk" path="res://Code/Plants/SlowingShooter.tscn" id="14_nhp63"]
+[ext_resource type="SpriteFrames" uid="uid://ohhhhe1v2gon" path="res://Graphics/Animated/sm_crystal.tres" id="18_y0h1x"]
+[ext_resource type="AudioStream" uid="uid://bidvjhyo2am5j" path="res://Sound/plant_remover_select.ogg" id="19_rmka5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5eg11"]
 font_size = 64
@@ -59,6 +60,10 @@ border_color = Color(0, 0, 0, 1)
 [node name="LevelUI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_jinag")
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
 
 [node name="GameOverTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -150,43 +155,43 @@ size_flags_vertical = 0
 theme_override_constants/separation = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="PlantHolder" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Gunner" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 size_flags_vertical = 1
 plant_scene = ExtResource("3_u0173")
 
-[node name="PlantHolder2" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Economist" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 size_flags_vertical = 1
 plant = ExtResource("3_8ryok")
 plant_scene = ExtResource("5_acbo8")
 
-[node name="PlantHolder3" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant = ExtResource("4_5oa16")
-
-[node name="PlantHolder4" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant_scene = ExtResource("7_8cutj")
-
-[node name="PlantHolder5" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="PotatoMine" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("7_pn6a7")
 plant_scene = ExtResource("9_8jsuq")
 
-[node name="PlantHolder6" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Shielder" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+layout_mode = 2
+plant = ExtResource("4_5oa16")
+
+[node name="IcePea" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+layout_mode = 2
+plant = ExtResource("13_i0xlm")
+plant_scene = ExtResource("14_nhp63")
+
+[node name="Devourer" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+layout_mode = 2
+plant_scene = ExtResource("7_8cutj")
+
+[node name="Dragon" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("9_3so7x")
 plant_scene = ExtResource("10_dpokb")
 
-[node name="PlantHolder7" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Squash" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant_scene = ExtResource("12_mj8hy")
-
-[node name="PlantHolder8" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant = ExtResource("13_i0xlm")
-plant_scene = ExtResource("14_nhp63")
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_g0w4m")]
 visible = false
@@ -207,17 +212,25 @@ text = "Menu"
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -51.0
+offset_top = -76.0
 offset_right = 35.0
+offset_bottom = -25.0
 grow_vertical = 0
+scale = Vector2(1.5, 1.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_0il43")
 
-[node name="PlantRemover" type="TextureButton" parent="PanelContainer"]
+[node name="PlantRemover" type="Button" parent="PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("11_qwvhp")
 
+[node name="PlantRemoverSprite" type="AnimatedSprite2D" parent="PanelContainer/PlantRemover"]
+position = Vector2(14.6667, 23.3333)
+sprite_frames = ExtResource("18_y0h1x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PanelContainer"]
+stream = ExtResource("19_rmka5")
+bus = &"SFX"
+
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
 [connection signal="timeout" from="AnnouncementHolder/AnnouncementTimer" to="." method="_on_announcement_timer_timeout"]
 [connection signal="open_settings" from="PauseMenu" to="." method="_on_pause_menu_open_settings"]
