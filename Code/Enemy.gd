@@ -10,6 +10,7 @@ var attacking: bool = false
 var target_plant: Plant
 
 var move_speed_modifier: float = 1
+var attack_speed_modifier: float = 1
 var status_effects: Array[StatusEffect]
 
 @onready var attack_timer: Timer = $AttackTimer
@@ -60,7 +61,7 @@ func _process(delta):
 	if detection_ray.is_colliding() and not attacking:
 		attacking = true
 		target_plant = detection_ray.get_collider().get_parent()
-		attack_timer.start(attack_delay)
+		attack_timer.start(attack_delay * attack_speed_modifier)
 		return
 	
 	if not attacking:
@@ -72,6 +73,7 @@ func _process(delta):
 func _on_attack_timer_timeout():
 	if is_instance_valid(target_plant):
 		target_plant.health -= damage
+		attack_timer.start(attack_delay * attack_speed_modifier)
 		return
 	
 	attacking = false
