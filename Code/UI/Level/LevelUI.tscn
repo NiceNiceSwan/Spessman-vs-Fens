@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://drv8t61jomhsi"]
+[gd_scene format=3 uid="uid://drv8t61jomhsi"]
 
-[ext_resource type="Script" path="res://Code/UI/Level/LevelUI.gd" id="1_jinag"]
+[ext_resource type="Script" uid="uid://dnd1tpauinx8u" path="res://Code/UI/Level/LevelUI.gd" id="1_jinag"]
 [ext_resource type="PackedScene" uid="uid://chlj85f22rb4l" path="res://Code/UI/Level/PlantHolder.tscn" id="2_gqnwp"]
 [ext_resource type="Texture2D" uid="uid://d2pm8k5y4p1mf" path="res://Graphics/poly_dead.png" id="2_t1gui"]
 [ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="3_8ryok"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dx80ev1g32ot2" path="res://Code/UI/PauseMenu.tscn" id="9_g0w4m"]
 [ext_resource type="PackedScene" uid="uid://dxyyjikdu8g7c" path="res://Code/UI/SettingsMenu.tscn" id="10_dmajk"]
 [ext_resource type="PackedScene" uid="uid://sgd6sq2s3osf" path="res://Code/Plants/dragon.tscn" id="10_dpokb"]
+[ext_resource type="PackedScene" uid="uid://e8hsqeq0jixr" path="res://Code/Plants/HitSponge.tscn" id="10_lyqvs"]
 [ext_resource type="PackedScene" uid="uid://dv0nkl87p1qfv" path="res://Code/Plants/Squash.tscn" id="12_mj8hy"]
 [ext_resource type="Resource" uid="uid://ovellveb3yvl" path="res://Resources/PlantData/SlowingShooter.tres" id="13_i0xlm"]
 [ext_resource type="PackedScene" uid="uid://dr7qn7ups4xpk" path="res://Code/Plants/SlowingShooter.tscn" id="14_nhp63"]
@@ -57,19 +58,19 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
-[node name="LevelUI" type="CanvasLayer"]
+[node name="LevelUI" type="CanvasLayer" unique_id=1241126766]
 process_mode = 3
 script = ExtResource("1_jinag")
 
-[node name="WinTimer" type="Timer" parent="."]
+[node name="WinTimer" type="Timer" parent="." unique_id=1979902131]
 wait_time = 4.0
 one_shot = true
 
-[node name="GameOverTimer" type="Timer" parent="."]
+[node name="GameOverTimer" type="Timer" parent="." unique_id=450349277]
 wait_time = 5.0
 one_shot = true
 
-[node name="AnnouncementHolder" type="VBoxContainer" parent="."]
+[node name="AnnouncementHolder" type="VBoxContainer" parent="." unique_id=190405364]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,11 +84,11 @@ offset_bottom = 321.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnnouncementTimer" type="Timer" parent="AnnouncementHolder"]
+[node name="AnnouncementTimer" type="Timer" parent="AnnouncementHolder" unique_id=422432306]
 wait_time = 4.0
 one_shot = true
 
-[node name="AnnouncementLabel" type="Label" parent="AnnouncementHolder"]
+[node name="AnnouncementLabel" type="Label" parent="AnnouncementHolder" unique_id=518710343]
 custom_minimum_size = Vector2(640, 192)
 layout_mode = 2
 text = "HUGE WAVE INCOMING!"
@@ -96,13 +97,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="PolyRect" type="TextureRect" parent="AnnouncementHolder"]
+[node name="PolyRect" type="TextureRect" parent="AnnouncementHolder" unique_id=2098728344]
 visible = false
 layout_mode = 2
 texture = ExtResource("2_t1gui")
 expand_mode = 5
 
-[node name="WaveBarHolder" type="PanelContainer" parent="."]
+[node name="WaveBarHolder" type="PanelContainer" parent="." unique_id=546332066]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -114,7 +115,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f1ljs")
 
-[node name="WaveProgressBar" type="ProgressBar" parent="WaveBarHolder"]
+[node name="WaveProgressBar" type="ProgressBar" parent="WaveBarHolder" unique_id=1627664490]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_5jf84")
@@ -122,29 +123,29 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_r2gdk")
 step = 0.1
 show_percentage = false
 
-[node name="MoneyBox" type="MarginContainer" parent="."]
+[node name="MoneyBox" type="MarginContainer" parent="." unique_id=898932092]
 process_mode = 1
 offset_right = 120.0
 offset_bottom = 53.0
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MoneyBox"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MoneyBox" unique_id=2058136562]
 layout_mode = 2
 
-[node name="Money" type="Label" parent="MoneyBox/VBoxContainer"]
+[node name="Money" type="Label" parent="MoneyBox/VBoxContainer" unique_id=1071885669]
 layout_mode = 2
 text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MoneyLabel" type="Label" parent="MoneyBox/VBoxContainer"]
+[node name="MoneyLabel" type="Label" parent="MoneyBox/VBoxContainer" unique_id=303705159]
 layout_mode = 2
 text = "Food"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlantsBox" type="HBoxContainer" parent="."]
+[node name="PlantsBox" type="HBoxContainer" parent="." unique_id=1322162986]
 process_mode = 1
 custom_minimum_size = Vector2(64, 64)
 offset_left = 120.0
@@ -155,51 +156,52 @@ size_flags_vertical = 0
 theme_override_constants/separation = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Gunner" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Gunner" parent="PlantsBox" unique_id=1158868527 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 size_flags_vertical = 1
 plant_scene = ExtResource("3_u0173")
 
-[node name="Economist" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Economist" parent="PlantsBox" unique_id=1426494926 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 size_flags_vertical = 1
 plant = ExtResource("3_8ryok")
 plant_scene = ExtResource("5_acbo8")
 
-[node name="PotatoMine" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="PotatoMine" parent="PlantsBox" unique_id=1104508889 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("7_pn6a7")
 plant_scene = ExtResource("9_8jsuq")
 
-[node name="Shielder" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Shielder" parent="PlantsBox" unique_id=931256916 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("4_5oa16")
+plant_scene = ExtResource("10_lyqvs")
 
-[node name="IcePea" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="IcePea" parent="PlantsBox" unique_id=969011938 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("13_i0xlm")
 plant_scene = ExtResource("14_nhp63")
 
-[node name="Devourer" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Devourer" parent="PlantsBox" unique_id=574392062 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant_scene = ExtResource("7_8cutj")
 
-[node name="Dragon" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Dragon" parent="PlantsBox" unique_id=1748157498 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("9_3so7x")
 plant_scene = ExtResource("10_dpokb")
 
-[node name="Squash" parent="PlantsBox" instance=ExtResource("2_gqnwp")]
+[node name="Squash" parent="PlantsBox" unique_id=917087088 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant_scene = ExtResource("12_mj8hy")
 
-[node name="PauseMenu" parent="." instance=ExtResource("9_g0w4m")]
+[node name="PauseMenu" parent="." unique_id=733380313 instance=ExtResource("9_g0w4m")]
 visible = false
 
-[node name="SettingsMenu" parent="." instance=ExtResource("10_dmajk")]
+[node name="SettingsMenu" parent="." unique_id=1562986898 instance=ExtResource("10_dmajk")]
 visible = false
 
-[node name="PauseMenuButton" type="Button" parent="."]
+[node name="PauseMenuButton" type="Button" parent="." unique_id=907082009]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -208,7 +210,7 @@ offset_bottom = 8.0
 grow_horizontal = 0
 text = "Menu"
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1089972748]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -219,14 +221,14 @@ grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_0il43")
 
-[node name="PlantRemover" type="Button" parent="PanelContainer"]
+[node name="PlantRemover" type="Button" parent="PanelContainer" unique_id=1045114898]
 layout_mode = 2
 
-[node name="PlantRemoverSprite" type="AnimatedSprite2D" parent="PanelContainer/PlantRemover"]
+[node name="PlantRemoverSprite" type="AnimatedSprite2D" parent="PanelContainer/PlantRemover" unique_id=1036200917]
 position = Vector2(14.6667, 23.3333)
 sprite_frames = ExtResource("18_y0h1x")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PanelContainer"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PanelContainer" unique_id=1849273829]
 stream = ExtResource("19_rmka5")
 bus = &"SFX"
 
