@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxyyjikdu8g7c"]
+[gd_scene format=3 uid="uid://dxyyjikdu8g7c"]
 
-[ext_resource type="Script" path="res://Code/UI/SettingsMenu.gd" id="1_11ynm"]
+[ext_resource type="Script" uid="uid://ce324v00kivni" path="res://Code/UI/SettingsMenu.gd" id="1_11ynm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk3ly"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -11,7 +11,7 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 border_blend = true
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" unique_id=1562659536]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 8
@@ -25,7 +25,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_11ynm")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=937190823]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,54 +40,54 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tk3ly")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=888924523]
 layout_mode = 2
 
-[node name="SoundSection" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="SoundSection" type="Label" parent="PanelContainer/VBoxContainer" unique_id=2073592231]
 layout_mode = 2
 text = "Sound"
 horizontal_alignment = 1
 
-[node name="MasterBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="MasterBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=59760161]
 layout_mode = 2
 
-[node name="Master" type="Label" parent="PanelContainer/VBoxContainer/MasterBox"]
+[node name="Master" type="Label" parent="PanelContainer/VBoxContainer/MasterBox" unique_id=1314825281]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Master"
 
-[node name="MasterSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MasterBox"]
+[node name="MasterSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MasterBox" unique_id=529741763]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = -50.0
 max_value = 6.0
 value = -40.0
 
-[node name="SFXBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="SFXBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1990452482]
 layout_mode = 2
 
-[node name="SFX" type="Label" parent="PanelContainer/VBoxContainer/SFXBox"]
+[node name="SFX" type="Label" parent="PanelContainer/VBoxContainer/SFXBox" unique_id=910001934]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SFXBox"]
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SFXBox" unique_id=1875333420]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = -50.0
 max_value = 6.0
 value = -40.0
 
-[node name="ButtonBox" type="HBoxContainer" parent="PanelContainer"]
+[node name="ButtonBox" type="HBoxContainer" parent="PanelContainer" unique_id=1825436943]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="RevertButton" type="Button" parent="PanelContainer/ButtonBox"]
+[node name="RevertButton" type="Button" parent="PanelContainer/ButtonBox" unique_id=217043791]
 layout_mode = 2
 text = "Revert"
 
-[node name="ApplyButton" type="Button" parent="PanelContainer/ButtonBox"]
+[node name="ApplyButton" type="Button" parent="PanelContainer/ButtonBox" unique_id=1948892345]
 layout_mode = 2
 text = "Apply"
 

@@ -7,9 +7,19 @@ const LEVEL = preload("res://Code/UI/LevelSelector.tscn")
 @onready var load_game: Button = $VBoxContainer/LoadGame
 
 func _ready():
+	var config = ConfigFile.new()
+	var master_volume: float = -10
+	var sfx_volume: float = -10
+	if config.load("user://settings.cfg"):
+		config.set_value("volume", "master", -10)
+		config.set_value("volume", "sfx", -10)
+		config.save("user://settings.cfg")
+	else:
+		master_volume = config.get_value("volume", "master")
+		sfx_volume = config.get_value("volume", "sfx")
 	SaveData.unlocked_plants = Enums.UNLOCKS.NONE
-	AudioServer.set_bus_volume_db(0, -10)
-	AudioServer.set_bus_volume_db(2, -10)
+	AudioServer.set_bus_volume_db(0, master_volume)
+	AudioServer.set_bus_volume_db(2, sfx_volume)
 	settings_menu._ready()
 	if SaveData.game_save_exists():
 		load_game.set_disabled(false)

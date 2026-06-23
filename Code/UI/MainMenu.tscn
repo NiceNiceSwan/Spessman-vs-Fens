@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvtgxw33ajkq5"]
+[gd_scene format=3 uid="uid://cvtgxw33ajkq5"]
 
-[ext_resource type="Script" path="res://Code/UI/MainMenu.gd" id="1_ie4ed"]
+[ext_resource type="Script" uid="uid://bpve51bhsy2b4" path="res://Code/UI/MainMenu.gd" id="1_ie4ed"]
 [ext_resource type="PackedScene" uid="uid://dxyyjikdu8g7c" path="res://Code/UI/SettingsMenu.tscn" id="2_la6xi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crea7"]
@@ -11,7 +11,7 @@ font_size = 64
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" unique_id=897062887]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ie4ed")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2089955758]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -33,18 +33,18 @@ offset_bottom = 128.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_crea7")
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="Label" type="Label" parent="PanelContainer" unique_id=124681586]
 layout_mode = 2
 text = "Spessmen vs Fens"
 label_settings = SubResource("LabelSettings_h43lc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsMenu" parent="." instance=ExtResource("2_la6xi")]
+[node name="SettingsMenu" parent="." unique_id=2132064294 instance=ExtResource("2_la6xi")]
 visible = false
 layout_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1404713739]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -59,20 +59,20 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NewGame" type="Button" parent="VBoxContainer"]
+[node name="NewGame" type="Button" parent="VBoxContainer" unique_id=934544228]
 layout_mode = 2
 text = "New Game"
 
-[node name="LoadGame" type="Button" parent="VBoxContainer"]
+[node name="LoadGame" type="Button" parent="VBoxContainer" unique_id=456396231]
 layout_mode = 2
 disabled = true
 text = "Load Game"
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1251558132]
 layout_mode = 2
 text = "Settings"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=78180615]
 layout_mode = 2
 text = "Quit"
 
