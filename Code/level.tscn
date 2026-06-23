@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://beg53cvd5kur8"]
+[gd_scene format=3 uid="uid://beg53cvd5kur8"]
 
-[ext_resource type="Script" path="res://level.gd" id="1_oq420"]
+[ext_resource type="Script" uid="uid://bs1tv3jnbrto6" path="res://Code/level.gd" id="1_oq420"]
 [ext_resource type="Resource" uid="uid://cehu2etroilun" path="res://Resources/Levels/Level_1.tres" id="2_ouf15"]
 [ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="3_jpwec"]
 [ext_resource type="PackedScene" uid="uid://drv8t61jomhsi" path="res://Code/UI/Level/LevelUI.tscn" id="5_4owyg"]
