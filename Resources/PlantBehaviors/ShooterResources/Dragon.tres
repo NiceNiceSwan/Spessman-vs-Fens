@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Shooters" load_steps=4 format=3 uid="uid://chmfycdgjaj5c"]
+[gd_resource type="Resource" script_class="Shooters" format=3 uid="uid://chmfycdgjaj5c"]
 
-[ext_resource type="AudioStream" uid="uid://dfeqwcxhsjcpb" path="res://Sound/belch.ogg" id="1_d4xwp"]
-[ext_resource type="Script" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="1_o1biw"]
+[ext_resource type="AudioStream" uid="uid://c48ljdh3gpcv8" path="res://Sound/belch_silent.ogg" id="1_etx6o"]
+[ext_resource type="Script" uid="uid://ds0upah4hmud2" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="1_o1biw"]
 [ext_resource type="Resource" uid="uid://bxli8acpfrgu4" path="res://Resources/Projectiles/fire.tres" id="1_sl7t2"]
 
 [resource]
 script = ExtResource("1_o1biw")
-bullets_per_fire = 1
-fire_delay = 1.0
 projectile = ExtResource("1_sl7t2")
 range = 2
-fire_sound = ExtResource("1_d4xwp")
+fire_sound = ExtResource("1_etx6o")
