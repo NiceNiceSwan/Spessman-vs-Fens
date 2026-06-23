@@ -40,6 +40,8 @@ project/assembly_name="Spessmen vs Fens"
 [editor]
 
 movie_writer/movie_file="F:/programy/godot projects/pvz_clone/video/video.avi"
+naming/scene_name_casing=1
+naming/script_name_casing=1
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
@@ -68,8 +70,8 @@ escape={
 [physics]
 
 2d/run_on_separate_thread=true
+common/physics_ticks_per_second=90
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

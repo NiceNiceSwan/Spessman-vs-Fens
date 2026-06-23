@@ -57,22 +57,23 @@ func die():
 	died.emit()
 	queue_free()
 
-func _process(delta):
+func _process(_delta):
 	if detection_ray.is_colliding() and not attacking:
 		attacking = true
 		target_plant = detection_ray.get_collider().get_parent()
 		attack_timer.start(attack_delay * attack_speed_modifier)
 		return
-	
+
+func _physics_process(delta: float) -> void:
 	if not attacking:
-		position -= Vector2(speed * move_speed_modifier * delta, 0)
-	
+		position.x -= speed * move_speed_modifier * delta
+
 	if position.x <= 16:
 		game_over.emit()
 
 func _on_attack_timer_timeout():
 	if is_instance_valid(target_plant):
-		target_plant.health -= damage
+		target_plant.take_damage(damage)
 		attack_timer.start(attack_delay * attack_speed_modifier)
 		return
 	
