@@ -13,7 +13,7 @@ var currency_texture: Texture2D
 
 @export var resource: MoneyMakers
 
-signal made_money
+#signal made_money
 
 func _ready():
 	if not resource:

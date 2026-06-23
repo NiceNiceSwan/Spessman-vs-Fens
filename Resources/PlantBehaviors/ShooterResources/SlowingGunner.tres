@@ -1,13 +1,10 @@
-[gd_resource type="Resource" script_class="Shooters" load_steps=4 format=3 uid="uid://bouxrtdvwi7kj"]
+[gd_resource type="Resource" script_class="Shooters" format=3 uid="uid://bouxrtdvwi7kj"]
 
 [ext_resource type="Resource" uid="uid://b4f5ic6rp7t45" path="res://Resources/Projectiles/slowing.tres" id="1_qbt2q"]
-[ext_resource type="Script" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="1_vj0fe"]
+[ext_resource type="Script" uid="uid://ds0upah4hmud2" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="1_vj0fe"]
 [ext_resource type="PackedScene" uid="uid://clvmrye3b1oxy" path="res://Code/SlowingBullet.tscn" id="2_8mrtk"]
 
 [resource]
 script = ExtResource("1_vj0fe")
-bullets_per_fire = 1
-fire_delay = 1.0
 projectile = ExtResource("1_qbt2q")
 projectile_scene = ExtResource("2_8mrtk")
-range = 9

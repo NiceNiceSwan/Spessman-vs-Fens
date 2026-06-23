@@ -26,6 +26,10 @@ Signals="*res://Global/Signals.gd"
 Defines="*res://Global/defines.gd"
 SaveData="*res://Global/SaveData.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=1280

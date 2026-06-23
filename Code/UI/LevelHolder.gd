@@ -7,7 +7,7 @@ class_name LevelHolder extends Control
 @onready var level_label: Label = $Button/Label
 @onready var button: Button = $Button
 
-signal level_entered
+#signal level_entered
 
 func _ready():
 	level_label.text = level_name

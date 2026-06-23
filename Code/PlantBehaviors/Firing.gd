@@ -30,7 +30,7 @@ func _ready():
 	projectile = resource.projectile
 	if resource.projectile_scene:
 		projectile_scene = resource.projectile_scene
-	_range = resource.range
+	_range = resource.detection_range
 	fire_sound.stream = resource.fire_sound
 	
 	firing_timer.wait_time = fire_delay

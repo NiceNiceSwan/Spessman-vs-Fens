@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("1_o1biw")
 projectile = ExtResource("1_sl7t2")
-range = 2
+detection_range = 2
 fire_sound = ExtResource("1_etx6o")

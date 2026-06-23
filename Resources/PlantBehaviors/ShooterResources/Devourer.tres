@@ -1,13 +1,12 @@
-[gd_resource type="Resource" script_class="Shooters" load_steps=4 format=3 uid="uid://ctikiak4t3uf2"]
+[gd_resource type="Resource" script_class="Shooters" format=3 uid="uid://ctikiak4t3uf2"]
 
 [ext_resource type="AudioStream" uid="uid://dar0qo2rokws6" path="res://Sound/devour.ogg" id="1_tnwed"]
 [ext_resource type="Resource" uid="uid://dxyxhv5kl2jye" path="res://Resources/Projectiles/Bite.tres" id="2_2o5qa"]
-[ext_resource type="Script" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="3_oj6or"]
+[ext_resource type="Script" uid="uid://ds0upah4hmud2" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="3_oj6or"]
 
 [resource]
 script = ExtResource("3_oj6or")
-bullets_per_fire = 1
 fire_delay = 18.0
 projectile = ExtResource("2_2o5qa")
-range = 2
+detection_range = 2
 fire_sound = ExtResource("1_tnwed")

@@ -1,17 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0hcx6paj23ug"]
+[gd_scene format=3 uid="uid://b0hcx6paj23ug"]
 
-[ext_resource type="Script" path="res://Code/PlantBehaviors/HitScan.gd" id="2_3mado"]
+[ext_resource type="Script" uid="uid://rlp6w2xymyiu" path="res://Code/PlantBehaviors/HitScan.gd" id="2_3mado"]
 
-[node name="HitScan" type="Node2D"]
+[node name="HitScan" type="Node2D" unique_id=815798483]
 script = ExtResource("2_3mado")
 
-[node name="FiringTimer" type="Timer" parent="."]
+[node name="FiringTimer" type="Timer" parent="." unique_id=1450943669]
 one_shot = true
 
-[node name="FireSound" type="AudioStreamPlayer" parent="."]
+[node name="FireSound" type="AudioStreamPlayer" parent="." unique_id=1593550771]
 bus = &"SFX"
 
-[node name="DetectionRay" type="RayCast2D" parent="."]
+[node name="DetectionRay" type="RayCast2D" parent="." unique_id=707810904]
 target_position = Vector2(128, 0)
 collision_mask = 4
 collide_with_areas = true

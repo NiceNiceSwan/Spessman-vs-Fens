@@ -34,7 +34,7 @@ func _ready():
 	
 	detection_ray.target_position.x = min(Defines.TILE_SIZE * _range + Defines.TILE_MAP_X_OFFSET, max_ray_range)
 
-func _process(delta):
+func _process(_delta):
 	if detection_ray.is_colliding():
 		detected_enemy.emit()
 		if is_instance_valid(detection_ray.get_collider()):
