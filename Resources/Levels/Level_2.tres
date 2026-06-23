@@ -1,45 +1,39 @@
-[gd_resource type="Resource" script_class="LevelResource" load_steps=34 format=3 uid="uid://ypr0ir2w8n1m"]
+[gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://ypr0ir2w8n1m"]
 
-[ext_resource type="Script" path="res://Resources/Levels/Level.gd" id="1_j0pn0"]
+[ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_j0pn0"]
 [ext_resource type="Resource" uid="uid://b1kb4k122epgt" path="res://Resources/PlantData/LandMine.tres" id="2_dhw0o"]
 [ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="3_ffxng"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="4_vyahe"]
-[ext_resource type="Script" path="res://Resources/Waves/EnemySequence.gd" id="5_hn2l7"]
+[ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="5_hn2l7"]
 [ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="6_6gsbu"]
-[ext_resource type="Script" path="res://Resources/Waves/Wave.gd" id="7_41s7h"]
+[ext_resource type="Script" uid="uid://bev3bmevyiixu" path="res://Resources/Waves/Wave.gd" id="7_41s7h"]
 
 [sub_resource type="Resource" id="Resource_0heva"]
 script = ExtResource("5_hn2l7")
 enemy = ExtResource("3_ffxng")
 enemy_data = ExtResource("6_6gsbu")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_jigis"]
 script = ExtResource("7_41s7h")
 enemy_sequences = Array[ExtResource("5_hn2l7")]([SubResource("Resource_0heva")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_vxlvv"]
 script = ExtResource("5_hn2l7")
 enemy = ExtResource("3_ffxng")
 enemy_data = ExtResource("6_6gsbu")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_npqsd"]
 script = ExtResource("7_41s7h")
 enemy_sequences = Array[ExtResource("5_hn2l7")]([SubResource("Resource_vxlvv")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_ekdfv"]
 script = ExtResource("5_hn2l7")
 enemy = ExtResource("3_ffxng")
 enemy_data = ExtResource("6_6gsbu")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_yni6a"]
 script = ExtResource("7_41s7h")
 enemy_sequences = Array[ExtResource("5_hn2l7")]([SubResource("Resource_ekdfv")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_q7aof"]
 script = ExtResource("5_hn2l7")
@@ -50,7 +44,6 @@ amount = 3
 [sub_resource type="Resource" id="Resource_w76u2"]
 script = ExtResource("7_41s7h")
 enemy_sequences = Array[ExtResource("5_hn2l7")]([SubResource("Resource_q7aof")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_2hmlb"]
 script = ExtResource("5_hn2l7")
@@ -62,18 +55,15 @@ amount = 3
 script = ExtResource("5_hn2l7")
 enemy = ExtResource("3_ffxng")
 enemy_data = ExtResource("4_vyahe")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_qg2j1"]
 script = ExtResource("5_hn2l7")
 enemy = ExtResource("3_ffxng")
 enemy_data = ExtResource("6_6gsbu")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_q28gj"]
 script = ExtResource("7_41s7h")
 enemy_sequences = Array[ExtResource("5_hn2l7")]([SubResource("Resource_2hmlb"), SubResource("Resource_qldg7"), SubResource("Resource_qg2j1")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_a026i"]
 script = ExtResource("5_hn2l7")
@@ -107,7 +97,6 @@ amount = 3
 [sub_resource type="Resource" id="Resource_mdt7c"]
 script = ExtResource("7_41s7h")
 enemy_sequences = Array[ExtResource("5_hn2l7")]([SubResource("Resource_xndig")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_k7epp"]
 script = ExtResource("5_hn2l7")
@@ -124,7 +113,6 @@ amount = 8
 [sub_resource type="Resource" id="Resource_1ikoh"]
 script = ExtResource("7_41s7h")
 enemy_sequences = Array[ExtResource("5_hn2l7")]([SubResource("Resource_k7epp"), SubResource("Resource_ihy46")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_j0uhx"]
 script = ExtResource("5_hn2l7")

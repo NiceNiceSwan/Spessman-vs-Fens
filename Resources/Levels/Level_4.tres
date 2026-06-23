@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="LevelResource" load_steps=38 format=3 uid="uid://beslrg6ywrpx5"]
+[gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://beslrg6ywrpx5"]
 
-[ext_resource type="Script" path="res://Resources/Levels/Level.gd" id="1_cotdw"]
+[ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_cotdw"]
 [ext_resource type="Resource" uid="uid://ovellveb3yvl" path="res://Resources/PlantData/SlowingShooter.tres" id="2_5fqag"]
 [ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="3_aesmc"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_wmb4n"]
-[ext_resource type="Script" path="res://Resources/Waves/EnemySequence.gd" id="4_bupo7"]
+[ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="4_bupo7"]
 [ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="5_rvf43"]
-[ext_resource type="Script" path="res://Resources/Waves/Wave.gd" id="5_yq7cp"]
+[ext_resource type="Script" uid="uid://bev3bmevyiixu" path="res://Resources/Waves/Wave.gd" id="5_yq7cp"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="8_s520w"]
 [ext_resource type="Resource" uid="uid://pkcyo0on86kb" path="res://Resources/Enemies/HeavyShark.tres" id="9_vetfl"]
 
@@ -19,18 +19,15 @@ amount = 2
 [sub_resource type="Resource" id="Resource_hcv0g"]
 script = ExtResource("5_yq7cp")
 enemy_sequences = Array[ExtResource("4_bupo7")]([SubResource("Resource_oxcv3")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_6ypo6"]
 script = ExtResource("4_bupo7")
 enemy = ExtResource("3_aesmc")
 enemy_data = ExtResource("8_s520w")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_tkqce"]
 script = ExtResource("5_yq7cp")
 enemy_sequences = Array[ExtResource("4_bupo7")]([SubResource("Resource_6ypo6")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_jlj67"]
 script = ExtResource("4_bupo7")
@@ -48,12 +45,10 @@ amount = 2
 script = ExtResource("4_bupo7")
 enemy = ExtResource("3_aesmc")
 enemy_data = ExtResource("5_rvf43")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_r7o44"]
 script = ExtResource("5_yq7cp")
 enemy_sequences = Array[ExtResource("4_bupo7")]([SubResource("Resource_jlj67"), SubResource("Resource_m1kk8"), SubResource("Resource_fi08i")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_63wra"]
 script = ExtResource("4_bupo7")
@@ -71,13 +66,11 @@ amount = 5
 script = ExtResource("4_bupo7")
 enemy = ExtResource("3_aesmc")
 enemy_data = ExtResource("5_rvf43")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_2wuc8"]
 script = ExtResource("4_bupo7")
 enemy = ExtResource("3_aesmc")
 enemy_data = ExtResource("9_vetfl")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_1sab1"]
 script = ExtResource("5_yq7cp")
@@ -94,12 +87,10 @@ amount = 3
 script = ExtResource("4_bupo7")
 enemy = ExtResource("3_aesmc")
 enemy_data = ExtResource("9_vetfl")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_qi3co"]
 script = ExtResource("5_yq7cp")
 enemy_sequences = Array[ExtResource("4_bupo7")]([SubResource("Resource_oxwej"), SubResource("Resource_dmg00")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_be8ab"]
 script = ExtResource("4_bupo7")
@@ -116,18 +107,15 @@ amount = 2
 [sub_resource type="Resource" id="Resource_qf8p2"]
 script = ExtResource("5_yq7cp")
 enemy_sequences = Array[ExtResource("4_bupo7")]([SubResource("Resource_be8ab"), SubResource("Resource_th8kf")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_esq2c"]
 script = ExtResource("4_bupo7")
 enemy = ExtResource("3_aesmc")
 enemy_data = ExtResource("9_vetfl")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_5h56k"]
 script = ExtResource("5_yq7cp")
 enemy_sequences = Array[ExtResource("4_bupo7")]([SubResource("Resource_esq2c")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_cu3ih"]
 script = ExtResource("4_bupo7")
@@ -157,7 +145,6 @@ amount = 2
 script = ExtResource("4_bupo7")
 enemy = ExtResource("3_aesmc")
 enemy_data = ExtResource("8_s520w")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_ngsvv"]
 script = ExtResource("4_bupo7")

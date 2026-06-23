@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="LevelResource" load_steps=51 format=3 uid="uid://ba4xs7bh3gfvq"]
+[gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://ba4xs7bh3gfvq"]
 
-[ext_resource type="Script" path="res://Resources/Levels/Level.gd" id="1_h2svw"]
+[ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_h2svw"]
 [ext_resource type="Resource" uid="uid://ddlfe1ghkv2vh" path="res://Resources/PlantData/Devourer.tres" id="2_c22yj"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_ybgmn"]
 [ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="4_dg0s4"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="5_0y8v5"]
-[ext_resource type="Script" path="res://Resources/Waves/EnemySequence.gd" id="6_8nrt3"]
-[ext_resource type="Script" path="res://Resources/Waves/Wave.gd" id="7_vium2"]
+[ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="6_8nrt3"]
+[ext_resource type="Script" uid="uid://bev3bmevyiixu" path="res://Resources/Waves/Wave.gd" id="7_vium2"]
 [ext_resource type="Resource" uid="uid://pkcyo0on86kb" path="res://Resources/Enemies/HeavyShark.tres" id="8_ae8nt"]
 [ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="9_vdemb"]
 [ext_resource type="Resource" uid="uid://c6l03qiwwcxep" path="res://Resources/Enemies/Leah.tres" id="10_8i62j"]
@@ -15,12 +15,10 @@
 script = ExtResource("6_8nrt3")
 enemy = ExtResource("4_dg0s4")
 enemy_data = ExtResource("5_0y8v5")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_exvpl"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_bm8dm")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_xbp64"]
 script = ExtResource("6_8nrt3")
@@ -31,12 +29,10 @@ amount = 2
 [sub_resource type="Resource" id="Resource_0n6jr"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("8_ae8nt")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_6n7ll"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_xbp64"), SubResource("Resource_0n6jr")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_dohrb"]
 script = ExtResource("6_8nrt3")
@@ -46,7 +42,6 @@ amount = 8
 [sub_resource type="Resource" id="Resource_yll8p"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_dohrb")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_02lid"]
 script = ExtResource("6_8nrt3")
@@ -66,12 +61,10 @@ amount = 3
 [sub_resource type="Resource" id="Resource_7kgv5"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_02lid"), SubResource("Resource_f7j0i"), SubResource("Resource_xvhyf")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_ol6xq"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("10_8i62j")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_jsbt8"]
 script = ExtResource("7_vium2")
@@ -91,12 +84,10 @@ amount = 5
 [sub_resource type="Resource" id="Resource_dfqy8"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("5_0y8v5")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_c4ink"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_mfj7p"), SubResource("Resource_imqrr"), SubResource("Resource_dfqy8")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_u61nn"]
 script = ExtResource("6_8nrt3")
@@ -111,22 +102,18 @@ amount = 4
 [sub_resource type="Resource" id="Resource_lvw60"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("8_ae8nt")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_wrhm8"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("5_0y8v5")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_0ab6s"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("8_ae8nt")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_xlmws"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_u61nn"), SubResource("Resource_4mvjk"), SubResource("Resource_lvw60"), SubResource("Resource_wrhm8"), SubResource("Resource_0ab6s")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_e5mlx"]
 script = ExtResource("6_8nrt3")
@@ -136,17 +123,14 @@ amount = 2
 [sub_resource type="Resource" id="Resource_eg6ql"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("9_vdemb")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_ab8u5"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_e5mlx"), SubResource("Resource_eg6ql")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_milgc"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("8_ae8nt")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_xyaog"]
 script = ExtResource("6_8nrt3")
@@ -161,7 +145,6 @@ amount = 2
 [sub_resource type="Resource" id="Resource_s51n2"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_milgc"), SubResource("Resource_xyaog"), SubResource("Resource_huwba")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_lrpgg"]
 script = ExtResource("6_8nrt3")
@@ -181,7 +164,6 @@ amount = 10
 [sub_resource type="Resource" id="Resource_gwocl"]
 script = ExtResource("7_vium2")
 enemy_sequences = Array[ExtResource("6_8nrt3")]([SubResource("Resource_lrpgg"), SubResource("Resource_l53gq"), SubResource("Resource_q1vjv")])
-major_wave = false
 
 [sub_resource type="Resource" id="Resource_dop2y"]
 script = ExtResource("6_8nrt3")
@@ -201,7 +183,6 @@ amount = 2
 [sub_resource type="Resource" id="Resource_ypohb"]
 script = ExtResource("6_8nrt3")
 enemy_data = ExtResource("10_8i62j")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_v3a8b"]
 script = ExtResource("6_8nrt3")
