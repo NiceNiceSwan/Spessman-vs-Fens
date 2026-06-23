@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://ohhhhe1v2gon"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://ohhhhe1v2gon"]
 
 [ext_resource type="Texture2D" uid="uid://ddrqdlpg6d50c" path="res://Graphics/sm_crystal.png" id="1_moub8"]
 
@@ -42,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x2cik")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -59,7 +59,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s1rem")
 }],
-"loop": true,
+"loop": 1,
 "name": &"ready",
 "speed": 12.0
 }]
