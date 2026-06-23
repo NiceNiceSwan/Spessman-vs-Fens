@@ -39,7 +39,7 @@ func _ready():
 		button.add_theme_stylebox_override("normal", stylebox)
 
 func _on_button_pressed():
-	var level: Level = load("res://level.tscn").instantiate()
+	var level: Level = preload("uid://beg53cvd5kur8").instantiate()
 	level.level_data = level_data
 	get_tree().root.add_child(level)
 	get_tree().current_scene.queue_free()
