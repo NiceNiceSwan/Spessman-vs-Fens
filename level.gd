@@ -212,6 +212,9 @@ func _win() -> void:
 	if unlocks != null and SaveData.unlocked_plants < unlocks.ID:
 		SaveData.unlocked_plants = unlocks.ID
 		should_show_new_unlock = true
+	elif unlocks == null:
+		SaveData.unlocked_plants = Enums.UNLOCKS.ALL
+		should_show_new_unlock = false
 	SaveData.save_game()
 	user_interface.announce_victory()
 

@@ -21,6 +21,10 @@ func _ready():
 			var stylebox: StyleBoxFlat =  button.get_theme_stylebox("normal").duplicate()
 			stylebox.bg_color = Color(0.01, 0.01, 0.01, 1)
 			button.add_theme_stylebox_override("normal", stylebox)
+		elif SaveData.unlocked_plants == Enums.UNLOCKS.ALL:
+			var stylebox: StyleBoxFlat =  button.get_theme_stylebox("normal").duplicate()
+			stylebox.bg_color = Color(0.18, 1, 0.18)
+			button.add_theme_stylebox_override("normal", stylebox)
 		return
 	
 	if SaveData.unlocked_plants > level_data.unlocks.ID - 1:
