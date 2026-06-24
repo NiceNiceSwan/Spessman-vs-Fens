@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://clvmrye3b1oxy"]
+[gd_scene format=3 uid="uid://clvmrye3b1oxy"]
 
-[ext_resource type="PackedScene" uid="uid://c8c0jxf63waum" path="res://Code/Projectile.tscn" id="1_ukspx"]
+[ext_resource type="PackedScene" uid="uid://c8c0jxf63waum" path="res://Code/Projectiles/Projectile.tscn" id="1_ukspx"]
 [ext_resource type="Resource" uid="uid://b4f5ic6rp7t45" path="res://Resources/Projectiles/slowing.tres" id="2_4mheq"]
 [ext_resource type="PackedScene" uid="uid://bqqsgca2ug8rx" path="res://Code/StatusEffects/Slowdown.tscn" id="3_2ky42"]
 
