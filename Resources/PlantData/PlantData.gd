@@ -7,4 +7,4 @@ class_name PlantData extends Resource
 @export var cost: int = 100
 @export var sprite_frames: SpriteFrames
 @export var plant_cooldown: float = 1
-@export var description: String
+@export_multiline var description: String

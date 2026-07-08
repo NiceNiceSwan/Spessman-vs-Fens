@@ -26,7 +26,7 @@ func _ready():
 	damage = projectile_data.damage
 	rotates = projectile_data.rotates
 	health = projectile_data.health
-	_range = projectile_data.range
+	_range = projectile_data.fly_range
 	starting_position = position
 	
 	animated_sprite.sprite_frames = projectile_data.sprite_frames

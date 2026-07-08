@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Spessmen vs Fens"
-run/main_scene="res://Code/UI/MainMenu.tscn"
+run/main_scene="res://Code/UI/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://Graphics/bubber_jacob.png"
 
