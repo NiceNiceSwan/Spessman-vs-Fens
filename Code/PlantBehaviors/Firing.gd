@@ -4,17 +4,19 @@ var bullets_per_fire: int = 1
 ## Amount of times this fires per second
 var fire_delay: float = 1
 var projectile: Projectiles
-var projectile_scene: PackedScene = load("res://Code/Projectile.tscn")
+var projectile_scene: PackedScene = preload("uid://c8c0jxf63waum")
 var _range: int = 1
 var ready_to_fire: bool = true
 
 var fire_delay_milliseconds: int
+var burst_shots_fired: int = 0
 
 @export var resource: Shooters
 
 @onready var firing_timer: Timer = $FiringTimer
 @onready var fire_sound: AudioStreamPlayer = $FireSound
 @onready var detection_ray: RayCast2D = $DetectionRay
+@onready var burst_fire_timer: Timer = $BurstFireTimer
 
 signal reloaded
 signal fired
@@ -66,7 +68,18 @@ func fire(forced: bool = false, play_sound: bool = true):
 	firing_timer.start()
 	fired.emit()
 
-func _on_firing_timer_timeout():
+func _on_firing_timer_timeout() -> void:
 	ready_to_fire = true
 	fire_delay_milliseconds = randi_range(0, 50)
+	burst_fire_timer.start()
 	reloaded.emit()
+
+func _on_burst_fire_timer_timeout() -> void:
+	burst_shots_fired += 1
+	if burst_shots_fired < bullets_per_fire:
+		ready_to_fire = true
+		fire_delay_milliseconds = randi_range(0, 50)
+		reloaded.emit()
+	else:
+		burst_fire_timer.stop()
+		burst_shots_fired = 0
