@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://r00t813bi150"]
+[gd_scene format=3 uid="uid://r00t813bi150"]
 
-[ext_resource type="Script" path="res://Code/UI/LevelHolder.gd" id="1_5ddvy"]
+[ext_resource type="Script" uid="uid://btc6a6a48nkq" path="res://Code/UI/MainMenu/LevelHolder.gd" id="1_5ddvy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmaxm"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
@@ -8,7 +8,7 @@ bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_jg3jm"]
 resource_local_to_scene = true
 
-[node name="LevelHolder" type="Control"]
+[node name="LevelHolder" type="Control" unique_id=207524003]
 layout_mode = 3
 anchor_right = 0.1
 anchor_bottom = 0.167
@@ -16,14 +16,14 @@ offset_right = -128.0
 offset_bottom = -128.256
 script = ExtResource("1_5ddvy")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1250731505]
 layout_mode = 1
 offset_right = 128.0
 offset_bottom = 128.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_nmaxm")
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Label" type="Label" parent="Button" unique_id=1096876871]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

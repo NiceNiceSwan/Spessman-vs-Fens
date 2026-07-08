@@ -1,6 +1,6 @@
 extends Control
 
-const LEVEL = preload("res://Code/UI/LevelSelector.tscn")
+const LEVEL = preload("uid://bavn0ly1fcl5v")
 
 @onready var button_container: VBoxContainer = $VBoxContainer
 @onready var settings_menu: SettingsMenu = $SettingsMenu

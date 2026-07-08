@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvtgxw33ajkq5"]
 
-[ext_resource type="Script" uid="uid://bpve51bhsy2b4" path="res://Code/UI/MainMenu.gd" id="1_ie4ed"]
+[ext_resource type="Script" uid="uid://bpve51bhsy2b4" path="res://Code/UI/MainMenu/MainMenu.gd" id="1_ie4ed"]
 [ext_resource type="PackedScene" uid="uid://dxyyjikdu8g7c" path="res://Code/UI/SettingsMenu.tscn" id="2_la6xi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crea7"]

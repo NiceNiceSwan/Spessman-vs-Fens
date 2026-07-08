@@ -2,7 +2,6 @@ class_name LevelHolder extends Control
 
 @export var level_name: String = "Level"
 @export var level_data: LevelResource
-#@export var level_to_load
 
 @onready var level_label: Label = $Button/Label
 @onready var button: Button = $Button
