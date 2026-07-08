@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HealingResource" format=3 uid="uid://b0gqd8tqtpnde"]
+
+[ext_resource type="Script" uid="uid://b5ifu4y8wd1d1" path="res://Resources/PlantBehaviors/Healing/HealingResource.gd" id="1_i35hd"]
+[ext_resource type="Resource" uid="uid://b07eclark6fxu" path="res://Resources/HealingProjectiles/ChocolateBar.tres" id="1_pbwvw"]
+
+[resource]
+script = ExtResource("1_i35hd")
+healing_delay = 1
+healing_projectile = ExtResource("1_pbwvw")
+metadata/_custom_type_script = "uid://b5ifu4y8wd1d1"

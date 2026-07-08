@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b2huwlp2yh67l"]
+
+[ext_resource type="PackedScene" uid="uid://b8ps18euscuwr" path="res://Code/Plants/Plant.tscn" id="1_0cr3y"]
+[ext_resource type="Resource" uid="uid://jnn5enhgg5pd" path="res://Resources/PlantData/Chaloe.tres" id="2_81n1f"]
+[ext_resource type="SpriteFrames" uid="uid://u3myuj15ssl5" path="res://Graphics/Animated/Chloe.tres" id="3_gyfpb"]
+[ext_resource type="PackedScene" uid="uid://bklnpsyyr7om2" path="res://Code/PlantBehaviors/Healing.tscn" id="4_xcujn"]
+[ext_resource type="Resource" uid="uid://b0gqd8tqtpnde" path="res://Resources/PlantBehaviors/Healing/Chaloe.tres" id="5_81n1f"]
+
+[node name="Chaloe" unique_id=325359927 instance=ExtResource("1_0cr3y")]
+plant_data = ExtResource("2_81n1f")
+
+[node name="AnimatedSprite" parent="." index="0" unique_id=893975618]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("3_gyfpb")
+
+[node name="Healing" parent="." index="2" unique_id=1723878903 instance=ExtResource("4_xcujn")]
+healing_resource = ExtResource("5_81n1f")

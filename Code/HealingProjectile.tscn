@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b1bbldip3pnh4"]
+
+[ext_resource type="Script" uid="uid://c5hia0l5l6ia6" path="res://Code/HealingProjectile.gd" id="1_lpenm"]
+[ext_resource type="SpriteFrames" uid="uid://7s6ettmw3ji0" path="res://Graphics/Animated/chocolatebar.tres" id="2_mbq6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_et8s4"]
+
+[node name="HealingProjectile" type="Area2D" unique_id=1839059124]
+collision_layer = 2
+script = ExtResource("1_lpenm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=190097516]
+shape = SubResource("RectangleShape2D_et8s4")
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=968648355]
+wait_time = 100.0
+one_shot = true
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=126167556]
+texture_filter = 1
+sprite_frames = ExtResource("2_mbq6k")
+
+[node name="StatusEffects" type="Node" parent="." unique_id=1805315067]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
