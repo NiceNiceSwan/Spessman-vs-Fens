@@ -24,14 +24,8 @@ point_count = 2
 texture = ExtResource("6_knfsg")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_wctu3"]
 tile_size = Vector2i(128, 128)
@@ -39,60 +33,60 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_2d1yl")
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" unique_id=105159579]
 script = ExtResource("1_oq420")
 level_data = ExtResource("2_ouf15")
 unlocks = ExtResource("3_jpwec")
 
-[node name="EnemySpawnPath" type="Path2D" parent="."]
+[node name="EnemySpawnPath" type="Path2D" parent="." unique_id=396132975]
 position = Vector2(1344, 128)
 curve = SubResource("Curve2D_7k82x")
 
-[node name="CurrencyPath" type="Path2D" parent="."]
+[node name="CurrencyPath" type="Path2D" parent="." unique_id=247890787]
 curve = SubResource("Curve2D_jped0")
 
-[node name="CurrencySpawnLocation" type="PathFollow2D" parent="CurrencyPath"]
+[node name="CurrencySpawnLocation" type="PathFollow2D" parent="CurrencyPath" unique_id=82620964]
 position = Vector2(64, -32)
 
-[node name="CurrencyTimer" type="Timer" parent="."]
+[node name="CurrencyTimer" type="Timer" parent="." unique_id=835074076]
 wait_time = 7.0
 autostart = true
 
-[node name="LevelUI" parent="." instance=ExtResource("5_4owyg")]
+[node name="LevelUI" parent="." unique_id=1367250410 instance=ExtResource("5_4owyg")]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." unique_id=591411765]
 position = Vector2(64, 64)
 tile_set = SubResource("TileSet_wctu3")
 format = 2
 layer_0/z_index = -1
 layer_0/tile_data = PackedInt32Array(1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 262148, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 196614, 0, 0, 196613, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131078, 0, 0, 131077, 0, 0, 0, 0, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, 393215, 65536, 0, 327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 262143, 65536, 0, 327679, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 0, 1, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0)
 
-[node name="EnemySpawnTimer" type="Timer" parent="."]
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1338999242]
 wait_time = 0.25
 
-[node name="Cleanbots" type="Node" parent="."]
+[node name="Cleanbots" type="Node" parent="." unique_id=406163299]
 
-[node name="Cleanbot1" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+[node name="Cleanbot1" parent="Cleanbots" unique_id=2076805148 instance=ExtResource("5_v7ary")]
 position = Vector2(0, 128)
 
-[node name="Cleanbot2" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+[node name="Cleanbot2" parent="Cleanbots" unique_id=1582826785 instance=ExtResource("5_v7ary")]
 position = Vector2(0, 256)
 
-[node name="Cleanbot3" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+[node name="Cleanbot3" parent="Cleanbots" unique_id=1790799517 instance=ExtResource("5_v7ary")]
 position = Vector2(0, 384)
 
-[node name="Cleanbot4" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+[node name="Cleanbot4" parent="Cleanbots" unique_id=1226564713 instance=ExtResource("5_v7ary")]
 position = Vector2(0, 512)
 
-[node name="Cleanbot5" parent="Cleanbots" instance=ExtResource("5_v7ary")]
+[node name="Cleanbot5" parent="Cleanbots" unique_id=1603336738 instance=ExtResource("5_v7ary")]
 position = Vector2(0, 640)
 
-[node name="WaveTimeout" type="Timer" parent="."]
+[node name="WaveTimeout" type="Timer" parent="." unique_id=1943008125]
 wait_time = 20.0
 one_shot = true
 autostart = true
 
-[node name="PlantRemoveSound" type="AudioStreamPlayer" parent="."]
+[node name="PlantRemoveSound" type="AudioStreamPlayer" parent="." unique_id=464712295]
 stream = ExtResource("7_qjtgt")
 bus = &"SFX"
 

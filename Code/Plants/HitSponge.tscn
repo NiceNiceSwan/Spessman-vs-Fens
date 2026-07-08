@@ -10,7 +10,7 @@
 script = ExtResource("2_od6ow")
 plant_data = ExtResource("3_l3c34")
 
-[node name="AnimatedSprite" parent="." index="0"]
+[node name="AnimatedSprite" parent="." index="0" unique_id=893975618]
 sprite_frames = ExtResource("3_ppsy7")
 
 [node name="HealthDoll" parent="." index="2" unique_id=1917880452 instance=ExtResource("2_utoj5")]

@@ -1,20 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://brwnmd6g8jmnt"]
+[gd_scene format=3 uid="uid://brwnmd6g8jmnt"]
 
-[ext_resource type="Script" path="res://Code/PlantBehaviors/Firing.gd" id="1_hfa2q"]
+[ext_resource type="Script" uid="uid://d2a4grgn307li" path="res://Code/PlantBehaviors/Firing.gd" id="1_hfa2q"]
 
-[node name="Firing" type="Node2D"]
+[node name="Firing" type="Node2D" unique_id=1274640795]
 script = ExtResource("1_hfa2q")
 
-[node name="FiringTimer" type="Timer" parent="."]
+[node name="FiringTimer" type="Timer" parent="." unique_id=1729540984]
 one_shot = true
 
-[node name="FireSound" type="AudioStreamPlayer" parent="."]
+[node name="FireSound" type="AudioStreamPlayer" parent="." unique_id=136980994]
 bus = &"SFX"
 
-[node name="DetectionRay" type="RayCast2D" parent="."]
+[node name="DetectionRay" type="RayCast2D" parent="." unique_id=768387282]
 target_position = Vector2(128, 0)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="BurstFireTimer" type="Timer" parent="." unique_id=1928204539]
+wait_time = 0.25
+
 [connection signal="timeout" from="FiringTimer" to="." method="_on_firing_timer_timeout"]
+[connection signal="timeout" from="BurstFireTimer" to="." method="_on_burst_fire_timer_timeout"]

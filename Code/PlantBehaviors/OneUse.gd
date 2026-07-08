@@ -27,7 +27,7 @@ func _ready():
 		return
 	
 	damage = resource.damage
-	_range = resource.range
+	_range = resource._range
 	armed = resource.armed
 	arming_time = resource.arming_time
 	delay_explosion = resource.delayed_explosion
