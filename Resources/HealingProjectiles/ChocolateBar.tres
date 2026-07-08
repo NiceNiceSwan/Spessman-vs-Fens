@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HealingProjectilesResource" format=3 uid="uid://b07eclark6fxu"]
+
+[ext_resource type="Script" uid="uid://kchuxag8n6b1" path="res://Resources/HealingProjectiles/HealingProjectilesResource.gd" id="1_45h5e"]
+[ext_resource type="SpriteFrames" uid="uid://7s6ettmw3ji0" path="res://Graphics/Animated/chocolatebar.tres" id="2_iyc6m"]
+
+[resource]
+script = ExtResource("1_45h5e")
+sprite_frames = ExtResource("2_iyc6m")
+metadata/_custom_type_script = "uid://kchuxag8n6b1"

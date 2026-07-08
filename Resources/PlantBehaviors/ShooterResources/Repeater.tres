@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Shooters" format=3 uid="uid://cmyuktvrqtmhw"]
+
+[ext_resource type="AudioStream" uid="uid://dgcracxwlgn41" path="res://Sound/repeater_shot.ogg" id="1_6igw6"]
+[ext_resource type="Script" uid="uid://ds0upah4hmud2" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="1_c3kpq"]
+[ext_resource type="Resource" uid="uid://ctmlwv442ff4h" path="res://Resources/Projectiles/fast.tres" id="2_sb6rx"]
+
+[resource]
+script = ExtResource("1_c3kpq")
+bullets_per_fire = 2
+projectile = ExtResource("2_sb6rx")
+fire_sound = ExtResource("1_6igw6")
+metadata/_custom_type_script = "uid://ds0upah4hmud2"
