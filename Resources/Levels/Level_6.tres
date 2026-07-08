@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://dfds1j7kvt2ck"]
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_mpcmt"]
-[ext_resource type="Resource" uid="uid://bm8ljk4qt5hfn" path="res://Resources/PlantData/Dragon.tres" id="2_h0x0f"]
+[ext_resource type="Resource" uid="uid://cfky3bklblnmj" path="res://Resources/Unlockables/Dragon.tres" id="2_p2ptc"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_27s7h"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="4_dbu5f"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="5_2811b"]
@@ -262,4 +262,4 @@ major_wave = true
 [resource]
 script = ExtResource("1_mpcmt")
 waves = Array[ExtResource("6_isxvy")]([ExtResource("3_27s7h"), ExtResource("3_27s7h"), ExtResource("3_27s7h"), SubResource("Resource_fl0rw"), SubResource("Resource_gma1g"), SubResource("Resource_ry5j6"), SubResource("Resource_wqldg"), ExtResource("3_27s7h"), SubResource("Resource_wl7s7"), ExtResource("3_27s7h"), SubResource("Resource_rgqte"), SubResource("Resource_h1ua6"), SubResource("Resource_i0vsp"), SubResource("Resource_7todp"), ExtResource("3_27s7h"), SubResource("Resource_m4cxk"), ExtResource("3_27s7h"), SubResource("Resource_pcj4n")])
-unlocks = ExtResource("2_h0x0f")
+unlocks = ExtResource("2_p2ptc")

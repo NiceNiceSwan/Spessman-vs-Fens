@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://civg6gi37v7m1"]
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_vdrti"]
-[ext_resource type="Resource" uid="uid://cfadfydrw2uuu" path="res://Resources/PlantData/Shielder.tres" id="2_sny6q"]
+[ext_resource type="Resource" uid="uid://blm6ufrcm3hos" path="res://Resources/Unlockables/Shielder.tres" id="2_tsswn"]
 [ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="3_ccqbp"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_r8b6g"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="4_sinhq"]
@@ -117,4 +117,4 @@ major_wave = true
 [resource]
 script = ExtResource("1_vdrti")
 waves = Array[ExtResource("7_5wkyp")]([ExtResource("3_r8b6g"), ExtResource("3_r8b6g"), ExtResource("3_r8b6g"), SubResource("Resource_gjw3e"), SubResource("Resource_5pepo"), SubResource("Resource_3ihoh"), SubResource("Resource_q6cat"), SubResource("Resource_8msbs"), SubResource("Resource_jxgiq"), SubResource("Resource_yomaj"), SubResource("Resource_incge")])
-unlocks = ExtResource("2_sny6q")
+unlocks = ExtResource("2_tsswn")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://beslrg6ywrpx5"]
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_cotdw"]
-[ext_resource type="Resource" uid="uid://ovellveb3yvl" path="res://Resources/PlantData/SlowingShooter.tres" id="2_5fqag"]
+[ext_resource type="Resource" uid="uid://cn7nnixerxbo8" path="res://Resources/Unlockables/SlowingShooter.tres" id="2_pm5tw"]
 [ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="3_aesmc"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_wmb4n"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="4_bupo7"]
@@ -160,4 +160,4 @@ major_wave = true
 [resource]
 script = ExtResource("1_cotdw")
 waves = Array[ExtResource("5_yq7cp")]([ExtResource("3_wmb4n"), ExtResource("3_wmb4n"), ExtResource("3_wmb4n"), ExtResource("3_wmb4n"), SubResource("Resource_hcv0g"), SubResource("Resource_tkqce"), SubResource("Resource_r7o44"), SubResource("Resource_1sab1"), ExtResource("3_wmb4n"), SubResource("Resource_qi3co"), SubResource("Resource_qf8p2"), SubResource("Resource_5h56k"), SubResource("Resource_0l8xm")])
-unlocks = ExtResource("2_5fqag")
+unlocks = ExtResource("2_pm5tw")

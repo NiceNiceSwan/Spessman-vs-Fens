@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://cqnyxvwwoyp1x"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_txon4"]
+[ext_resource type="Texture2D" uid="uid://d1cjgy5k3eey2" path="res://Graphics/protomine_single.png" id="2_766jo"]
+
+[resource]
+script = ExtResource("1_txon4")
+name = "ProtoMine"
+description = "After a long arming time, will explode on contact with the first enemy."
+texture = ExtResource("2_766jo")
+ID = 2
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

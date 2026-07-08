@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://jnn5enhgg5pd"]
+
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_lrnam"]
+[ext_resource type="SpriteFrames" uid="uid://u3myuj15ssl5" path="res://Graphics/Animated/Chloe.tres" id="2_151kg"]
+
+[resource]
+script = ExtResource("1_lrnam")
+ID = 9
+name = "Chaloe"
+sprite_frames = ExtResource("2_151kg")
+plant_cooldown = 5.0
+description = "Ocasionally heals the tower in front of it."
+metadata/_custom_type_script = "uid://dn61oer81nccm"

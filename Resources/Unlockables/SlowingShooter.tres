@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://cn7nnixerxbo8"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_ungbe"]
+[ext_resource type="Texture2D" uid="uid://ct0dkdrf3mht4" path="res://Graphics/Anne.png" id="2_ungbe"]
+
+[resource]
+script = ExtResource("1_ungbe")
+name = "Anne"
+description = "Fires projectiles which slow down enemies."
+texture = ExtResource("2_ungbe")
+ID = 4
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

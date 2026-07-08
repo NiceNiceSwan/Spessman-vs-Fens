@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://nrtx2xy82loe"]
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_v33ty"]
-[ext_resource type="Resource" uid="uid://dji2bkexucl2g" path="res://Resources/PlantData/Squash.tres" id="2_kxysc"]
+[ext_resource type="Resource" uid="uid://b3apoqbmdmjha" path="res://Resources/Unlockables/Squash.tres" id="2_7hol2"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_so02a"]
 [ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="4_qwj2j"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="5_n7jsi"]
@@ -407,4 +407,4 @@ major_wave = true
 [resource]
 script = ExtResource("1_v33ty")
 waves = Array[ExtResource("7_slhs3")]([ExtResource("3_so02a"), ExtResource("3_so02a"), ExtResource("3_so02a"), SubResource("Resource_as2yi"), SubResource("Resource_whygl"), SubResource("Resource_533nw"), SubResource("Resource_bjbfn"), ExtResource("3_so02a"), SubResource("Resource_nsvky"), SubResource("Resource_7twtx"), SubResource("Resource_le1nv"), SubResource("Resource_ipx8f"), SubResource("Resource_3hdfl"), SubResource("Resource_q4p4a"), SubResource("Resource_tcvru"), SubResource("Resource_fa4hk"), SubResource("Resource_pbgsk"), SubResource("Resource_hehuq"), SubResource("Resource_3x38k"), ExtResource("3_so02a"), SubResource("Resource_6aydh")])
-unlocks = ExtResource("2_kxysc")
+unlocks = ExtResource("2_7hol2")

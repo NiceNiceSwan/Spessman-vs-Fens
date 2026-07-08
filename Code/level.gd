@@ -1,7 +1,7 @@
 class_name Level extends Node2D
 
 @export var level_data: LevelResource
-@export var unlocks: PlantData
+@export var unlocks: Unlockable
 
 var money: int = 50
 var selected_plant: PlantData

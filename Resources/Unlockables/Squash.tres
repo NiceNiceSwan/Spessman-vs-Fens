@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://b3apoqbmdmjha"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_iw5c0"]
+[ext_resource type="Texture2D" uid="uid://bys3nyxqer8s2" path="res://Graphics/kiki.png" id="2_iwth7"]
+
+[resource]
+script = ExtResource("1_iw5c0")
+name = "Squash"
+description = "Jumps onto the enemies in front of it, crushing them."
+texture = ExtResource("2_iwth7")
+ID = 7
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

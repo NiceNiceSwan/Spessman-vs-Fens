@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://dslddklhc34bw"]
+
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_06lu5"]
+
+[resource]
+script = ExtResource("1_06lu5")
+name = "Repeater"
+cost = 200
+plant_cooldown = 3.0
+description = "Fires 2 bullets per shot"
+metadata/_custom_type_script = "uid://dn61oer81nccm"

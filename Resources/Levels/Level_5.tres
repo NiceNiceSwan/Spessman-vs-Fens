@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://ba4xs7bh3gfvq"]
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_h2svw"]
-[ext_resource type="Resource" uid="uid://ddlfe1ghkv2vh" path="res://Resources/PlantData/Devourer.tres" id="2_c22yj"]
+[ext_resource type="Resource" uid="uid://cfonb72327u21" path="res://Resources/Unlockables/Devourer.tres" id="2_defa8"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_ybgmn"]
 [ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="4_dg0s4"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="5_0y8v5"]
@@ -197,4 +197,4 @@ major_wave = true
 [resource]
 script = ExtResource("1_h2svw")
 waves = Array[ExtResource("7_vium2")]([ExtResource("3_ybgmn"), ExtResource("3_ybgmn"), ExtResource("3_ybgmn"), SubResource("Resource_exvpl"), SubResource("Resource_6n7ll"), SubResource("Resource_yll8p"), SubResource("Resource_7kgv5"), SubResource("Resource_jsbt8"), ExtResource("3_ybgmn"), ExtResource("3_ybgmn"), ExtResource("3_ybgmn"), SubResource("Resource_c4ink"), SubResource("Resource_xlmws"), SubResource("Resource_ab8u5"), SubResource("Resource_s51n2"), SubResource("Resource_gwocl"), SubResource("Resource_jixs5")])
-unlocks = ExtResource("2_c22yj")
+unlocks = ExtResource("2_defa8")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://e1e4i4kvdpam"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_7vcyg"]
+
+[resource]
+script = ExtResource("1_7vcyg")
+name = "Repeater"
+description = "Shoots 2 projectiles in quick succesion."
+ID = 8
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"
