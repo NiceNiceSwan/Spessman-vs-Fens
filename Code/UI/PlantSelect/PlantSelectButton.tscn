@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cr4iow67ordqt"]
+
+[ext_resource type="Script" uid="uid://cpnc1mxfy33ck" path="res://Code/UI/PlantSelect/PlantSelectButton.gd" id="1_os746"]
+[ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="1_ve7i8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_os746"]
+font_size = 12
+
+[node name="PlantSelectButton" type="Control" unique_id=246547329]
+custom_minimum_size = Vector2(64, 96)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_os746")
+
+[node name="SelectButton" type="Button" parent="." unique_id=1242001575]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+action_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectButton" unique_id=234861893]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 85.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="SelectButton/VBoxContainer" unique_id=2000862686]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_ve7i8")
+expand_mode = 4
+
+[node name="Cost" type="Label" parent="SelectButton/VBoxContainer" unique_id=220944984]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+text = "Cost"
+label_settings = SubResource("LabelSettings_os746")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="SelectButton" to="." method="_on_select_button_pressed"]
