@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://bt3eylhf21bdk"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_dvew7"]
+[ext_resource type="Texture2D" uid="uid://bgi8jhl7g6vrj" path="res://Graphics/bubber_jacob.png" id="2_ru7pm"]
+
+[resource]
+script = ExtResource("1_dvew7")
+name = "Jacob"
+description = "Shoots basic projectiles."
+texture = ExtResource("2_ru7pm")
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"
