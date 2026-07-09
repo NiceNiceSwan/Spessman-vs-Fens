@@ -5,7 +5,7 @@ class_name SettingsMenu extends Control
 
 signal exiting
 
-func _ready():
+func _ready() -> void:
 	master_volume_slider.set_value(AudioServer.get_bus_volume_db(0))
 	SFX_volume_slider.set_value(AudioServer.get_bus_volume_db(2))
 
@@ -15,7 +15,7 @@ func _input(event: InputEvent) -> void:
 		revert()
 		exiting.emit()
 
-func _on_apply_button_pressed():
+func _on_apply_button_pressed() -> void:
 	var config = ConfigFile.new()
 	var master_volume: float = master_volume_slider.get_value()
 	var sfx_volume: float = SFX_volume_slider.get_value()
@@ -27,10 +27,10 @@ func _on_apply_button_pressed():
 	AudioServer.set_bus_volume_db(2, sfx_volume)
 	exiting.emit()
 
-func _on_revert_button_pressed():
+func _on_revert_button_pressed() -> void:
 	revert()
 	exiting.emit()
 
-func revert():
+func revert() -> void:
 	master_volume_slider.set_value(AudioServer.get_bus_volume_db(0))
 	SFX_volume_slider.set_value(AudioServer.get_bus_volume_db(2))

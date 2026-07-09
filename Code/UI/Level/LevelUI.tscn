@@ -12,7 +12,6 @@
 [ext_resource type="Resource" uid="uid://bm8ljk4qt5hfn" path="res://Resources/PlantData/Dragon.tres" id="9_3so7x"]
 [ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/explosive.tscn" id="9_8jsuq"]
 [ext_resource type="PackedScene" uid="uid://dx80ev1g32ot2" path="res://Code/UI/PauseMenu.tscn" id="9_g0w4m"]
-[ext_resource type="PackedScene" uid="uid://dxyyjikdu8g7c" path="res://Code/UI/SettingsMenu.tscn" id="10_dmajk"]
 [ext_resource type="PackedScene" uid="uid://sgd6sq2s3osf" path="res://Code/Plants/dragon.tscn" id="10_dpokb"]
 [ext_resource type="PackedScene" uid="uid://e8hsqeq0jixr" path="res://Code/Plants/HitSponge.tscn" id="10_lyqvs"]
 [ext_resource type="PackedScene" uid="uid://dv0nkl87p1qfv" path="res://Code/Plants/Squash.tscn" id="12_mj8hy"]
@@ -198,9 +197,6 @@ plant_scene = ExtResource("12_mj8hy")
 [node name="PauseMenu" parent="." unique_id=733380313 instance=ExtResource("9_g0w4m")]
 visible = false
 
-[node name="SettingsMenu" parent="." unique_id=1562986898 instance=ExtResource("10_dmajk")]
-visible = false
-
 [node name="PauseMenuButton" type="Button" parent="." unique_id=907082009]
 anchors_preset = 1
 anchor_left = 1.0
@@ -210,7 +206,7 @@ offset_bottom = 8.0
 grow_horizontal = 0
 text = "Menu"
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1089972748]
+[node name="PlantRemoverContainer" type="PanelContainer" parent="." unique_id=1089972748]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -221,21 +217,19 @@ grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_0il43")
 
-[node name="PlantRemover" type="Button" parent="PanelContainer" unique_id=1045114898]
+[node name="PlantRemover" type="Button" parent="PlantRemoverContainer" unique_id=1045114898]
 layout_mode = 2
 
-[node name="PlantRemoverSprite" type="AnimatedSprite2D" parent="PanelContainer/PlantRemover" unique_id=1036200917]
+[node name="PlantRemoverSprite" type="AnimatedSprite2D" parent="PlantRemoverContainer/PlantRemover" unique_id=1036200917]
 position = Vector2(14.6667, 23.3333)
 sprite_frames = ExtResource("18_y0h1x")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PanelContainer" unique_id=1849273829]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PlantRemoverContainer" unique_id=1849273829]
 stream = ExtResource("19_rmka5")
 bus = &"SFX"
 
 [connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
 [connection signal="timeout" from="AnnouncementHolder/AnnouncementTimer" to="." method="_on_announcement_timer_timeout"]
-[connection signal="open_settings" from="PauseMenu" to="." method="_on_pause_menu_open_settings"]
-[connection signal="exiting" from="SettingsMenu" to="." method="_on_settings_menu_exiting"]
 [connection signal="pressed" from="PauseMenuButton" to="." method="_on_pause_menu_button_pressed"]
-[connection signal="pressed" from="PanelContainer/PlantRemover" to="." method="_on_plant_remover_pressed"]
+[connection signal="pressed" from="PlantRemoverContainer/PlantRemover" to="." method="_on_plant_remover_pressed"]

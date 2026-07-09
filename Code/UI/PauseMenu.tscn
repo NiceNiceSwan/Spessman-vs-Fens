@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dx80ev1g32ot2"]
 
 [ext_resource type="Script" uid="uid://s6c51of16agt" path="res://Code/UI/PauseMenu.gd" id="1_hqiun"]
+[ext_resource type="PackedScene" uid="uid://dxyyjikdu8g7c" path="res://Code/UI/SettingsMenu.tscn" id="2_k5wyu"]
 
 [node name="PauseMenu" type="Control" unique_id=1944988184]
 process_mode = 3
@@ -12,7 +13,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hqiun")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1592680645]
+[node name="SettingsMenu" parent="." unique_id=1562659536 instance=ExtResource("2_k5wyu")]
+visible = false
+layout_mode = 1
+
+[node name="OptionsContainer" type="VBoxContainer" parent="." unique_id=1592680645]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -27,18 +32,19 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume" type="Button" parent="VBoxContainer" unique_id=1234883971]
+[node name="Resume" type="Button" parent="OptionsContainer" unique_id=1234883971]
 layout_mode = 2
 text = "Resume"
 
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1235313138]
+[node name="Settings" type="Button" parent="OptionsContainer" unique_id=1235313138]
 layout_mode = 2
 text = "Settings"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1247468282]
+[node name="Quit" type="Button" parent="OptionsContainer" unique_id=1247468282]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="exiting" from="SettingsMenu" to="." method="_on_settings_menu_exiting"]
+[connection signal="pressed" from="OptionsContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="OptionsContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="OptionsContainer/Quit" to="." method="_on_quit_pressed"]

@@ -10,12 +10,14 @@ class_name UserInterface extends CanvasLayer
 @onready var game_over_timer: Timer = $GameOverTimer
 @onready var win_timer: Timer = $WinTimer
 @onready var plants_hbox: HBoxContainer = $PlantsBox
-@onready var plant_remover_sprite: AnimatedSprite2D = $PanelContainer/PlantRemover/PlantRemoverSprite
+@onready var plant_remover_sprite: AnimatedSprite2D = $PlantRemoverContainer/PlantRemover/PlantRemoverSprite
+@onready var plant_remover_container: PanelContainer = $PlantRemoverContainer
 
 signal plant_remover_selected
 signal won_timer_expired
 
 func _ready():
+	plant_remover_container.set_visible(SaveData.unlocked_plants >= Enums.UNLOCKS.PLANT_REMOVER)
 	Signals.money_changed.connect(update_money)
 	plant_remover_sprite.play()
 	for plant_holder: PlantHolder in plants_hbox.get_children():
@@ -27,31 +29,6 @@ func _ready():
 func update_money(money: int):
 	$MoneyBox/VBoxContainer/Money.text = str(money)
 
-func _pause_menu() -> void:
-	pause_menu.visible = !pause_menu.visible
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("escape"):
-		if not get_tree().is_paused():
-			get_tree().set_pause(true)
-			pause_menu.set_visible(true)
-			return
-		
-		if settings_menu.is_visible():
-			return
-		
-		get_viewport().set_input_as_handled()
-		get_tree().set_pause(false)
-		_pause_menu()
-
-func _on_pause_menu_open_settings():
-	pause_menu.set_visible(false)
-	settings_menu.set_visible(true)
-
-func _on_settings_menu_exiting():
-	pause_menu.set_visible(true)
-	settings_menu.set_visible(false)
-
 func _on_pause_menu_button_pressed():
 	if not get_tree().is_paused():
 		get_tree().set_pause(true)
@@ -59,14 +36,12 @@ func _on_pause_menu_button_pressed():
 		return
 	
 	get_tree().set_pause(false)
-	pause_menu.set_visible(false)
-	settings_menu.set_visible(false)
-	settings_menu.revert()
+	pause_menu.disable()
 
 func _on_plant_remover_pressed():
 	plant_remover_selected.emit()
 	plant_remover_sprite.set_animation("ready")
-	$PanelContainer/AudioStreamPlayer.play()
+	$PlantRemoverContainer/AudioStreamPlayer.play()
 
 func on_plant_removed():
 	plant_remover_sprite.set_animation("default")
