@@ -67,6 +67,7 @@ func fire(forced: bool = false, play_sound: bool = true):
 	ready_to_fire = false
 	firing_timer.start()
 	fired.emit()
+	burst_fire_timer.start()
 
 func _on_firing_timer_timeout() -> void:
 	ready_to_fire = true
