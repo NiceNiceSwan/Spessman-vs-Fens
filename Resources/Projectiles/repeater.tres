@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Projectiles" format=3 uid="uid://dmftas7vxn3al"]
+
+[ext_resource type="Script" uid="uid://27uvv5mdqisn" path="res://Resources/Projectiles/Projectiles.gd" id="1_mveja"]
+[ext_resource type="Texture2D" uid="uid://bwnlwb5fxd7qc" path="res://Graphics/revolver_bullet.png" id="2_mveja"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjlky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mveja")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_mveja")
+speed = 1000
+sprite_frames = SubResource("SpriteFrames_bjlky")
+rotates = false

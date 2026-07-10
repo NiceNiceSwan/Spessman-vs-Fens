@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://v6u1keu8e2hi"]
+
+[ext_resource type="PackedScene" uid="uid://b8ps18euscuwr" path="res://Code/Plants/Plant.tscn" id="1_yg2bu"]
+[ext_resource type="Script" uid="uid://b7a83aqqot5vn" path="res://Code/Plants/Shooter.gd" id="2_0lhyp"]
+[ext_resource type="Resource" uid="uid://dslddklhc34bw" path="res://Resources/PlantData/Repeater.tres" id="3_0lhyp"]
+[ext_resource type="PackedScene" uid="uid://brwnmd6g8jmnt" path="res://Code/PlantBehaviors/Firing.tscn" id="3_xuxsu"]
+[ext_resource type="SpriteFrames" uid="uid://c5ndrkdy6hjax" path="res://Graphics/Animated/bubber_jacob.tres" id="5_glqpn"]
+[ext_resource type="Resource" uid="uid://cmyuktvrqtmhw" path="res://Resources/PlantBehaviors/ShooterResources/Repeater.tres" id="5_xuxsu"]
+
+[node name="Shooter" unique_id=225516912 instance=ExtResource("1_yg2bu")]
+script = ExtResource("2_0lhyp")
+plant_data = ExtResource("3_0lhyp")
+
+[node name="Firing" parent="." index="0" unique_id=450371363 instance=ExtResource("3_xuxsu")]
+resource = ExtResource("5_xuxsu")
+
+[node name="AnimatedSprite" parent="." index="1" unique_id=893975618]
+sprite_frames = ExtResource("5_glqpn")
