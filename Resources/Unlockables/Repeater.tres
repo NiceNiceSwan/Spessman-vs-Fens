@@ -8,5 +8,5 @@ script = ExtResource("1_7vcyg")
 name = "Repeater"
 description = "Shoots 2 projectiles in quick succesion."
 texture = ExtResource("2_ke0vf")
-ID = 8
+ID = 7
 metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

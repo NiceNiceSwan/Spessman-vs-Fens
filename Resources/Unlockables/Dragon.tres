@@ -8,5 +8,5 @@ script = ExtResource("1_wh5bx")
 name = "Dragon"
 description = "Attacks in 3 lanes at the same time. Its projectiles pass through enemies, though it has limited range."
 texture = ExtResource("2_rmvv8")
-ID = 6
+ID = 11
 metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

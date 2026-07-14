@@ -8,5 +8,5 @@ script = ExtResource("1_1738y")
 name = "Devourer"
 description = "Devours one enemy in front of it, after which it goes on cooldown. When that cooldown expires, generates additional currency."
 texture = ExtResource("2_wyntv")
-ID = 5
+ID = 6
 metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

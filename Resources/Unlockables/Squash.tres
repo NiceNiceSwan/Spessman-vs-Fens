@@ -8,5 +8,5 @@ script = ExtResource("1_iw5c0")
 name = "Squash"
 description = "Jumps onto the enemies in front of it, crushing them."
 texture = ExtResource("2_iwth7")
-ID = 7
+ID = 8
 metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

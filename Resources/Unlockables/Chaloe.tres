@@ -8,5 +8,5 @@ script = ExtResource("1_uj0ak")
 name = "Chaloe"
 description = "Ocasionally heals the tower in front of it."
 texture = ExtResource("2_hmbxw")
-ID = 9
+ID = 10
 metadata/_custom_type_script = "uid://c1jkjv61qyfq8"
