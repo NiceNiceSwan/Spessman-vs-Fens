@@ -23,6 +23,9 @@ signal died
 signal game_over
 
 func _ready():
+	if global_position.x < (1280+128):
+		hitbox_shape.set_disabled(false)
+
 	if not enemy_resource:
 		return
 	
@@ -46,10 +49,21 @@ func initialize():
 	detection_ray.target_position.x = -texture_size.x
 
 func on_hit(_damage: float):
+	hit_animation()
 	health -= _damage
 	if health <= 0:
 		die()
 	$HitSound.play()
+
+func hit_animation() -> void:
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color(1, 0.2, 0.2, 1), 0.05) \
+	.set_trans(Tween.TRANS_QUAD) \
+	.set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), 0.05) \
+	.set_trans(Tween.TRANS_QUAD) \
+	.set_ease(Tween.EASE_OUT)
 
 func die():
 	if is_queued_for_deletion():
@@ -58,6 +72,10 @@ func die():
 	queue_free()
 
 func _process(_delta):
+	hitbox_shape.set_disabled(false)
+	if global_position.x > (1280+128):
+		hitbox_shape.set_disabled(true)
+	
 	if detection_ray.is_colliding() and not attacking:
 		attacking = true
 		target_plant = detection_ray.get_collider().get_parent()
