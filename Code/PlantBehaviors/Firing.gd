@@ -37,11 +37,7 @@ func _ready():
 	
 	firing_timer.wait_time = fire_delay
 	
-	var max_ray_range: float
-	var board_edge: float = get_viewport().get_visible_rect().size.x - Defines.TILE_MAP_X_OFFSET
-	max_ray_range = board_edge - global_position.x
-	
-	detection_ray.target_position.x = min(Defines.TILE_SIZE * _range + Defines.TILE_MAP_X_OFFSET, max_ray_range)
+	detection_ray.target_position.x = Defines.TILE_SIZE * _range + Defines.TILE_MAP_X_OFFSET
 
 func _process(delta):
 	if detection_ray.is_colliding():
@@ -60,6 +56,9 @@ func fire(forced: bool = false, play_sound: bool = true):
 	new_projectile.projectile_data = projectile
 	get_tree().current_scene.add_child(new_projectile)
 	new_projectile.global_position = global_position
+	new_projectile.rotation = rotation
+	var y_randomness: float = randf_range(-10, 10)
+	new_projectile.global_position.y += y_randomness
 	
 	if play_sound:
 		fire_sound.play()
