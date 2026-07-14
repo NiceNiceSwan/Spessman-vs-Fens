@@ -7,37 +7,54 @@
 [ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="5_wg31r"]
 [ext_resource type="Resource" uid="uid://c5oou8qsdwxub" path="res://Resources/Unlockables/Economist.tres" id="6_l56qn"]
 [ext_resource type="Resource" uid="uid://b1kb4k122epgt" path="res://Resources/PlantData/LandMine.tres" id="7_22oqj"]
+[ext_resource type="PackedScene" uid="uid://rhaq2mq34df7" path="res://Code/Plants/Economist.tscn" id="7_hme7m"]
 [ext_resource type="Resource" uid="uid://cqnyxvwwoyp1x" path="res://Resources/Unlockables/LandMine.tres" id="8_hme7m"]
 [ext_resource type="Resource" uid="uid://cfadfydrw2uuu" path="res://Resources/PlantData/Shielder.tres" id="9_tbeuk"]
 [ext_resource type="Resource" uid="uid://blm6ufrcm3hos" path="res://Resources/Unlockables/Shielder.tres" id="10_0gn8f"]
+[ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/Explosive.tscn" id="10_hme7m"]
 [ext_resource type="Resource" uid="uid://ovellveb3yvl" path="res://Resources/PlantData/SlowingShooter.tres" id="11_uquei"]
 [ext_resource type="Resource" uid="uid://cn7nnixerxbo8" path="res://Resources/Unlockables/SlowingShooter.tres" id="12_33kpv"]
 [ext_resource type="Resource" uid="uid://ddlfe1ghkv2vh" path="res://Resources/PlantData/Devourer.tres" id="13_dgxib"]
+[ext_resource type="PackedScene" uid="uid://e8hsqeq0jixr" path="res://Code/Plants/HitSponge.tscn" id="13_tbeuk"]
 [ext_resource type="Resource" uid="uid://cfonb72327u21" path="res://Resources/Unlockables/Devourer.tres" id="14_a4k7s"]
 [ext_resource type="Resource" uid="uid://dslddklhc34bw" path="res://Resources/PlantData/Repeater.tres" id="15_ldr77"]
+[ext_resource type="PackedScene" uid="uid://dr7qn7ups4xpk" path="res://Code/Plants/SlowingShooter.tscn" id="16_0gn8f"]
 [ext_resource type="Resource" uid="uid://e1e4i4kvdpam" path="res://Resources/Unlockables/Repeater.tres" id="16_6fp0y"]
 [ext_resource type="Resource" uid="uid://dji2bkexucl2g" path="res://Resources/PlantData/Squash.tres" id="17_utep0"]
 [ext_resource type="Resource" uid="uid://b3apoqbmdmjha" path="res://Resources/Unlockables/Squash.tres" id="18_3acuy"]
+[ext_resource type="PackedScene" uid="uid://drhb7h3lugbaw" path="res://Code/Plants/Devourer.tscn" id="19_uquei"]
 [ext_resource type="PackedScene" uid="uid://dx80ev1g32ot2" path="res://Code/UI/PauseMenu.tscn" id="19_wg31r"]
+[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="22_33kpv"]
+[ext_resource type="PackedScene" uid="uid://v6u1keu8e2hi" path="res://Code/Plants/Repeater.tscn" id="22_dgxib"]
+[ext_resource type="PackedScene" uid="uid://dv0nkl87p1qfv" path="res://Code/Plants/Squash.tscn" id="24_33kpv"]
+[ext_resource type="Resource" uid="uid://jnn5enhgg5pd" path="res://Resources/PlantData/Chaloe.tres" id="27_6fp0y"]
+[ext_resource type="PackedScene" uid="uid://b2huwlp2yh67l" path="res://Code/Plants/Healer.tscn" id="28_utep0"]
+[ext_resource type="Resource" uid="uid://d8a3i0turqy6" path="res://Resources/Unlockables/Chaloe.tres" id="29_3acuy"]
+[ext_resource type="Resource" uid="uid://bm8ljk4qt5hfn" path="res://Resources/PlantData/Dragon.tres" id="30_85kcv"]
+[ext_resource type="PackedScene" uid="uid://sgd6sq2s3osf" path="res://Code/Plants/dragon.tscn" id="31_w6eu8"]
+[ext_resource type="Resource" uid="uid://cfky3bklblnmj" path="res://Resources/Unlockables/Dragon.tres" id="32_8j85g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ckxye"]
 font_size = 32
 
 [node name="PlantSelector" type="Control" unique_id=703250630]
+custom_minimum_size = Vector2(1280, 768)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_j4qds")
 
-[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=244418130]
+[node name="SelectedPlants" type="PanelContainer" parent="." unique_id=244418130]
 layout_mode = 0
 offset_right = 448.0
 offset_bottom = 98.0
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=287024497]
+[node name="PickablePlants" type="PanelContainer" parent="." unique_id=287024497]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -47,65 +64,87 @@ offset_right = 536.0
 offset_bottom = 20.0
 grow_vertical = 2
 
-[node name="PlantsHolder" type="VBoxContainer" parent="PanelContainer" unique_id=61855486]
+[node name="PlantsHolder" type="VBoxContainer" parent="PickablePlants" unique_id=61855486]
 custom_minimum_size = Vector2(0, 192)
 layout_mode = 2
 
-[node name="UpperPlantsRow" type="HBoxContainer" parent="PanelContainer/PlantsHolder" unique_id=455741235]
+[node name="UpperPlantsRow" type="HBoxContainer" parent="PickablePlants/PlantsHolder" unique_id=455741235]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="PlantSelectButton" parent="PanelContainer/PlantsHolder/UpperPlantsRow" unique_id=246547329 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=246547329 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("3_rfjov")
+plant_scene = ExtResource("22_33kpv")
 unlock_data = ExtResource("4_pnqae")
 
-[node name="PlantSelectButton2" parent="PanelContainer/PlantsHolder/UpperPlantsRow" unique_id=1345412167 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton2" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=1345412167 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("5_wg31r")
+plant_scene = ExtResource("7_hme7m")
 unlock_data = ExtResource("6_l56qn")
 
-[node name="PlantSelectButton3" parent="PanelContainer/PlantsHolder/UpperPlantsRow" unique_id=242612358 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton3" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=242612358 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("7_22oqj")
+plant_scene = ExtResource("10_hme7m")
 unlock_data = ExtResource("8_hme7m")
 
-[node name="PlantSelectButton4" parent="PanelContainer/PlantsHolder/UpperPlantsRow" unique_id=1350943751 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton4" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=1350943751 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("9_tbeuk")
+plant_scene = ExtResource("13_tbeuk")
 unlock_data = ExtResource("10_0gn8f")
 
-[node name="PlantSelectButton5" parent="PanelContainer/PlantsHolder/UpperPlantsRow" unique_id=228255644 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton5" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=228255644 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("11_uquei")
+plant_scene = ExtResource("16_0gn8f")
 unlock_data = ExtResource("12_33kpv")
 
-[node name="PlantSelectButton6" parent="PanelContainer/PlantsHolder/UpperPlantsRow" unique_id=1694401159 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton6" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=1694401159 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("13_dgxib")
+plant_scene = ExtResource("19_uquei")
 unlock_data = ExtResource("14_a4k7s")
 
-[node name="PlantSelectButton7" parent="PanelContainer/PlantsHolder/UpperPlantsRow" unique_id=373806648 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton7" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=373806648 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("15_ldr77")
+plant_scene = ExtResource("22_dgxib")
 unlock_data = ExtResource("16_6fp0y")
 
-[node name="PlantSelectButton8" parent="PanelContainer/PlantsHolder/UpperPlantsRow" unique_id=1234383303 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton8" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=1234383303 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("17_utep0")
+plant_scene = ExtResource("24_33kpv")
 unlock_data = ExtResource("18_3acuy")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/PlantsHolder" unique_id=1048313362]
+[node name="LowerPlantsRow" type="HBoxContainer" parent="PickablePlants/PlantsHolder" unique_id=1048313362]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
+
+[node name="PlantSelectButton" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=2103181190 instance=ExtResource("1_fppp0")]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+plant_data = ExtResource("27_6fp0y")
+plant_scene = ExtResource("28_utep0")
+unlock_data = ExtResource("29_3acuy")
+
+[node name="PlantSelectButton2" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=868644514 instance=ExtResource("1_fppp0")]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+plant_data = ExtResource("30_85kcv")
+plant_scene = ExtResource("31_w6eu8")
+unlock_data = ExtResource("32_8j85g")
 
 [node name="PlayButton" type="Button" parent="." unique_id=1904808267]
 layout_mode = 1
@@ -146,4 +185,9 @@ text = "Menu"
 visible = false
 layout_mode = 1
 
+[node name="ViewTimer" type="Timer" parent="." unique_id=1146794974]
+one_shot = true
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PauseMenuButton" to="." method="_on_pause_menu_button_pressed"]
+[connection signal="timeout" from="ViewTimer" to="." method="_on_view_timer_timeout"]

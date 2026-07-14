@@ -7,6 +7,7 @@ class_name PlantHolder extends Control
 @onready var plant_delay: Timer = $PlantDelay
 @onready var buy_button: Button = $Button
 @onready var texture_rect: TextureRect = $Button/VBoxContainer/TextureRect
+@onready var cost: Label = $Button/VBoxContainer/Cost
 
 var wait_time: float = 1
 
@@ -16,13 +17,19 @@ func _ready():
 	
 	wait_time = plant.plant_cooldown
 	plant_delay.wait_time = wait_time
-	$Button/VBoxContainer/Cost.text = str(plant.cost)
+	cost.text = str(plant.cost)
 	texture_rect.texture = plant.sprite_frames.get_frame_texture("default", 0)
 	Signals.plant_placed.connect(_on_plant_placed)
 
 func _process(_delta):
 	if plant_delay.is_stopped():
 		return
+
+func reload() -> void:
+	wait_time = plant.plant_cooldown
+	plant_delay.wait_time = wait_time
+	cost.text = str(plant.cost)
+	texture_rect.texture = plant.sprite_frames.get_frame_texture("default", 0)
 
 func _on_button_pressed():
 	Signals.plant_selected.emit(plant, plant_scene, index)

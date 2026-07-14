@@ -9,13 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://rhaq2mq34df7" path="res://Code/Plants/Economist.tscn" id="5_acbo8"]
 [ext_resource type="PackedScene" uid="uid://drhb7h3lugbaw" path="res://Code/Plants/Devourer.tscn" id="7_8cutj"]
 [ext_resource type="Resource" uid="uid://b1kb4k122epgt" path="res://Resources/PlantData/LandMine.tres" id="7_pn6a7"]
-[ext_resource type="Resource" uid="uid://bm8ljk4qt5hfn" path="res://Resources/PlantData/Dragon.tres" id="9_3so7x"]
-[ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/explosive.tscn" id="9_8jsuq"]
+[ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/Explosive.tscn" id="9_8jsuq"]
 [ext_resource type="PackedScene" uid="uid://dx80ev1g32ot2" path="res://Code/UI/PauseMenu.tscn" id="9_g0w4m"]
-[ext_resource type="PackedScene" uid="uid://sgd6sq2s3osf" path="res://Code/Plants/dragon.tscn" id="10_dpokb"]
 [ext_resource type="PackedScene" uid="uid://e8hsqeq0jixr" path="res://Code/Plants/HitSponge.tscn" id="10_lyqvs"]
-[ext_resource type="PackedScene" uid="uid://dv0nkl87p1qfv" path="res://Code/Plants/Squash.tscn" id="12_mj8hy"]
 [ext_resource type="Resource" uid="uid://ovellveb3yvl" path="res://Resources/PlantData/SlowingShooter.tres" id="13_i0xlm"]
+[ext_resource type="Resource" uid="uid://dslddklhc34bw" path="res://Resources/PlantData/Repeater.tres" id="14_k8tb2"]
 [ext_resource type="PackedScene" uid="uid://dr7qn7ups4xpk" path="res://Code/Plants/SlowingShooter.tscn" id="14_nhp63"]
 [ext_resource type="SpriteFrames" uid="uid://ohhhhe1v2gon" path="res://Graphics/Animated/sm_crystal.tres" id="18_y0h1x"]
 [ext_resource type="AudioStream" uid="uid://bidvjhyo2am5j" path="res://Sound/plant_remover_select.ogg" id="19_rmka5"]
@@ -155,44 +153,40 @@ size_flags_vertical = 0
 theme_override_constants/separation = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Gunner" parent="PlantsBox" unique_id=1158868527 instance=ExtResource("2_gqnwp")]
+[node name="Slot1" parent="PlantsBox" unique_id=1158868527 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 size_flags_vertical = 1
 plant_scene = ExtResource("3_u0173")
 
-[node name="Economist" parent="PlantsBox" unique_id=1426494926 instance=ExtResource("2_gqnwp")]
+[node name="Slot2" parent="PlantsBox" unique_id=1426494926 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 size_flags_vertical = 1
 plant = ExtResource("3_8ryok")
 plant_scene = ExtResource("5_acbo8")
 
-[node name="PotatoMine" parent="PlantsBox" unique_id=1104508889 instance=ExtResource("2_gqnwp")]
+[node name="Slot3" parent="PlantsBox" unique_id=1104508889 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("7_pn6a7")
 plant_scene = ExtResource("9_8jsuq")
 
-[node name="Shielder" parent="PlantsBox" unique_id=931256916 instance=ExtResource("2_gqnwp")]
+[node name="Slot4" parent="PlantsBox" unique_id=931256916 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("4_5oa16")
 plant_scene = ExtResource("10_lyqvs")
 
-[node name="IcePea" parent="PlantsBox" unique_id=969011938 instance=ExtResource("2_gqnwp")]
+[node name="Slot5" parent="PlantsBox" unique_id=969011938 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant = ExtResource("13_i0xlm")
 plant_scene = ExtResource("14_nhp63")
 
-[node name="Devourer" parent="PlantsBox" unique_id=574392062 instance=ExtResource("2_gqnwp")]
+[node name="Slot6" parent="PlantsBox" unique_id=574392062 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
 plant_scene = ExtResource("7_8cutj")
 
-[node name="Dragon" parent="PlantsBox" unique_id=1748157498 instance=ExtResource("2_gqnwp")]
+[node name="Slot7" parent="PlantsBox" unique_id=1748157498 instance=ExtResource("2_gqnwp")]
 layout_mode = 2
-plant = ExtResource("9_3so7x")
-plant_scene = ExtResource("10_dpokb")
-
-[node name="Squash" parent="PlantsBox" unique_id=917087088 instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant_scene = ExtResource("12_mj8hy")
+plant = ExtResource("14_k8tb2")
+plant_scene = ExtResource("3_u0173")
 
 [node name="PauseMenu" parent="." unique_id=733380313 instance=ExtResource("9_g0w4m")]
 visible = false

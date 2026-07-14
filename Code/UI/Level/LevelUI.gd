@@ -1,7 +1,6 @@
 class_name UserInterface extends CanvasLayer
 
 @onready var pause_menu: PauseMenu = $PauseMenu
-@onready var settings_menu: SettingsMenu = $SettingsMenu
 @onready var wave_progress_bar: ProgressBar = $WaveBarHolder/WaveProgressBar
 @onready var announcement_holder: VBoxContainer = $AnnouncementHolder
 @onready var announcement_label: Label = $AnnouncementHolder/AnnouncementLabel
@@ -16,7 +15,7 @@ class_name UserInterface extends CanvasLayer
 signal plant_remover_selected
 signal won_timer_expired
 
-func _ready():
+func _ready() -> void:
 	plant_remover_container.set_visible(SaveData.unlocked_plants >= Enums.UNLOCKS.PLANT_REMOVER)
 	Signals.money_changed.connect(update_money)
 	plant_remover_sprite.play()
@@ -29,7 +28,7 @@ func _ready():
 func update_money(money: int):
 	$MoneyBox/VBoxContainer/Money.text = str(money)
 
-func _on_pause_menu_button_pressed():
+func _on_pause_menu_button_pressed() -> void:
 	if not get_tree().is_paused():
 		get_tree().set_pause(true)
 		pause_menu.set_visible(true)
@@ -38,12 +37,12 @@ func _on_pause_menu_button_pressed():
 	get_tree().set_pause(false)
 	pause_menu.disable()
 
-func _on_plant_remover_pressed():
+func _on_plant_remover_pressed() -> void:
 	plant_remover_selected.emit()
 	plant_remover_sprite.set_animation("ready")
 	$PlantRemoverContainer/AudioStreamPlayer.play()
 
-func on_plant_removed():
+func on_plant_removed() -> void:
 	plant_remover_sprite.set_animation("default")
 
 func initialize_progress_bar(enemies_amount: int) -> void:
@@ -82,7 +81,7 @@ func announce_defeat() -> void:
 func _on_announcement_timer_timeout() -> void:
 	announcement_holder.set_visible(false)
 
-func _on_game_over_timer_timeout():
+func _on_game_over_timer_timeout() -> void:
 	get_tree().change_scene_to_packed(load("res://Code/UI/MainMenu.tscn"))
 
 func announce_victory() -> void:
@@ -98,5 +97,12 @@ func announce_victory() -> void:
 	
 	tween.finished.connect(func(): win_timer.start())
 
-func _on_win_timer_timeout():
+func _on_win_timer_timeout() -> void:
 	won_timer_expired.emit()
+
+func load_plant_data(plant_data: Array[PlantSelectButton]) -> void:
+	for index in plant_data.size():
+		var plant_holder: PlantHolder = plants_hbox.get_children()[index]
+		plant_holder.plant = plant_data[index].plant_data
+		plant_holder.plant_scene = plant_data[index].plant_scene
+		plant_holder.reload()

@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://chlj85f22rb4l"]
+[gd_scene format=3 uid="uid://chlj85f22rb4l"]
 
-[ext_resource type="Script" path="res://Code/UI/Level/PlantHolder.gd" id="1_07f8t"]
+[ext_resource type="Script" uid="uid://epstp6mfyh5f" path="res://Code/UI/Level/PlantHolder.gd" id="1_07f8t"]
 [ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="2_xehqy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_87v6c"]
 font_size = 12
 
-[node name="PlantHolder" type="Control"]
+[node name="PlantHolder" type="Control" unique_id=780523024]
 custom_minimum_size = Vector2(32, 64)
 layout_mode = 3
 anchor_right = 0.025
@@ -18,31 +18,31 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_07f8t")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=908137357]
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 64.0
 action_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Button"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Button" unique_id=426295857]
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 64.0
 
-[node name="TextureRect" type="TextureRect" parent="Button/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Button/VBoxContainer" unique_id=945971270]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("2_xehqy")
 expand_mode = 4
 
-[node name="Cost" type="Label" parent="Button/VBoxContainer"]
+[node name="Cost" type="Label" parent="Button/VBoxContainer" unique_id=1051000639]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_87v6c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlantDelay" type="Timer" parent="."]
+[node name="PlantDelay" type="Timer" parent="." unique_id=389709291]
 one_shot = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -3,7 +3,7 @@ class_name Level extends Node2D
 @export var level_data: LevelResource
 @export var unlocks: Unlockable
 
-var money: int = 50
+var money: int = 500
 var selected_plant: PlantData
 var selected_plant_scene: PackedScene
 var selected_plant_index: int
@@ -17,13 +17,18 @@ var enemy_sequence_counter: int = 0
 var individual_enemy_counter: int = 0
 var total_enemies_in_level: int = 0
 
+var plants_selected: bool = false
 var game_over_announced: bool = false
 var should_show_new_unlock: bool = false
 
+@onready var currency_timer: Timer = $CurrencyTimer
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var wave_timeout: Timer = $WaveTimeout
 @onready var user_interface: UserInterface =  $LevelUI
 @onready var enemy_spawn_path: Path2D = $EnemySpawnPath
+@onready var player_camera: PlayerCamera = $PlayerCamera
+@onready var plant_selector: PlantSelector = $PlantSelector
+@onready var enemy_preview_area: EnemyPreview = $EnemyPreviewArea
 
 func _ready():
 	Signals.plant_selected.connect(select_plant)
@@ -36,10 +41,18 @@ func _ready():
 		waves = level_data.waves
 		unlocks = level_data.unlocks
 	
+	#var enemies_preview: Array[EnemyResource]
+	var enemies_preview: Dictionary[EnemyResource, int]
 	for wave in waves:
-		for enemy_sequence in wave.enemy_sequences:
+		for enemy_sequence: EnemySequence in wave.enemy_sequences:
 			wave.total_amount_of_enemies += enemy_sequence.amount
 			total_enemies_in_level += enemy_sequence.amount
+			if enemies_preview.has(enemy_sequence.enemy_data):
+				enemies_preview[enemy_sequence.enemy_data] += enemy_sequence.amount
+			else:
+				enemies_preview[enemy_sequence.enemy_data] = enemy_sequence.amount
+	
+	enemy_preview_area.spawn_enemy_preview(enemies_preview)
 	
 	user_interface.initialize_progress_bar(total_enemies_in_level)
 
@@ -218,6 +231,12 @@ func _win() -> void:
 	SaveData.save_game()
 	user_interface.announce_victory()
 
+func _start_game() -> void:
+	wave_timeout.start()
+	currency_timer.start()
+	user_interface.set_visible(true)
+	enemy_preview_area.queue_free()
+
 func _on_level_ui_won_timer_expired():
 	if should_show_new_unlock:
 		var new_unlock: NewUnlock = load("res://Code/UI/NewUnlock.tscn").instantiate()
@@ -227,3 +246,18 @@ func _on_level_ui_won_timer_expired():
 		get_tree().current_scene = new_unlock
 		return
 	get_tree().change_scene_to_packed(load("res://Code/UI/LevelSelector.tscn"))
+
+func _on_game_start_timer_timeout() -> void:
+	player_camera.set_target($SelectorTarget.global_position)
+
+func _on_player_camera_reached_target() -> void:
+	if not plants_selected:
+		plant_selector.slide_panels_in()
+		return
+	_start_game()
+
+func _on_plant_selector_play_button_pressed(selected_plants: Array[PlantSelectButton]) -> void:
+	player_camera.set_target(Vector2(0, 0))
+	user_interface.load_plant_data(selected_plants)
+	plant_selector.queue_free()
+	plants_selected = true
