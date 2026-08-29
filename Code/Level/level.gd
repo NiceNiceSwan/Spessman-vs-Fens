@@ -26,18 +26,20 @@ var should_show_new_unlock: bool = false
 @onready var currency_timer: Timer = $CurrencyTimer
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var wave_timeout: Timer = $WaveTimeout
-@onready var user_interface: UserInterface =  $LevelUI
 @onready var enemy_spawn_path: Path2D = $EnemySpawnPath
 @onready var player_camera: PlayerCamera = $PlayerCamera
 @onready var plant_selector: PlantSelector = $PlantSelector
 @onready var enemy_preview_area: EnemyPreview = $EnemyPreviewArea
+@onready var game_interface: CanvasLayer = $GameInterface
+@onready var user_interface: UserInterface =  $GameInterface/LevelUI
+@onready var default_selector: DefaultSelector = $GameInterface/PlantSelector
 
 func _ready():
 	Signals.plant_selected.connect(select_plant)
 	plant_grid.resize(9)
 	for i in 9:
 		plant_grid[i].resize(5)
-	user_interface.update_money(money)
+	default_selector.update_money(money)
 	
 	if level_data:
 		waves = level_data.waves
@@ -236,7 +238,7 @@ func _win() -> void:
 func _start_game() -> void:
 	wave_timeout.start()
 	currency_timer.start()
-	user_interface.set_visible(true)
+	game_interface.set_visible(true)
 	enemy_preview_area.queue_free()
 
 func _on_level_ui_won_timer_expired():
@@ -260,6 +262,6 @@ func _on_player_camera_reached_target() -> void:
 
 func _on_plant_selector_play_button_pressed(selected_plants: Array[PlantSelectButton]) -> void:
 	player_camera.set_target(Vector2(0, 0))
-	user_interface.load_plant_data(selected_plants)
+	default_selector.load_plant_data(selected_plants)
 	plant_selector.queue_free()
 	plants_selected = true

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cuwbueber5wge"]
+
+[ext_resource type="Script" uid="uid://bd4n7klo03ju3" path="res://Code/UI/Level/TowerSelectors/DefaultSelector.gd" id="1_1jdqx"]
+[ext_resource type="PackedScene" uid="uid://chlj85f22rb4l" path="res://Code/UI/Level/PlantHolder.tscn" id="2_n4pxg"]
+[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="3_nv3x6"]
+[ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="4_eh8eq"]
+[ext_resource type="PackedScene" uid="uid://rhaq2mq34df7" path="res://Code/Plants/Economist.tscn" id="5_c7vfl"]
+[ext_resource type="Resource" uid="uid://b1kb4k122epgt" path="res://Resources/PlantData/LandMine.tres" id="6_ky5xn"]
+[ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/Explosive.tscn" id="7_byjpw"]
+[ext_resource type="Resource" uid="uid://cfadfydrw2uuu" path="res://Resources/PlantData/Shielder.tres" id="8_6no5t"]
+[ext_resource type="PackedScene" uid="uid://e8hsqeq0jixr" path="res://Code/Plants/HitSponge.tscn" id="9_rlvvc"]
+[ext_resource type="Resource" uid="uid://ovellveb3yvl" path="res://Resources/PlantData/SlowingShooter.tres" id="10_bbckh"]
+[ext_resource type="PackedScene" uid="uid://dr7qn7ups4xpk" path="res://Code/Plants/SlowingShooter.tscn" id="11_u5mxj"]
+[ext_resource type="PackedScene" uid="uid://drhb7h3lugbaw" path="res://Code/Plants/Devourer.tscn" id="12_ylpf4"]
+[ext_resource type="Resource" uid="uid://dslddklhc34bw" path="res://Resources/PlantData/Repeater.tres" id="13_catfc"]
+
+[node name="DefaultSelector" type="Control" unique_id=1722217135]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_1jdqx")
+
+[node name="MoneyBox" type="MarginContainer" parent="." unique_id=1860485152]
+process_mode = 1
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 53.0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MoneyBox" unique_id=876498163]
+layout_mode = 2
+
+[node name="MoneyAmount" type="Label" parent="MoneyBox/VBoxContainer" unique_id=314638932]
+layout_mode = 2
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyName" type="Label" parent="MoneyBox/VBoxContainer" unique_id=1662681607]
+layout_mode = 2
+text = "Food"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlantsBox" type="HBoxContainer" parent="." unique_id=1576709227]
+process_mode = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 120.0
+offset_right = 184.0
+offset_bottom = 64.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot1" parent="PlantsBox" unique_id=780523024 instance=ExtResource("2_n4pxg")]
+layout_mode = 2
+size_flags_vertical = 1
+plant_scene = ExtResource("3_nv3x6")
+
+[node name="Slot2" parent="PlantsBox" unique_id=1507825637 instance=ExtResource("2_n4pxg")]
+layout_mode = 2
+size_flags_vertical = 1
+plant = ExtResource("4_eh8eq")
+plant_scene = ExtResource("5_c7vfl")
+
+[node name="Slot3" parent="PlantsBox" unique_id=203849588 instance=ExtResource("2_n4pxg")]
+layout_mode = 2
+plant = ExtResource("6_ky5xn")
+plant_scene = ExtResource("7_byjpw")
+
+[node name="Slot4" parent="PlantsBox" unique_id=307718854 instance=ExtResource("2_n4pxg")]
+layout_mode = 2
+plant = ExtResource("8_6no5t")
+plant_scene = ExtResource("9_rlvvc")
+
+[node name="Slot5" parent="PlantsBox" unique_id=56710293 instance=ExtResource("2_n4pxg")]
+layout_mode = 2
+plant = ExtResource("10_bbckh")
+plant_scene = ExtResource("11_u5mxj")
+
+[node name="Slot6" parent="PlantsBox" unique_id=2040852688 instance=ExtResource("2_n4pxg")]
+layout_mode = 2
+plant_scene = ExtResource("12_ylpf4")
+
+[node name="Slot7" parent="PlantsBox" unique_id=2031230876 instance=ExtResource("2_n4pxg")]
+layout_mode = 2
+plant = ExtResource("13_catfc")
+plant_scene = ExtResource("3_nv3x6")

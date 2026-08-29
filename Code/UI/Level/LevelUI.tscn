@@ -1,20 +1,8 @@
 [gd_scene format=3 uid="uid://drv8t61jomhsi"]
 
 [ext_resource type="Script" uid="uid://dnd1tpauinx8u" path="res://Code/UI/Level/LevelUI.gd" id="1_jinag"]
-[ext_resource type="PackedScene" uid="uid://chlj85f22rb4l" path="res://Code/UI/Level/PlantHolder.tscn" id="2_gqnwp"]
 [ext_resource type="Texture2D" uid="uid://d2pm8k5y4p1mf" path="res://Graphics/poly_dead.png" id="2_t1gui"]
-[ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="3_8ryok"]
-[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="3_u0173"]
-[ext_resource type="Resource" uid="uid://cfadfydrw2uuu" path="res://Resources/PlantData/Shielder.tres" id="4_5oa16"]
-[ext_resource type="PackedScene" uid="uid://rhaq2mq34df7" path="res://Code/Plants/Economist.tscn" id="5_acbo8"]
-[ext_resource type="PackedScene" uid="uid://drhb7h3lugbaw" path="res://Code/Plants/Devourer.tscn" id="7_8cutj"]
-[ext_resource type="Resource" uid="uid://b1kb4k122epgt" path="res://Resources/PlantData/LandMine.tres" id="7_pn6a7"]
-[ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/Explosive.tscn" id="9_8jsuq"]
 [ext_resource type="PackedScene" uid="uid://dx80ev1g32ot2" path="res://Code/UI/PauseMenu.tscn" id="9_g0w4m"]
-[ext_resource type="PackedScene" uid="uid://e8hsqeq0jixr" path="res://Code/Plants/HitSponge.tscn" id="10_lyqvs"]
-[ext_resource type="Resource" uid="uid://ovellveb3yvl" path="res://Resources/PlantData/SlowingShooter.tres" id="13_i0xlm"]
-[ext_resource type="Resource" uid="uid://dslddklhc34bw" path="res://Resources/PlantData/Repeater.tres" id="14_k8tb2"]
-[ext_resource type="PackedScene" uid="uid://dr7qn7ups4xpk" path="res://Code/Plants/SlowingShooter.tscn" id="14_nhp63"]
 [ext_resource type="SpriteFrames" uid="uid://ohhhhe1v2gon" path="res://Graphics/Animated/sm_crystal.tres" id="18_y0h1x"]
 [ext_resource type="AudioStream" uid="uid://bidvjhyo2am5j" path="res://Sound/plant_remover_select.ogg" id="19_rmka5"]
 
@@ -119,74 +107,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_5jf84")
 theme_override_styles/fill = SubResource("StyleBoxFlat_r2gdk")
 step = 0.1
 show_percentage = false
-
-[node name="MoneyBox" type="MarginContainer" parent="." unique_id=898932092]
-process_mode = 1
-offset_right = 120.0
-offset_bottom = 53.0
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MoneyBox" unique_id=2058136562]
-layout_mode = 2
-
-[node name="Money" type="Label" parent="MoneyBox/VBoxContainer" unique_id=1071885669]
-layout_mode = 2
-text = "Placeholder"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MoneyLabel" type="Label" parent="MoneyBox/VBoxContainer" unique_id=303705159]
-layout_mode = 2
-text = "Food"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PlantsBox" type="HBoxContainer" parent="." unique_id=1322162986]
-process_mode = 1
-custom_minimum_size = Vector2(64, 64)
-offset_left = 120.0
-offset_right = 184.0
-offset_bottom = 64.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/separation = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot1" parent="PlantsBox" unique_id=1158868527 instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-size_flags_vertical = 1
-plant_scene = ExtResource("3_u0173")
-
-[node name="Slot2" parent="PlantsBox" unique_id=1426494926 instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-size_flags_vertical = 1
-plant = ExtResource("3_8ryok")
-plant_scene = ExtResource("5_acbo8")
-
-[node name="Slot3" parent="PlantsBox" unique_id=1104508889 instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant = ExtResource("7_pn6a7")
-plant_scene = ExtResource("9_8jsuq")
-
-[node name="Slot4" parent="PlantsBox" unique_id=931256916 instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant = ExtResource("4_5oa16")
-plant_scene = ExtResource("10_lyqvs")
-
-[node name="Slot5" parent="PlantsBox" unique_id=969011938 instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant = ExtResource("13_i0xlm")
-plant_scene = ExtResource("14_nhp63")
-
-[node name="Slot6" parent="PlantsBox" unique_id=574392062 instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant_scene = ExtResource("7_8cutj")
-
-[node name="Slot7" parent="PlantsBox" unique_id=1748157498 instance=ExtResource("2_gqnwp")]
-layout_mode = 2
-plant = ExtResource("14_k8tb2")
-plant_scene = ExtResource("3_u0173")
 
 [node name="PauseMenu" parent="." unique_id=733380313 instance=ExtResource("9_g0w4m")]
 visible = false
