@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://bo827rh3amima"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_h6g1v"]
+[ext_resource type="Texture2D" uid="uid://fuhv7hqhdrac" path="res://Graphics/calorite_glass_shards.png" id="2_ytu76"]
+
+[resource]
+script = ExtResource("1_h6g1v")
+name = "Calorite Glass Shards"
+description = "Damages enemies stepping on top of it. The only reason we can convert food into those is because they're made out of calorite."
+texture = ExtResource("2_ytu76")
+ID = 14
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

@@ -28,11 +28,29 @@
 [ext_resource type="PackedScene" uid="uid://v6u1keu8e2hi" path="res://Code/Plants/Repeater.tscn" id="22_dgxib"]
 [ext_resource type="PackedScene" uid="uid://dv0nkl87p1qfv" path="res://Code/Plants/Squash.tscn" id="24_33kpv"]
 [ext_resource type="Resource" uid="uid://jnn5enhgg5pd" path="res://Resources/PlantData/Chaloe.tres" id="27_6fp0y"]
+[ext_resource type="Resource" uid="uid://c4lwd5wc1h3av" path="res://Resources/PlantData/MegaphoneTower.tres" id="27_d8cjg"]
+[ext_resource type="PackedScene" uid="uid://dcnqi3u3comnh" path="res://Code/Plants/MegaphoneTower.tscn" id="28_53gad"]
 [ext_resource type="PackedScene" uid="uid://b2huwlp2yh67l" path="res://Code/Plants/Healer.tscn" id="28_utep0"]
 [ext_resource type="Resource" uid="uid://d8a3i0turqy6" path="res://Resources/Unlockables/Chaloe.tres" id="29_3acuy"]
+[ext_resource type="Resource" uid="uid://mebcgealy8g" path="res://Resources/Unlockables/MegaphoneTower.tres" id="29_cpnhb"]
 [ext_resource type="Resource" uid="uid://bm8ljk4qt5hfn" path="res://Resources/PlantData/Dragon.tres" id="30_85kcv"]
 [ext_resource type="PackedScene" uid="uid://sgd6sq2s3osf" path="res://Code/Plants/dragon.tscn" id="31_w6eu8"]
 [ext_resource type="Resource" uid="uid://cfky3bklblnmj" path="res://Resources/Unlockables/Dragon.tres" id="32_8j85g"]
+[ext_resource type="Resource" uid="uid://cf8sr3iklhrlp" path="res://Resources/PlantData/Piercer.tres" id="33_abhjk"]
+[ext_resource type="PackedScene" uid="uid://cn2sq0tp30e8i" path="res://Code/Plants/Piercer.tscn" id="34_7egsk"]
+[ext_resource type="Resource" uid="uid://d3pvv2s4yokoh" path="res://Resources/Unlockables/Piercer.tres" id="35_8a708"]
+[ext_resource type="Resource" uid="uid://bo827rh3amima" path="res://Resources/Unlockables/CaloriteGlass.tres" id="36_cgrak"]
+[ext_resource type="Resource" uid="uid://uviqs4tpdfby" path="res://Resources/PlantData/MaxCap.tres" id="36_mu2gi"]
+[ext_resource type="PackedScene" uid="uid://chwe3fq8rfeym" path="res://Code/Plants/MaxCap.tscn" id="37_4ad08"]
+[ext_resource type="Resource" uid="uid://caoreu301m2w5" path="res://Resources/Unlockables/CherryBomb.tres" id="38_mu2gi"]
+[ext_resource type="Resource" uid="uid://xx8ur2rhukq1" path="res://Resources/Unlockables/IceShroom.tres" id="39_4ad08"]
+[ext_resource type="Resource" uid="uid://e0k00qr4kdyp" path="res://Resources/PlantData/CaloriteGlass.tres" id="39_cpnhb"]
+[ext_resource type="Resource" uid="uid://0pgptrsf4cgx" path="res://Resources/PlantData/IceShroom.tres" id="40_5ro3y"]
+[ext_resource type="PackedScene" uid="uid://bu14xstlfmbgl" path="res://Code/Plants/CaloriteGlass.tscn" id="40_53gad"]
+[ext_resource type="PackedScene" uid="uid://bljkhvv8ctmak" path="res://Code/Plants/IceShroom.tscn" id="40_m40vc"]
+[ext_resource type="Resource" uid="uid://n8tusuvi3l1w" path="res://Resources/Unlockables/StarFruit.tres" id="41_5efcu"]
+[ext_resource type="PackedScene" uid="uid://dys5axllr0yxe" path="res://Code/Plants/ShootingStar.tscn" id="41_bn2w4"]
+[ext_resource type="Resource" uid="uid://b25686lk37vkn" path="res://Resources/PlantData/ShootingStar.tres" id="41_o8ocs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ckxye"]
 font_size = 32
@@ -132,19 +150,57 @@ unlock_data = ExtResource("18_3acuy")
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="PlantSelectButton" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=2103181190 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=1064386526 instance=ExtResource("1_fppp0")]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+plant_data = ExtResource("27_d8cjg")
+plant_scene = ExtResource("28_53gad")
+unlock_data = ExtResource("29_cpnhb")
+
+[node name="PlantSelectButton2" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=2103181190 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("27_6fp0y")
 plant_scene = ExtResource("28_utep0")
 unlock_data = ExtResource("29_3acuy")
 
-[node name="PlantSelectButton2" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=868644514 instance=ExtResource("1_fppp0")]
+[node name="PlantSelectButton3" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=868644514 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("30_85kcv")
 plant_scene = ExtResource("31_w6eu8")
 unlock_data = ExtResource("32_8j85g")
+
+[node name="PlantSelectButton4" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=1367777990 instance=ExtResource("1_fppp0")]
+layout_mode = 2
+plant_data = ExtResource("33_abhjk")
+plant_scene = ExtResource("34_7egsk")
+unlock_data = ExtResource("35_8a708")
+
+[node name="PlantSelectButton5" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=1089161238 instance=ExtResource("1_fppp0")]
+layout_mode = 2
+plant_data = ExtResource("39_cpnhb")
+plant_scene = ExtResource("40_53gad")
+unlock_data = ExtResource("36_cgrak")
+
+[node name="PlantSelectButton6" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=1750229200 instance=ExtResource("1_fppp0")]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+plant_data = ExtResource("36_mu2gi")
+plant_scene = ExtResource("37_4ad08")
+unlock_data = ExtResource("38_mu2gi")
+
+[node name="PlantSelectButton7" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=1510527343 instance=ExtResource("1_fppp0")]
+layout_mode = 2
+plant_data = ExtResource("40_5ro3y")
+plant_scene = ExtResource("40_m40vc")
+unlock_data = ExtResource("39_4ad08")
+
+[node name="PlantSelectButton8" parent="PickablePlants/PlantsHolder/LowerPlantsRow" unique_id=1358604419 instance=ExtResource("1_fppp0")]
+layout_mode = 2
+plant_data = ExtResource("41_o8ocs")
+plant_scene = ExtResource("41_bn2w4")
+unlock_data = ExtResource("41_5efcu")
 
 [node name="PlayButton" type="Button" parent="." unique_id=1904808267]
 layout_mode = 1

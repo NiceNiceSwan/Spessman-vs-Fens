@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dys5axllr0yxe"]
+
+[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="1_uqpeh"]
+[ext_resource type="Script" uid="uid://dgbo5wba7m412" path="res://Code/Plants/ShootingStar.gd" id="2_pxrlb"]
+[ext_resource type="PackedScene" uid="uid://brwnmd6g8jmnt" path="res://Code/PlantBehaviors/Firing.tscn" id="3_8f3qm"]
+[ext_resource type="SpriteFrames" uid="uid://bb6l72vsdqx1n" path="res://Graphics/Animated/augustus.tres" id="3_awamr"]
+[ext_resource type="Resource" uid="uid://b25686lk37vkn" path="res://Resources/PlantData/ShootingStar.tres" id="3_il44o"]
+[ext_resource type="Resource" uid="uid://bayoy5ykwva7" path="res://Resources/PlantBehaviors/ShooterResources/Gunner.tres" id="4_nuu8b"]
+
+[node name="ShootingStar" unique_id=1777408802 instance=ExtResource("1_uqpeh")]
+script = ExtResource("2_pxrlb")
+plant_data = ExtResource("3_il44o")
+
+[node name="Firing" parent="." index="0"]
+rotation = 3.1415927
+
+[node name="FiringUp" parent="." index="1" unique_id=1610902190 instance=ExtResource("3_8f3qm")]
+rotation = -1.5707963
+resource = ExtResource("4_nuu8b")
+
+[node name="FiringUpRight" parent="." index="2" unique_id=1274640795 instance=ExtResource("3_8f3qm")]
+rotation = -0.78539807
+resource = ExtResource("4_nuu8b")
+
+[node name="FiringDownRight" parent="." index="3" unique_id=893170488 instance=ExtResource("3_8f3qm")]
+rotation = 0.78539824
+resource = ExtResource("4_nuu8b")
+
+[node name="FiringDown" parent="." index="4" unique_id=354928444 instance=ExtResource("3_8f3qm")]
+rotation = 1.5707964
+resource = ExtResource("4_nuu8b")
+
+[node name="AnimatedSprite" parent="." index="5" unique_id=893975618]
+sprite_frames = ExtResource("3_awamr")

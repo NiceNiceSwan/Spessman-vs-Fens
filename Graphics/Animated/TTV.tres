@@ -1,0 +1,88 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://couws1pqtgb60"]
+
+[ext_resource type="Texture2D" uid="uid://tcbf8u88i100" path="res://Graphics/TTV.png" id="1_m5t2q"]
+[ext_resource type="Texture2D" uid="uid://md1sb8e3gbkf" path="res://Graphics/explosion.png" id="2_t20lq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8yeu"]
+atlas = ExtResource("2_t20lq")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um35v"]
+atlas = ExtResource("2_t20lq")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wf8g"]
+atlas = ExtResource("2_t20lq")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyiei"]
+atlas = ExtResource("2_t20lq")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36kh7"]
+atlas = ExtResource("2_t20lq")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv6po"]
+atlas = ExtResource("2_t20lq")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72ckd"]
+atlas = ExtResource("2_t20lq")
+region = Rect2(576, 0, 96, 96)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m5t2q")
+}],
+"loop": 0,
+"name": &"armed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m5t2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_m5t2q")
+}],
+"loop": 0,
+"name": &"arming",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m5t2q")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8yeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um35v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wf8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyiei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36kh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv6po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ckd")
+}],
+"loop": 0,
+"name": &"exploding",
+"speed": 60.0
+}]

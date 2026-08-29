@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_bwj87"]
 [ext_resource type="Resource" uid="uid://c5oou8qsdwxub" path="res://Resources/Unlockables/Economist.tres" id="2_2h8oy"]
-[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="2_blpf0"]
+[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemies/Enemy.tscn" id="2_blpf0"]
 [ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="3_0d3dh"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_7fyrm"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="4_qf3n5"]

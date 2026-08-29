@@ -8,7 +8,7 @@ var projectile_scene: PackedScene = preload("uid://c8c0jxf63waum")
 var _range: int = 1
 var ready_to_fire: bool = true
 
-var fire_delay_milliseconds: int
+var fire_delay_milliseconds: float = 0
 var burst_shots_fired: int = 0
 
 @export var resource: Shooters
@@ -39,10 +39,10 @@ func _ready():
 	
 	detection_ray.target_position.x = Defines.TILE_SIZE * _range + Defines.TILE_MAP_X_OFFSET
 
-func _process(delta):
+func _process(delta: float):
 	if detection_ray.is_colliding():
 		detected_enemy.emit()
-		while fire_delay_milliseconds > 0:
+		if fire_delay_milliseconds > 0:
 			fire_delay_milliseconds -= 1 * (delta * 1000)
 			return
 		

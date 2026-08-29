@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://b7a83aqqot5vn" path="res://Code/Plants/Shooter.gd" id="2_0lhyp"]
 [ext_resource type="Resource" uid="uid://dslddklhc34bw" path="res://Resources/PlantData/Repeater.tres" id="3_0lhyp"]
 [ext_resource type="PackedScene" uid="uid://brwnmd6g8jmnt" path="res://Code/PlantBehaviors/Firing.tscn" id="3_xuxsu"]
-[ext_resource type="SpriteFrames" uid="uid://c5ndrkdy6hjax" path="res://Graphics/Animated/bubber_jacob.tres" id="5_glqpn"]
 [ext_resource type="Resource" uid="uid://cmyuktvrqtmhw" path="res://Resources/PlantBehaviors/ShooterResources/Repeater.tres" id="5_xuxsu"]
+[ext_resource type="SpriteFrames" uid="uid://bt0gpvlk0hy47" path="res://Graphics/Animated/Repeater.tres" id="6_0lhyp"]
 
 [node name="Shooter" unique_id=225516912 instance=ExtResource("1_yg2bu")]
 script = ExtResource("2_0lhyp")
@@ -15,4 +15,4 @@ plant_data = ExtResource("3_0lhyp")
 resource = ExtResource("5_xuxsu")
 
 [node name="AnimatedSprite" parent="." index="1" unique_id=893975618]
-sprite_frames = ExtResource("5_glqpn")
+sprite_frames = ExtResource("6_0lhyp")

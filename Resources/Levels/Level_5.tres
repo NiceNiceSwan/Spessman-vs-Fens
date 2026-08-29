@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_h2svw"]
 [ext_resource type="Resource" uid="uid://cfonb72327u21" path="res://Resources/Unlockables/Devourer.tres" id="2_defa8"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_ybgmn"]
-[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="4_dg0s4"]
+[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemies/Enemy.tscn" id="4_dg0s4"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="5_0y8v5"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="6_8nrt3"]
 [ext_resource type="Script" uid="uid://bev3bmevyiixu" path="res://Resources/Waves/Wave.gd" id="7_vium2"]

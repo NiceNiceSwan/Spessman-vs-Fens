@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Shooters" load_steps=4 format=3 uid="uid://bayoy5ykwva7"]
+[gd_resource type="Resource" script_class="Shooters" format=3 uid="uid://bayoy5ykwva7"]
 
 [ext_resource type="AudioStream" uid="uid://dw63i2jr7osei" path="res://Sound/ratchet.ogg" id="1_0m6x1"]
 [ext_resource type="Resource" uid="uid://ctmlwv442ff4h" path="res://Resources/Projectiles/fast.tres" id="2_seat8"]
-[ext_resource type="Script" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="3_sq1i7"]
+[ext_resource type="Script" uid="uid://ds0upah4hmud2" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="3_sq1i7"]
+[ext_resource type="PackedScene" uid="uid://c8c0jxf63waum" path="res://Code/Projectiles/Projectile.tscn" id="3_x3041"]
 
 [resource]
 script = ExtResource("3_sq1i7")
-bullets_per_fire = 1
-fire_delay = 1.0
 projectile = ExtResource("2_seat8")
-range = 9
 fire_sound = ExtResource("1_0m6x1")

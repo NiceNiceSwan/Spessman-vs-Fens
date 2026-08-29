@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bqpq4iwkjdr32"]
+
+[ext_resource type="Texture2D" uid="uid://fuhv7hqhdrac" path="res://Graphics/calorite_glass_shards.png" id="1_xmsc6"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xmsc6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

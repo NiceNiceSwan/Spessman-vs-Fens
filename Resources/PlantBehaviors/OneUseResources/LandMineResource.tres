@@ -1,11 +1,8 @@
-[gd_resource type="Resource" script_class="OneUseResource" load_steps=2 format=3 uid="uid://boydxu4xtn421"]
+[gd_resource type="Resource" script_class="OneUseResource" format=3 uid="uid://boydxu4xtn421"]
 
-[ext_resource type="Script" path="res://Resources/PlantBehaviors/OneUseResources/OneUseResources.gd" id="1_77x3k"]
+[ext_resource type="Script" uid="uid://o038356vgbjq" path="res://Resources/PlantBehaviors/OneUseResources/OneUseResources.gd" id="1_77x3k"]
 
 [resource]
 script = ExtResource("1_77x3k")
-damage = 250
-range = 1
 armed = false
 arming_time = 10
-delayed_explosion = false

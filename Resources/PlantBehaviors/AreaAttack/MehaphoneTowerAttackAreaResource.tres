@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AreaAttackResource" format=3 uid="uid://6dn8vs7k8jf2"]
+
+[ext_resource type="Script" uid="uid://l8yp6g7be62x" path="res://Resources/PlantBehaviors/AreaAttack/AreaAttackResource.gd" id="1_xb3hc"]
+
+[resource]
+script = ExtResource("1_xb3hc")
+attack_range = 3
+detection_range = 3
+damage = 3.0
+metadata/_custom_type_script = "uid://l8yp6g7be62x"

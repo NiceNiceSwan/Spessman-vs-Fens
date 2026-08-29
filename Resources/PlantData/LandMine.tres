@@ -1,13 +1,12 @@
-[gd_resource type="Resource" script_class="PlantData" load_steps=3 format=3 uid="uid://b1kb4k122epgt"]
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://b1kb4k122epgt"]
 
-[ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_8h1f0"]
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_8h1f0"]
 [ext_resource type="SpriteFrames" uid="uid://crvndgjeibirv" path="res://Graphics/Animated/protobomb.tres" id="3_iopjy"]
 
 [resource]
 script = ExtResource("1_8h1f0")
 ID = 2
 name = "LandMine"
-max_health = 5
 cost = 25
 sprite_frames = ExtResource("3_iopjy")
 plant_cooldown = 20.0

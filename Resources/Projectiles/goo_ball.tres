@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="Projectiles" format=3 uid="uid://s6dema8ufs8o"]
+
+[ext_resource type="Script" uid="uid://27uvv5mdqisn" path="res://Resources/Projectiles/Projectiles.gd" id="1_or54k"]
+[ext_resource type="Texture2D" uid="uid://ytc052piu6ce" path="res://Graphics/goo_ball.png" id="2_fnmob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or54k"]
+atlas = ExtResource("2_fnmob")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnmob"]
+atlas = ExtResource("2_fnmob")
+region = Rect2(0, 16, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmoyo"]
+atlas = ExtResource("2_fnmob")
+region = Rect2(0, 32, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xsna"]
+atlas = ExtResource("2_fnmob")
+region = Rect2(0, 48, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jjkev"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_or54k")
+}, {
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_fnmob")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_vmoyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xsna")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 20.0
+}]
+
+[resource]
+script = ExtResource("1_or54k")
+speed = 1000
+health = 1000000
+fly_range = 5
+sprite_frames = SubResource("SpriteFrames_jjkev")
+rotates = false
+metadata/_custom_type_script = "uid://27uvv5mdqisn"

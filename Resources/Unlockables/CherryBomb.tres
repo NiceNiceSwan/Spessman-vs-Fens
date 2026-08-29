@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://caoreu301m2w5"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_cblvm"]
+[ext_resource type="Texture2D" uid="uid://tcbf8u88i100" path="res://Graphics/TTV.png" id="2_qib1i"]
+
+[resource]
+script = ExtResource("1_cblvm")
+name = "TTV"
+description = "Explodes enemies in a 3x3 area. Ok, but how are you going to explain paying with food for THIS one? Simple, you just feed the scientist making those."
+texture = ExtResource("2_qib1i")
+ID = 14
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

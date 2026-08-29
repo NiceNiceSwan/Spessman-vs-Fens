@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_vdrti"]
 [ext_resource type="Resource" uid="uid://blm6ufrcm3hos" path="res://Resources/Unlockables/Shielder.tres" id="2_tsswn"]
-[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="3_ccqbp"]
+[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemies/Enemy.tscn" id="3_ccqbp"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_r8b6g"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="4_sinhq"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="5_xbtkw"]

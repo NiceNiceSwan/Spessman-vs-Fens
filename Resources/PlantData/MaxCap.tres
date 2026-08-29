@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://uviqs4tpdfby"]
+
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_ccg8t"]
+[ext_resource type="SpriteFrames" uid="uid://couws1pqtgb60" path="res://Graphics/Animated/TTV.tres" id="2_hurqk"]
+
+[resource]
+script = ExtResource("1_ccg8t")
+ID = 14
+name = "TTV"
+cost = 150
+sprite_frames = ExtResource("2_hurqk")
+metadata/_custom_type_script = "uid://dn61oer81nccm"

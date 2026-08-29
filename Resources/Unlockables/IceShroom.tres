@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://xx8ur2rhukq1"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_8a4o3"]
+[ext_resource type="Texture2D" uid="uid://dx7r0ufrvxisu" path="res://Graphics/sepia_slime.png" id="2_djyve"]
+
+[resource]
+script = ExtResource("1_8a4o3")
+name = "Sepia Slime"
+description = "Stops time for the enemy, but not for you."
+texture = ExtResource("2_djyve")
+ID = 15
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

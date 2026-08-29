@@ -29,6 +29,7 @@ SaveData="*res://Global/SaveData.gd"
 [debug]
 
 gdscript/warnings/unused_signal=0
+gdscript/warnings/integer_division=0
 
 [display]
 
@@ -78,4 +79,5 @@ common/physics_ticks_per_second=90
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

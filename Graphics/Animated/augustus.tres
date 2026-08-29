@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bb6l72vsdqx1n"]
+
+[ext_resource type="Texture2D" uid="uid://bgdf5nnxc74mn" path="res://Graphics/Augustus.png" id="1_2q5ct"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2q5ct")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

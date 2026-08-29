@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Shooters" format=3 uid="uid://jgdjyx52jqw1"]
+
+[ext_resource type="Resource" uid="uid://s6dema8ufs8o" path="res://Resources/Projectiles/goo_ball.tres" id="2_rcy48"]
+[ext_resource type="PackedScene" uid="uid://c8c0jxf63waum" path="res://Code/Projectiles/Projectile.tscn" id="3_trcyl"]
+[ext_resource type="Script" uid="uid://ds0upah4hmud2" path="res://Resources/PlantBehaviors/ShooterResources/Shooters.gd" id="4_qjwhh"]
+
+[resource]
+script = ExtResource("4_qjwhh")
+projectile = ExtResource("2_rcy48")
+detection_range = 5
+metadata/_custom_type_script = "uid://ds0upah4hmud2"

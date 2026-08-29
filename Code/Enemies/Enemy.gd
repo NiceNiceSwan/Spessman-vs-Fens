@@ -8,8 +8,13 @@ var speed: float = 25
 var attack_delay: float = 0.5
 var attacking: bool = false
 var target_plant: Plant
+## Whether the enemy has passed the entry point and can be seen on the map.
+var has_entered_board: bool = false
 
+## Multiplier to the movement speed. Higher values means we move faster.
 var move_speed_modifier: float = 1
+## Multiplier to the attack speed. Higher values means we attack less 
+## frequently.
 var attack_speed_modifier: float = 1
 var status_effects: Array[StatusEffect]
 
@@ -22,16 +27,35 @@ var status_effects: Array[StatusEffect]
 signal died
 signal game_over
 
-func _ready():
+func _ready() -> void:
 	if global_position.x < (1280+128):
 		hitbox_shape.set_disabled(false)
+	else:
+		hitbox_shape.set_disabled(true)
 
 	if not enemy_resource:
 		return
 	
 	initialize()
 
-func initialize():
+func _process(_delta) -> void:
+	if global_position.x > (1280+128) and not has_entered_board:
+		_enable_hitbox()
+	
+	if detection_ray.is_colliding() and not attacking:
+		attacking = true
+		target_plant = detection_ray.get_collider().get_parent()
+		attack_timer.start(attack_delay * attack_speed_modifier)
+		return
+
+func _physics_process(delta: float) -> void:
+	if not attacking:
+		position.x -= speed * move_speed_modifier * delta
+
+	if position.x <= 16:
+		game_over.emit()
+
+func initialize() -> void:
 	health = enemy_resource.health
 	damage = enemy_resource.damage
 	speed = enemy_resource.speed
@@ -48,7 +72,7 @@ func initialize():
 	detection_ray.position.x = texture_size.x / 2
 	detection_ray.target_position.x = -texture_size.x
 
-func on_hit(_damage: float):
+func on_hit(_damage: float) -> void:
 	hit_animation()
 	health -= _damage
 	if health <= 0:
@@ -65,31 +89,17 @@ func hit_animation() -> void:
 	.set_trans(Tween.TRANS_QUAD) \
 	.set_ease(Tween.EASE_OUT)
 
-func die():
+func die() -> void:
 	if is_queued_for_deletion():
 		return
 	died.emit()
 	queue_free()
 
-func _process(_delta):
-	hitbox_shape.set_disabled(false)
-	if global_position.x > (1280+128):
-		hitbox_shape.set_disabled(true)
-	
-	if detection_ray.is_colliding() and not attacking:
-		attacking = true
-		target_plant = detection_ray.get_collider().get_parent()
-		attack_timer.start(attack_delay * attack_speed_modifier)
-		return
+func _enable_hitbox() -> void:
+		hitbox_shape.set_disabled(false)
+		has_entered_board = true
 
-func _physics_process(delta: float) -> void:
-	if not attacking:
-		position.x -= speed * move_speed_modifier * delta
-
-	if position.x <= 16:
-		game_over.emit()
-
-func _on_attack_timer_timeout():
+func _on_attack_timer_timeout() -> void:
 	if is_instance_valid(target_plant):
 		target_plant.take_damage(damage)
 		attack_timer.start(attack_delay * attack_speed_modifier)

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AreaAttackResource" format=3 uid="uid://y2son470qo1y"]
+
+[ext_resource type="Script" uid="uid://l8yp6g7be62x" path="res://Resources/PlantBehaviors/AreaAttack/AreaAttackResource.gd" id="1_sib58"]
+
+[resource]
+script = ExtResource("1_sib58")
+metadata/_custom_type_script = "uid://l8yp6g7be62x"

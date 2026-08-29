@@ -16,7 +16,7 @@ signal plant_remover_selected
 signal won_timer_expired
 
 func _ready() -> void:
-	plant_remover_container.set_visible(SaveData.unlocked_plants >= Enums.UNLOCKS.PLANT_REMOVER)
+	plant_remover_container.set_visible(SaveData.unlocked_plants >= Enums.UNLOCKS.SM_CRYSTAL)
 	Signals.money_changed.connect(update_money)
 	plant_remover_sprite.play()
 	for plant_holder: PlantHolder in plants_hbox.get_children():

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://0pgptrsf4cgx"]
+
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_aw3sf"]
+[ext_resource type="SpriteFrames" uid="uid://dx7dmwgirmiug" path="res://Graphics/Animated/sepia_slime.tres" id="2_hbg3u"]
+
+[resource]
+script = ExtResource("1_aw3sf")
+ID = 15
+name = "Sepia Slime"
+cost = 75
+sprite_frames = ExtResource("2_hbg3u")
+plant_cooldown = 5.0
+metadata/_custom_type_script = "uid://dn61oer81nccm"

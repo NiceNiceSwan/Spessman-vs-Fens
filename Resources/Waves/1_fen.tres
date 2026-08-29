@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Wave" format=3 uid="uid://b3h6rvoqcn41l"]
 
-[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="1_hcuvd"]
+[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemies/Enemy.tscn" id="1_hcuvd"]
 [ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="2_fsw6j"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="3_g5mu6"]
 [ext_resource type="Script" uid="uid://bev3bmevyiixu" path="res://Resources/Waves/Wave.gd" id="4_eodja"]

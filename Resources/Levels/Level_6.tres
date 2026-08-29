@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://dfds1j7kvt2ck"]
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_mpcmt"]
-[ext_resource type="Resource" uid="uid://cfky3bklblnmj" path="res://Resources/Unlockables/Dragon.tres" id="2_p2ptc"]
+[ext_resource type="Resource" uid="uid://e1e4i4kvdpam" path="res://Resources/Unlockables/Repeater.tres" id="2_p2ptc"]
 [ext_resource type="Resource" uid="uid://b3h6rvoqcn41l" path="res://Resources/Waves/1_fen.tres" id="3_27s7h"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="4_dbu5f"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="5_2811b"]

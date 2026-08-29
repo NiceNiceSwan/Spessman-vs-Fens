@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://e0k00qr4kdyp"]
+
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_1a3fx"]
+[ext_resource type="SpriteFrames" uid="uid://bqpq4iwkjdr32" path="res://Graphics/Animated/calorite_shard.tres" id="2_e848g"]
+
+[resource]
+script = ExtResource("1_1a3fx")
+ID = 14
+name = "Calorite Glass Shards"
+sprite_frames = ExtResource("2_e848g")
+metadata/_custom_type_script = "uid://dn61oer81nccm"

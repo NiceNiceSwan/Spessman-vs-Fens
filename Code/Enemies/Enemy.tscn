@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b00k3o2qlcw1i"]
 
-[ext_resource type="Script" uid="uid://bt3jedxtkw1mi" path="res://Code/Enemy.gd" id="1_sh3vo"]
+[ext_resource type="Script" uid="uid://bt3jedxtkw1mi" path="res://Code/Enemies/Enemy.gd" id="1_sh3vo"]
 [ext_resource type="Texture2D" uid="uid://c6xworb1w7nwm" path="res://Graphics/evil_creature.png" id="2_rx24u"]
 [ext_resource type="AudioStream" uid="uid://c2upeqk1hdeks" path="res://Sound/val_hit.ogg" id="3_l8xb3"]
 
@@ -16,6 +16,7 @@ collision_mask = 0
 
 [node name="HitboxShape" type="CollisionShape2D" parent="Hitbox" unique_id=17414447]
 shape = SubResource("RectangleShape2D_6ielk")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=319294897]
 texture = ExtResource("2_rx24u")
@@ -34,5 +35,4 @@ collide_with_bodies = false
 
 [node name="StatusEffects" type="Node" parent="." unique_id=1028084598]
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

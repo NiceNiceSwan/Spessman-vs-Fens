@@ -1,30 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://biv0y2aahc1cl"]
+[gd_scene format=3 uid="uid://biv0y2aahc1cl"]
 
-[ext_resource type="Script" path="res://Code/PlantBehaviors/OneUse.gd" id="1_8awhi"]
+[ext_resource type="Script" uid="uid://d35od7hk3jxt4" path="res://Code/PlantBehaviors/OneUse.gd" id="1_8awhi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayxfh"]
 size = Vector2(192, 126)
 
-[node name="OneUse" type="Node2D"]
+[node name="OneUse" type="Node2D" unique_id=575549156]
 script = ExtResource("1_8awhi")
 
-[node name="DetectionRay" type="RayCast2D" parent="."]
+[node name="DetectionRay" type="RayCast2D" parent="." unique_id=1778093555]
 target_position = Vector2(64, 0)
 collision_mask = 4
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="UseSound" type="AudioStreamPlayer2D" parent="."]
+[node name="UseSound" type="AudioStreamPlayer2D" parent="." unique_id=885668037]
 
-[node name="ArmingTimer" type="Timer" parent="."]
+[node name="ArmingTimer" type="Timer" parent="." unique_id=1644825561]
 one_shot = true
 
-[node name="ExplosionArea" type="Area2D" parent="."]
+[node name="ExplosionArea" type="Area2D" parent="." unique_id=1248517715]
 collision_layer = 0
 collision_mask = 4
 
-[node name="ExplosionArea" type="CollisionShape2D" parent="ExplosionArea"]
+[node name="ExplosionArea" type="CollisionShape2D" parent="ExplosionArea" unique_id=1864027376]
 shape = SubResource("RectangleShape2D_ayxfh")
 
 [connection signal="timeout" from="ArmingTimer" to="." method="_on_arming_timer_timeout"]

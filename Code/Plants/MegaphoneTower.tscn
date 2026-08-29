@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dcnqi3u3comnh"]
+
+[ext_resource type="PackedScene" uid="uid://b8ps18euscuwr" path="res://Code/Plants/Plant.tscn" id="1_qlwbf"]
+[ext_resource type="Resource" uid="uid://c4lwd5wc1h3av" path="res://Resources/PlantData/MegaphoneTower.tres" id="2_argi4"]
+[ext_resource type="PackedScene" uid="uid://ctpxskcx3wydb" path="res://Code/PlantBehaviors/AreaAttack.tscn" id="3_argi4"]
+[ext_resource type="SpriteFrames" uid="uid://ca3odtqncf4dy" path="res://Graphics/Animated/megaphone_tower.tres" id="3_i3i63"]
+[ext_resource type="Resource" uid="uid://6dn8vs7k8jf2" path="res://Resources/PlantBehaviors/AreaAttack/MehaphoneTowerAttackAreaResource.tres" id="4_c60nq"]
+
+[node name="MegaphoneTower" unique_id=325359927 instance=ExtResource("1_qlwbf")]
+plant_data = ExtResource("2_argi4")
+
+[node name="AreaAttack" parent="." index="0" unique_id=2064781334 instance=ExtResource("3_argi4")]
+resource = ExtResource("4_c60nq")
+
+[node name="AnimatedSprite" parent="." index="1" unique_id=893975618]
+sprite_frames = ExtResource("3_i3i63")

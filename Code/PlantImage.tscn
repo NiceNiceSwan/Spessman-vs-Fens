@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1d4hmfthef4a"]
+[gd_scene format=3 uid="uid://c1d4hmfthef4a"]
 
 [ext_resource type="SpriteFrames" uid="uid://d1l2mec2y2m0q" path="res://Graphics/Animated/DefaultAnimation.tres" id="1_hpv1h"]
-[ext_resource type="Script" path="res://PlantImage.gd" id="1_jta22"]
+[ext_resource type="Script" uid="uid://cvagui0adr1u4" path="res://Code/PlantImage.gd" id="1_jta22"]
 
 [node name="PlantImage" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_hpv1h")

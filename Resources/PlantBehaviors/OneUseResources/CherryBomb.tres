@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OneUseResource" format=3 uid="uid://b4jy8mxbyiry3"]
+
+[ext_resource type="Script" uid="uid://o038356vgbjq" path="res://Resources/PlantBehaviors/OneUseResources/OneUseResources.gd" id="1_knw34"]
+
+[resource]
+script = ExtResource("1_knw34")
+_range = 3
+armed = false
+arming_time = 1
+instant_explosion = true

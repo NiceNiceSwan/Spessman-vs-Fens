@@ -6,3 +6,4 @@ class_name OneUseResource extends PlantBehaviorResource
 @export var armed: bool = true
 @export var arming_time: int = 30
 @export var delayed_explosion: bool = false
+@export var instant_explosion: bool = false

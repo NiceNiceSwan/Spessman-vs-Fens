@@ -34,14 +34,16 @@ func _ready():
 		animated_sprite.play()
 
 func _process(delta):
-	position += Vector2(speed, 0) * delta
+	#position += Vector2(speed, 0) * delta
+	position += speed * delta * Vector2.RIGHT.rotated(rotation)
+	#Vector2.UP.rotated(rotation)
 	starting_position += Vector2(speed, 0) * delta
 	var maximum_range: float = _range * Defines.TILE_SIZE + Defines.TILE_MAP_X_OFFSET
 	if position.x > 2000 or starting_position.x > maximum_range:
 		queue_free()
 	
 	if rotates:
-		rotation_degrees += 360 * delta
+		animated_sprite.rotation_degrees += 360 * delta
 
 func _hit() -> float:
 	health -= 1

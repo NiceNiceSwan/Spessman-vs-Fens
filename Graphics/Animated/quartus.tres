@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://luo47fsviyb2"]
+
+[ext_resource type="Texture2D" uid="uid://c2bxqwl13y0cg" path="res://Graphics/sorrel.png" id="1_o7lam"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o7lam")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

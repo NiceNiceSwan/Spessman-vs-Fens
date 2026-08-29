@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://crsp1i486q0hv"]
+
+[ext_resource type="Script" uid="uid://bpea4rv56umjx" path="res://Code/PlantBehaviors/FreezeAll.gd" id="1_rhs5x"]
+
+[node name="FreezeAll" type="Node2D" unique_id=575549156]
+script = ExtResource("1_rhs5x")
+
+[node name="UseSound" type="AudioStreamPlayer2D" parent="." unique_id=885668037]
+
+[node name="ActionTimer" type="Timer" parent="." unique_id=1644825561]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

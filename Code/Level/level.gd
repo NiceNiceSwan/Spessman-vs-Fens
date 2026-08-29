@@ -21,6 +21,8 @@ var plants_selected: bool = false
 var game_over_announced: bool = false
 var should_show_new_unlock: bool = false
 
+## node used to hold all spawned enemies
+@onready var enemies: Node = $Enemies
 @onready var currency_timer: Timer = $CurrencyTimer
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var wave_timeout: Timer = $WaveTimeout
@@ -141,7 +143,7 @@ func add_money(_money: int):
 
 func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int):
 	if money >= plant.cost:
-		var plant_image: AnimatedSprite2D = load("res://PlantImage.tscn").instantiate()
+		var plant_image: AnimatedSprite2D = load("uid://c1d4hmfthef4a").instantiate()
 		plant_image.sprite_frames = plant.sprite_frames
 		add_child(plant_image)
 		selected_plant = plant
@@ -163,7 +165,7 @@ func _spawn_enemy(enemy_scene: PackedScene, enemy_data: EnemyResource):
 	enemy.global_position.y += 128
 	enemy.died.connect(_on_enemy_death)
 	enemy.game_over.connect(game_over)
-	add_child(enemy)
+	enemies.add_child(enemy)
 	enemy.initialize()
 
 func _on_enemy_spawn_timer_timeout():

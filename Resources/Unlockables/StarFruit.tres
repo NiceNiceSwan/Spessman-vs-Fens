@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://n8tusuvi3l1w"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_on5be"]
+[ext_resource type="Texture2D" uid="uid://bgdf5nnxc74mn" path="res://Graphics/Augustus.png" id="2_htvpk"]
+
+[resource]
+script = ExtResource("1_on5be")
+name = "Death Nettleist"
+description = "Fires projectiles in multiple directions around itself."
+texture = ExtResource("2_htvpk")
+ID = 16
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

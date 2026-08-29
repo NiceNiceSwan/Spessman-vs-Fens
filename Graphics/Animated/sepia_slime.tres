@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dx7dmwgirmiug"]
+
+[ext_resource type="Texture2D" uid="uid://dx7r0ufrvxisu" path="res://Graphics/sepia_slime.png" id="1_nrlp0"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nrlp0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

@@ -1,8 +1,13 @@
 extends Node
 
 enum STATUS_EFFECTS {
+	## No status effect, used by the base node
 	NONE,
+	## Slows the enemies movement and attack speed
 	SLOW,
+	## Completely stops the enemy
+	FREEZE,
+	## Periodically applies damage (NOT IMPLEMENTED)
 	FIRE
 }
 
@@ -12,17 +17,18 @@ enum UNLOCKS {
 	POTATO_MINE = 2,
 	WALLNUT = 3,
 	ICEPEA = 4,
-	PLANT_REMOVER = 5,
+	SM_CRYSTAL = 5,
 	CHOMPER = 6,
 	REPEATER = 7,
 	SQUASH = 8,
 	MESSAGE_ONE = 9,
-	CHALOE = 10,
-	DRAGON = 11,
-	FUME_SHROOM = 12,
-	SPIKEWEED = 13,
-	CHEERY_BOMB = 14,
-	ICE_SHROOM = 15,
-	STARFRUIT = 16,
-	ALL = 17
+	SPEAKER_TOWER = 10,
+	CHALOE = 11,
+	DRAGON = 12,
+	FUME_SHROOM = 13,
+	SPIKEWEED = 14,
+	CHEERY_BOMB = 15,
+	ICE_SHROOM = 16,
+	STARFRUIT = 17,
+	ALL = 18
 }

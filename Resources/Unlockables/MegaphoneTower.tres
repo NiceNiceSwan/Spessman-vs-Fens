@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://mebcgealy8g"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_6rl4t"]
+[ext_resource type="Texture2D" uid="uid://bn3qaefmfippi" path="res://Graphics/megaphone_tower.png" id="2_gxqc0"]
+
+[resource]
+script = ExtResource("1_6rl4t")
+name = "Megaphone tower"
+description = "Emits a soundwave which damages enemies around it. How are we converting food into those?
+
+Don't worry about it."
+texture = ExtResource("2_gxqc0")
+ID = 10
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

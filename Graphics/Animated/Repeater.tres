@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bt0gpvlk0hy47"]
+
+[ext_resource type="Texture2D" uid="uid://bmy37c1xfok5a" path="res://Graphics/Samuel.png" id="1_887ti"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_887ti")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

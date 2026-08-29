@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://cpnc1mxfy33ck" path="res://Code/UI/PlantSelect/PlantSelectButton.gd" id="1_os746"]
 [ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="1_ve7i8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3xrq"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_os746"]
 font_size = 12
 
@@ -20,6 +23,7 @@ script = ExtResource("1_os746")
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_o3xrq")
 action_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SelectButton" unique_id=234861893]
@@ -29,7 +33,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -32.0
 offset_right = 32.0
-offset_bottom = 85.0
+offset_bottom = 96.0
 grow_horizontal = 2
 
 [node name="TextureRect" type="TextureRect" parent="SelectButton/VBoxContainer" unique_id=2000862686]
@@ -41,6 +45,7 @@ expand_mode = 4
 [node name="Cost" type="Label" parent="SelectButton/VBoxContainer" unique_id=220944984]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
+size_flags_vertical = 1
 text = "Cost"
 label_settings = SubResource("LabelSettings_os746")
 horizontal_alignment = 1

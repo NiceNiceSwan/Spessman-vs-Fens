@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xwhu2ffkbwyi" path="res://Resources/Levels/Level.gd" id="1_j0pn0"]
 [ext_resource type="Resource" uid="uid://cqnyxvwwoyp1x" path="res://Resources/Unlockables/LandMine.tres" id="2_edbp8"]
-[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemy.tscn" id="3_ffxng"]
+[ext_resource type="PackedScene" uid="uid://b00k3o2qlcw1i" path="res://Code/Enemies/Enemy.tscn" id="3_ffxng"]
 [ext_resource type="Resource" uid="uid://c7k06rfd4sbns" path="res://Resources/Enemies/Shark.tres" id="4_vyahe"]
 [ext_resource type="Script" uid="uid://b5ggnwtrsljjb" path="res://Resources/Waves/EnemySequence.gd" id="5_hn2l7"]
 [ext_resource type="Resource" uid="uid://18xplp0n81ey" path="res://Resources/Enemies/Fen.tres" id="6_6gsbu"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bl5tcyg6k8lg"]
+
+[ext_resource type="PackedScene" uid="uid://ds42pcaya52k" path="res://Code/StatusEffects/StatusEffect.tscn" id="1_a3vsl"]
+[ext_resource type="Script" uid="uid://cn1itgncs0af4" path="res://Code/StatusEffects/Freeze.gd" id="2_nbjwe"]
+
+[node name="Freeze" unique_id=1067582055 instance=ExtResource("1_a3vsl")]
+script = ExtResource("2_nbjwe")

@@ -4,26 +4,26 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et8s4"]
 
-[node name="Projectile" type="Area2D"]
+[node name="Projectile" type="Area2D" unique_id=1633768374]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_g1utx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1618496227]
 shape = SubResource("RectangleShape2D_et8s4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=469520405]
 position = Vector2(-6.4075e-07, -4.61936e-07)
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="LifeTimer" type="Timer" parent="."]
+[node name="LifeTimer" type="Timer" parent="." unique_id=2129341712]
 wait_time = 100.0
 one_shot = true
 autostart = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1548963359]
 
-[node name="StatusEffects" type="Node" parent="."]
+[node name="StatusEffects" type="Node" parent="." unique_id=393993071]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

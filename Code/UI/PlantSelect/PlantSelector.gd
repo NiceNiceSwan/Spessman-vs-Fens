@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	pickable_plants.position = pickable_plants.position.move_toward(Vector2(0, pickable_plants_position_y), slide_speed * delta)
 
 func slide_panels_in() -> void:
-	# Squash is the 8th plant, and the first one after which we have more slots than plants
+	# Squash is the 8th plant, and the first one after which we have more plants than slots
 	if SaveData.unlocked_plants < Enums.UNLOCKS.SQUASH:
 		setup_default_plants()
 		return
