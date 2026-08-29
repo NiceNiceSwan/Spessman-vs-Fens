@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="PlantData" load_steps=3 format=3 uid="uid://ddlfe1ghkv2vh"]
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://ddlfe1ghkv2vh"]
 
-[ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_remej"]
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_remej"]
+[ext_resource type="Resource" uid="uid://cfosalokv4e4h" path="res://Resources/SelectCardStyles/Medical.tres" id="2_3yxqg"]
 [ext_resource type="SpriteFrames" uid="uid://b6g301ynvo3fc" path="res://Graphics/Animated/protoblob.tres" id="5_orbvg"]
 
 [resource]
 script = ExtResource("1_remej")
 ID = 5
 name = "Devourer"
-max_health = 5
 cost = 125
 sprite_frames = ExtResource("5_orbvg")
 plant_cooldown = 4.0
 description = "Devours one enemy in front of it, after which it goes on cooldown. When that cooldown expires, generates additional currency."
+select_button_style = ExtResource("2_3yxqg")

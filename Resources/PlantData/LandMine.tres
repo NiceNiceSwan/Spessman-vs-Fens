@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://b1kb4k122epgt"]
 
 [ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_8h1f0"]
+[ext_resource type="Resource" uid="uid://cfosalokv4e4h" path="res://Resources/SelectCardStyles/Medical.tres" id="2_3c2j3"]
 [ext_resource type="SpriteFrames" uid="uid://crvndgjeibirv" path="res://Graphics/Animated/protobomb.tres" id="3_iopjy"]
 
 [resource]
@@ -11,3 +12,4 @@ cost = 25
 sprite_frames = ExtResource("3_iopjy")
 plant_cooldown = 20.0
 description = "After a long arming time, will explode on contact with the first enemy."
+select_button_style = ExtResource("2_3c2j3")

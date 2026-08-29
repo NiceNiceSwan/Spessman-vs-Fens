@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_lrnam"]
 [ext_resource type="SpriteFrames" uid="uid://u3myuj15ssl5" path="res://Graphics/Animated/Chloe.tres" id="2_151kg"]
+[ext_resource type="Resource" uid="uid://bpak41k3g4ris" path="res://Resources/SelectCardStyles/Service.tres" id="2_j2n0k"]
 
 [resource]
 script = ExtResource("1_lrnam")
@@ -10,4 +11,5 @@ name = "Chaloe"
 sprite_frames = ExtResource("2_151kg")
 plant_cooldown = 5.0
 description = "Ocasionally heals the tower in front of it."
+select_button_style = ExtResource("2_j2n0k")
 metadata/_custom_type_script = "uid://dn61oer81nccm"

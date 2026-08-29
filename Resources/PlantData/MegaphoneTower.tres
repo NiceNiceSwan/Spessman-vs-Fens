@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://c4lwd5wc1h3av"]
 
 [ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_cauem"]
+[ext_resource type="Resource" uid="uid://dl7pfrl5hxsnn" path="res://Resources/SelectCardStyles/Command.tres" id="2_qb5ct"]
 [ext_resource type="SpriteFrames" uid="uid://ca3odtqncf4dy" path="res://Graphics/Animated/megaphone_tower.tres" id="2_vxxkj"]
 
 [resource]
@@ -9,4 +10,5 @@ ID = 10
 name = "Megaphone Tower"
 cost = 150
 sprite_frames = ExtResource("2_vxxkj")
+select_button_style = ExtResource("2_qb5ct")
 metadata/_custom_type_script = "uid://dn61oer81nccm"

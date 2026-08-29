@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SelectButtonStyle" format=3 uid="uid://bp66mxes4ag3p"]
+
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="1_4nh5m"]
+[ext_resource type="Script" uid="uid://bjbhhuxwcrcfa" path="res://Resources/SelectCardStyles/SelectButtonStyle.gd" id="1_fq6t7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nh5m"]
+atlas = ExtResource("1_4nh5m")
+region = Rect2(24, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_fq6t7")
+name = "Cargo"
+style_id = 4
+background_color = Color(0.69411767, 0.5254902, 0.26666668, 1)
+border_color = Color(0.47843137, 0.36078432, 0.18431373, 1)
+icon = SubResource("AtlasTexture_4nh5m")
+metadata/_custom_type_script = "uid://bjbhhuxwcrcfa"

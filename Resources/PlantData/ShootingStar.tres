@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_qej1d"]
 [ext_resource type="SpriteFrames" uid="uid://bb6l72vsdqx1n" path="res://Graphics/Animated/augustus.tres" id="2_hv6ed"]
+[ext_resource type="Resource" uid="uid://bpak41k3g4ris" path="res://Resources/SelectCardStyles/Service.tres" id="2_kmtjn"]
 
 [resource]
 script = ExtResource("1_qej1d")
@@ -10,3 +11,4 @@ name = "ShootingStar"
 sprite_frames = ExtResource("2_hv6ed")
 plant_cooldown = 3.0
 description = "Shoots projectiles at enemies."
+select_button_style = ExtResource("2_kmtjn")

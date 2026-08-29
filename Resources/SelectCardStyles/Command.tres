@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SelectButtonStyle" format=3 uid="uid://dl7pfrl5hxsnn"]
+
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="1_7kh36"]
+[ext_resource type="Script" uid="uid://bjbhhuxwcrcfa" path="res://Resources/SelectCardStyles/SelectButtonStyle.gd" id="1_adsr7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_813sa"]
+atlas = ExtResource("1_7kh36")
+region = Rect2(16, 8, 8, 8)
+
+[resource]
+script = ExtResource("1_adsr7")
+name = "Command"
+style_id = 7
+background_color = Color(0.105882354, 0.40392157, 0.64705884, 1)
+border_color = Color(0.043137256, 0.14901961, 0.24313726, 1)
+icon = SubResource("AtlasTexture_813sa")
+metadata/_custom_type_script = "uid://bjbhhuxwcrcfa"

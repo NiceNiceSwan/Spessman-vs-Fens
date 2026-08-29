@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PlantData" load_steps=3 format=3 uid="uid://cfadfydrw2uuu"]
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://cfadfydrw2uuu"]
 
-[ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_out2u"]
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_out2u"]
+[ext_resource type="Resource" uid="uid://bt0t2680ghgbr" path="res://Resources/SelectCardStyles/Engineering.tres" id="2_44ebb"]
 [ext_resource type="SpriteFrames" uid="uid://rbdwlyqp5r4l" path="res://Graphics/Animated/dura_tank.tres" id="2_xy455"]
 
 [resource]
@@ -12,3 +13,4 @@ cost = 50
 sprite_frames = ExtResource("2_xy455")
 plant_cooldown = 20.0
 description = "Has a very large health pool."
+select_button_style = ExtResource("2_44ebb")

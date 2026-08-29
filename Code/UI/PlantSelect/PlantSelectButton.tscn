@@ -2,12 +2,24 @@
 
 [ext_resource type="Script" uid="uid://cpnc1mxfy33ck" path="res://Code/UI/PlantSelect/PlantSelectButton.gd" id="1_os746"]
 [ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="1_ve7i8"]
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="2_3huq4"]
+[ext_resource type="Resource" uid="uid://bt3eylhf21bdk" path="res://Resources/Unlockables/Gunner.tres" id="3_3huq4"]
+[ext_resource type="Resource" uid="uid://ceshgafsl8ihe" path="res://Resources/SelectCardStyles/Default.tres" id="3_et0op"]
+[ext_resource type="StyleBox" uid="uid://ddixcrn6b23iq" path="res://Styles/StyleBoxes/button_normal.tres" id="5_et0op"]
+[ext_resource type="StyleBox" uid="uid://rhhnip7kmuf1" path="res://Styles/StyleBoxes/select_button_border.tres" id="7_bph2v"]
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="7_usm4a"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3xrq"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="Resource" id="Resource_bph2v"]
+script = ExtResource("2_3huq4")
+metadata/_custom_type_script = "uid://dn61oer81nccm"
 
 [sub_resource type="LabelSettings" id="LabelSettings_os746"]
-font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bph2v"]
+atlas = ExtResource("7_usm4a")
+region = Rect2(24, 8, 8, 8)
 
 [node name="PlantSelectButton" type="Control" unique_id=246547329]
 custom_minimum_size = Vector2(64, 96)
@@ -18,12 +30,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_os746")
+plant_data = SubResource("Resource_bph2v")
+unlock_data = ExtResource("3_3huq4")
 
 [node name="SelectButton" type="Button" parent="." unique_id=1242001575]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 96.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_o3xrq")
+theme_override_styles/normal = ExtResource("5_et0op")
 action_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SelectButton" unique_id=234861893]
@@ -36,19 +50,44 @@ offset_right = 32.0
 offset_bottom = 96.0
 grow_horizontal = 2
 
-[node name="TextureRect" type="TextureRect" parent="SelectButton/VBoxContainer" unique_id=2000862686]
+[node name="TowerIcon" type="TextureRect" parent="SelectButton/VBoxContainer" unique_id=2000862686]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_ve7i8")
 expand_mode = 4
 
-[node name="Cost" type="Label" parent="SelectButton/VBoxContainer" unique_id=220944984]
-custom_minimum_size = Vector2(0, 16)
+[node name="MarginContainer" type="MarginContainer" parent="SelectButton/VBoxContainer" unique_id=948146925]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 4
+
+[node name="Cost" type="Label" parent="SelectButton/VBoxContainer/MarginContainer" unique_id=220944984]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
 text = "Cost"
 label_settings = SubResource("LabelSettings_os746")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Symbol" type="TextureRect" parent="." unique_id=780765648]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 78.0
+offset_right = 18.0
+offset_bottom = 94.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_bph2v")
+
+[node name="BorderPanel" type="Panel" parent="." unique_id=1822047344]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_bph2v")
 
 [connection signal="pressed" from="SelectButton" to="." method="_on_select_button_pressed"]

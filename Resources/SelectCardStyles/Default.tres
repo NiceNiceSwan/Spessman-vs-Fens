@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SelectButtonStyle" format=3 uid="uid://ceshgafsl8ihe"]
+
+[ext_resource type="Script" uid="uid://bjbhhuxwcrcfa" path="res://Resources/SelectCardStyles/SelectButtonStyle.gd" id="1_4o0mb"]
+
+[resource]
+script = ExtResource("1_4o0mb")
+metadata/_custom_type_script = "uid://bjbhhuxwcrcfa"

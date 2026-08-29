@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_06lu5"]
 [ext_resource type="SpriteFrames" uid="uid://bt0gpvlk0hy47" path="res://Graphics/Animated/Repeater.tres" id="2_e63ri"]
+[ext_resource type="Resource" uid="uid://bq6khrqpm22v7" path="res://Resources/SelectCardStyles/Security.tres" id="2_nbpmf"]
 
 [resource]
 script = ExtResource("1_06lu5")
@@ -10,4 +11,5 @@ cost = 200
 sprite_frames = ExtResource("2_e63ri")
 plant_cooldown = 3.0
 description = "Fires 2 bullets per shot"
+select_button_style = ExtResource("2_nbpmf")
 metadata/_custom_type_script = "uid://dn61oer81nccm"

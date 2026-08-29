@@ -8,3 +8,4 @@ class_name PlantData extends Resource
 @export var sprite_frames: SpriteFrames
 @export var plant_cooldown: float = 1
 @export_multiline var description: String
+@export var select_button_style: SelectButtonStyle = preload("uid://ceshgafsl8ihe")

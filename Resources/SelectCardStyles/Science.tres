@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SelectButtonStyle" format=3 uid="uid://dycqcv3eyrox6"]
+
+[ext_resource type="Script" uid="uid://bjbhhuxwcrcfa" path="res://Resources/SelectCardStyles/SelectButtonStyle.gd" id="1_imsp7"]
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="1_piku2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piku2"]
+atlas = ExtResource("1_piku2")
+region = Rect2(16, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_imsp7")
+name = "Science"
+style_id = 3
+background_color = Color(0.7882353, 0.42745098, 0.7490196, 1)
+border_color = Color(0.54509807, 0.1882353, 0.56078434, 1)
+icon = SubResource("AtlasTexture_piku2")
+metadata/_custom_type_script = "uid://bjbhhuxwcrcfa"

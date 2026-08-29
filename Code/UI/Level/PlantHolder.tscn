@@ -1,17 +1,38 @@
 [gd_scene format=3 uid="uid://chlj85f22rb4l"]
 
 [ext_resource type="Script" uid="uid://epstp6mfyh5f" path="res://Code/UI/Level/PlantHolder.gd" id="1_07f8t"]
+[ext_resource type="StyleBox" uid="uid://ddixcrn6b23iq" path="res://Styles/StyleBoxes/button_normal.tres" id="2_wu5cl"]
 [ext_resource type="Texture2D" uid="uid://duede3tibrua8" path="res://Graphics/icon.svg" id="2_xehqy"]
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="4_mq6rq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_87v6c"]
-font_size = 12
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27dfb"]
+atlas = ExtResource("4_mq6rq")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rl3j2"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="PlantHolder" type="Control" unique_id=780523024]
-custom_minimum_size = Vector2(32, 64)
+custom_minimum_size = Vector2(34, 64)
 layout_mode = 3
-anchor_right = 0.025
+anchor_right = 0.027
 anchor_bottom = 0.083
-offset_bottom = 0.255997
+offset_right = -0.5600014
+offset_bottom = 0.25600433
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -20,14 +41,27 @@ script = ExtResource("1_07f8t")
 
 [node name="Button" type="Button" parent="." unique_id=908137357]
 layout_mode = 1
-offset_right = 32.0
-offset_bottom = 64.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = ExtResource("2_wu5cl")
 action_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Button" unique_id=426295857]
 layout_mode = 1
-offset_right = 32.0
-offset_bottom = 64.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Button/VBoxContainer" unique_id=945971270]
 custom_minimum_size = Vector2(32, 32)
@@ -44,6 +78,22 @@ vertical_alignment = 1
 
 [node name="PlantDelay" type="Timer" parent="." unique_id=389709291]
 one_shot = true
+
+[node name="Symbol" type="TextureRect" parent="." unique_id=1797019936]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 55.0
+offset_right = 9.0
+offset_bottom = 63.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_27dfb")
+
+[node name="BorderPanel" type="Panel" parent="." unique_id=2132158518]
+layout_mode = 0
+offset_right = 34.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rl3j2")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="PlantDelay" to="." method="_on_plant_delay_timeout"]

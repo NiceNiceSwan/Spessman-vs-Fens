@@ -14,8 +14,10 @@ var speed: Vector2 = Vector2(0, 0)
 var vertical_distance: float = 0
 
 @onready var select_button: Button = $SelectButton
-@onready var texture_rect: TextureRect = $SelectButton/VBoxContainer/TextureRect
-@onready var cost_label: Label = $SelectButton/VBoxContainer/Cost
+@onready var tower_icon: TextureRect = $SelectButton/VBoxContainer/TowerIcon
+@onready var cost_label: Label = $SelectButton/VBoxContainer/MarginContainer/Cost
+@onready var border_panel: Panel = $BorderPanel
+@onready var symbol: TextureRect = $Symbol
 
 signal select(called_button: PlantSelectButton)
 signal unselect(called_button: PlantSelectButton)
@@ -24,10 +26,30 @@ func _ready() -> void:
 	enabled = SaveData.unlocked_plants >= unlock_data.ID
 	if not enabled:
 		select_button.set_disabled(true)
-		texture_rect.set_modulate(Color(0.3, 0.3, 0.3, 1))
+		tower_icon.set_modulate(Color(0.3, 0.3, 0.3, 1))
 	
-	texture_rect.texture = unlock_data.texture
+	tower_icon.texture = unlock_data.texture
 	cost_label.text = str(plant_data.cost)
+	
+	_load_card_style()
+
+func _load_card_style() -> void:
+	var button_style: SelectButtonStyle = plant_data.select_button_style
+	var style_box: StyleBoxFlat = border_panel.get_theme_stylebox("panel").duplicate()
+	style_box.set_border_color(button_style.border_color)
+	border_panel.add_theme_stylebox_override("panel", style_box)
+	
+	style_box = select_button.get_theme_stylebox("normal").duplicate()
+	style_box.set_bg_color(button_style.background_color)
+	select_button.add_theme_stylebox_override("normal", style_box)
+	
+	style_box = select_button.get_theme_stylebox("hover").duplicate()
+	var hover_color: Color = button_style.background_color
+	hover_color.a = 0.6
+	style_box.set_bg_color(hover_color)
+	select_button.add_theme_stylebox_override("hover", style_box)
+	
+	symbol.texture = button_style.icon
 
 func _process(delta: float) -> void:
 	position = position.move_toward(target_position, (speed * delta).length())

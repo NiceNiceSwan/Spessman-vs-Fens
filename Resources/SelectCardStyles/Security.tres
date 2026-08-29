@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SelectButtonStyle" format=3 uid="uid://bq6khrqpm22v7"]
+
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="1_60q7w"]
+[ext_resource type="Script" uid="uid://bjbhhuxwcrcfa" path="res://Resources/SelectCardStyles/SelectButtonStyle.gd" id="1_kvyyf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kh36"]
+atlas = ExtResource("1_60q7w")
+region = Rect2(8, 8, 8, 8)
+
+[resource]
+script = ExtResource("1_kvyyf")
+name = "Security"
+style_id = 6
+background_color = Color(0.79607844, 0, 0, 1)
+border_color = Color(0.5137255, 0, 0, 1)
+icon = SubResource("AtlasTexture_7kh36")
+metadata/_custom_type_script = "uid://bjbhhuxwcrcfa"

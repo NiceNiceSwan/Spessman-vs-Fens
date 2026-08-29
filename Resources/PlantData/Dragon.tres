@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PlantData" load_steps=3 format=3 uid="uid://bm8ljk4qt5hfn"]
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://bm8ljk4qt5hfn"]
 
-[ext_resource type="Script" path="res://Resources/PlantData/PlantData.gd" id="1_uh8o4"]
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_uh8o4"]
+[ext_resource type="Resource" uid="uid://bp66mxes4ag3p" path="res://Resources/SelectCardStyles/Cargo.tres" id="2_1tjc0"]
 [ext_resource type="SpriteFrames" uid="uid://of1xhjpc8dvk" path="res://Graphics/Animated/nom.tres" id="5_7wcun"]
 
 [resource]
@@ -12,3 +13,4 @@ cost = 150
 sprite_frames = ExtResource("5_7wcun")
 plant_cooldown = 6.0
 description = "Attacks in 3 lanes at the same time. Its projectiles pass through enemies, though it has limited range."
+select_button_style = ExtResource("2_1tjc0")

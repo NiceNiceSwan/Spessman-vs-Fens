@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SelectButtonStyle" format=3 uid="uid://cfosalokv4e4h"]
+
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="1_4w880"]
+[ext_resource type="Script" uid="uid://bjbhhuxwcrcfa" path="res://Resources/SelectCardStyles/SelectButtonStyle.gd" id="1_nbm2d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hict"]
+atlas = ExtResource("1_4w880")
+region = Rect2(8, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_nbm2d")
+name = "Medical"
+style_id = 2
+background_color = Color(0.35686275, 0.5921569, 0.7372549, 1)
+border_color = Color(0.25490198, 0.49019608, 0.63529414, 1)
+icon = SubResource("AtlasTexture_7hict")
+metadata/_custom_type_script = "uid://bjbhhuxwcrcfa"
