@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cvtgxw33ajkq5"]
 
+[ext_resource type="Theme" uid="uid://djk57ukxd5083" path="res://Styles/GATOTheme.tres" id="1_5ek0i"]
 [ext_resource type="Script" uid="uid://bpve51bhsy2b4" path="res://Code/UI/MainMenu/MainMenu.gd" id="1_ie4ed"]
 [ext_resource type="PackedScene" uid="uid://dxyyjikdu8g7c" path="res://Code/UI/SettingsMenu.tscn" id="2_la6xi"]
 
@@ -20,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_5ek0i")
 script = ExtResource("1_ie4ed")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2089955758]

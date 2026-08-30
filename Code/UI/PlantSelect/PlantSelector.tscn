@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bsqpki536hndq"]
 
+[ext_resource type="Theme" uid="uid://djk57ukxd5083" path="res://Styles/GATOTheme.tres" id="1_cpnhb"]
 [ext_resource type="PackedScene" uid="uid://cr4iow67ordqt" path="res://Code/UI/PlantSelect/PlantSelectButton.tscn" id="1_fppp0"]
 [ext_resource type="Script" uid="uid://bllgj6m5l40tm" path="res://Code/UI/PlantSelect/PlantSelector.gd" id="1_j4qds"]
 [ext_resource type="Resource" uid="uid://ca05qda34nmag" path="res://Resources/PlantData/Gunner.tres" id="3_rfjov"]
-[ext_resource type="Resource" uid="uid://bt3eylhf21bdk" path="res://Resources/Unlockables/Gunner.tres" id="4_pnqae"]
 [ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="5_wg31r"]
 [ext_resource type="Resource" uid="uid://c5oou8qsdwxub" path="res://Resources/Unlockables/Economist.tres" id="6_l56qn"]
 [ext_resource type="Resource" uid="uid://b1kb4k122epgt" path="res://Resources/PlantData/LandMine.tres" id="7_22oqj"]
@@ -52,9 +52,6 @@
 [ext_resource type="PackedScene" uid="uid://dys5axllr0yxe" path="res://Code/Plants/ShootingStar.tscn" id="41_bn2w4"]
 [ext_resource type="Resource" uid="uid://b25686lk37vkn" path="res://Resources/PlantData/ShootingStar.tres" id="41_o8ocs"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ckxye"]
-font_size = 32
-
 [node name="PlantSelector" type="Control" unique_id=703250630]
 custom_minimum_size = Vector2(1280, 768)
 layout_mode = 3
@@ -65,6 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_cpnhb")
 script = ExtResource("1_j4qds")
 
 [node name="SelectedPlants" type="PanelContainer" parent="." unique_id=244418130]
@@ -95,7 +93,6 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 plant_data = ExtResource("3_rfjov")
 plant_scene = ExtResource("22_33kpv")
-unlock_data = ExtResource("4_pnqae")
 
 [node name="PlantSelectButton2" parent="PickablePlants/PlantsHolder/UpperPlantsRow" unique_id=1345412167 instance=ExtResource("1_fppp0")]
 custom_minimum_size = Vector2(64, 0)
@@ -213,19 +210,9 @@ offset_left = -128.0
 offset_top = -64.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_font_sizes/font_size = 32
 disabled = true
-
-[node name="Label" type="Label" parent="PlayButton" unique_id=687452763]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 text = "Play"
-label_settings = SubResource("LabelSettings_ckxye")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="PauseMenuButton" type="Button" parent="." unique_id=1973485829]
 layout_mode = 1

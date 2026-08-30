@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnd1tpauinx8u" path="res://Code/UI/Level/LevelUI.gd" id="1_jinag"]
 [ext_resource type="Texture2D" uid="uid://d2pm8k5y4p1mf" path="res://Graphics/poly_dead.png" id="2_t1gui"]
+[ext_resource type="Theme" uid="uid://djk57ukxd5083" path="res://Styles/GATOTheme.tres" id="4_qpiof"]
 [ext_resource type="PackedScene" uid="uid://dx80ev1g32ot2" path="res://Code/UI/PauseMenu.tscn" id="9_g0w4m"]
 [ext_resource type="SpriteFrames" uid="uid://ohhhhe1v2gon" path="res://Graphics/Animated/sm_crystal.tres" id="18_y0h1x"]
 [ext_resource type="AudioStream" uid="uid://bidvjhyo2am5j" path="res://Sound/plant_remover_select.ogg" id="19_rmka5"]
@@ -43,8 +44,16 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
-[node name="LevelUI" type="CanvasLayer" unique_id=1241126766]
+[node name="LevelUI" type="Control" unique_id=596542325]
 process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_qpiof")
 script = ExtResource("1_jinag")
 
 [node name="WinTimer" type="Timer" parent="." unique_id=1979902131]
@@ -57,6 +66,7 @@ one_shot = true
 
 [node name="AnnouncementHolder" type="VBoxContainer" parent="." unique_id=190405364]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -89,6 +99,7 @@ texture = ExtResource("2_t1gui")
 expand_mode = 5
 
 [node name="WaveBarHolder" type="PanelContainer" parent="." unique_id=546332066]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -110,17 +121,21 @@ show_percentage = false
 
 [node name="PauseMenu" parent="." unique_id=733380313 instance=ExtResource("9_g0w4m")]
 visible = false
+layout_mode = 1
 
 [node name="PauseMenuButton" type="Button" parent="." unique_id=907082009]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -8.0
 offset_bottom = 8.0
 grow_horizontal = 0
+theme = ExtResource("4_qpiof")
 text = "Menu"
 
 [node name="PlantRemoverContainer" type="PanelContainer" parent="." unique_id=1089972748]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

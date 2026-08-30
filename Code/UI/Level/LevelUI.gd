@@ -1,4 +1,4 @@
-class_name UserInterface extends CanvasLayer
+class_name UserInterface extends Control
 
 @onready var pause_menu: PauseMenu = $PauseMenu
 @onready var wave_progress_bar: ProgressBar = $WaveBarHolder/WaveProgressBar

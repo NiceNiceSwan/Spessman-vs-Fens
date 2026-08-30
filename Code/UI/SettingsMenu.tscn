@@ -1,15 +1,8 @@
 [gd_scene format=3 uid="uid://dxyyjikdu8g7c"]
 
 [ext_resource type="Script" uid="uid://ce324v00kivni" path="res://Code/UI/SettingsMenu.gd" id="1_11ynm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk3ly"]
-bg_color = Color(0.239216, 0.239216, 0.239216, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-border_blend = true
+[ext_resource type="Theme" uid="uid://djk57ukxd5083" path="res://Styles/GATOTheme.tres" id="1_g0av8"]
+[ext_resource type="StyleBox" uid="uid://drl72m3hc4ti1" path="res://Styles/StyleBoxes/GATO_panel_border.tres" id="3_g0av8"]
 
 [node name="SettingsMenu" type="Control" unique_id=1562659536]
 process_mode = 3
@@ -23,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_g0av8")
 script = ExtResource("1_11ynm")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=937190823]
@@ -38,7 +32,8 @@ offset_right = 128.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tk3ly")
+theme = ExtResource("1_g0av8")
+theme_override_styles/panel = ExtResource("3_g0av8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=888924523]
 layout_mode = 2

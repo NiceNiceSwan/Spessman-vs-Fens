@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dx80ev1g32ot2"]
 
+[ext_resource type="Theme" uid="uid://djk57ukxd5083" path="res://Styles/GATOTheme.tres" id="1_78tpk"]
 [ext_resource type="Script" uid="uid://s6c51of16agt" path="res://Code/UI/PauseMenu.gd" id="1_hqiun"]
 [ext_resource type="PackedScene" uid="uid://dxyyjikdu8g7c" path="res://Code/UI/SettingsMenu.tscn" id="2_k5wyu"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_78tpk")
 script = ExtResource("1_hqiun")
 
 [node name="SettingsMenu" parent="." unique_id=1562659536 instance=ExtResource("2_k5wyu")]
