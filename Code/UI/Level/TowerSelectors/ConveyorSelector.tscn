@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://1i8ml8xa60ex"]
+
+[ext_resource type="Theme" uid="uid://djk57ukxd5083" path="res://Styles/GATOTheme.tres" id="1_0fpnr"]
+[ext_resource type="Texture2D" uid="uid://dqxewnrhv0kvq" path="res://Graphics/conveyor.png" id="1_dyv6y"]
+[ext_resource type="Script" uid="uid://c7gmejeofv84b" path="res://Code/UI/Level/TowerSelectors/ConveyorSelector.gd" id="2_ne72l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckxye"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.101960786, 0.101960786, 0.1254902, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15pbe"]
+atlas = ExtResource("1_dyv6y")
+region = Rect2(32, 0, 32, 30)
+
+[sub_resource type="Animation" id="Animation_ne72l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(32, 0, 32, 30)]
+}
+
+[sub_resource type="Animation" id="Animation_kfrbp"]
+resource_name = "new_animation"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 32), Rect2(32, 0, 32, 32), Rect2(64, 0, 32, 32), Rect2(96, 0, 32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15pbe"]
+_data = {
+&"RESET": SubResource("Animation_ne72l"),
+&"new_animation": SubResource("Animation_kfrbp")
+}
+
+[node name="ConveyorSelector" type="Control" unique_id=1094233760]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0fpnr")
+script = ExtResource("2_ne72l")
+
+[node name="Panel" type="Panel" parent="." unique_id=1671663968]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 68.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ckxye")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1606431847]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 34.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_15pbe")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=837981908]
+libraries/ = SubResource("AnimationLibrary_15pbe")

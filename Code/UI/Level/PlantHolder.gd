@@ -43,10 +43,6 @@ func _load_card_style() -> void:
 	
 	symbol.texture = button_style.icon
 
-func _process(_delta):
-	if plant_delay.is_stopped():
-		return
-
 func reload() -> void:
 	wait_time = plant.plant_cooldown
 	plant_delay.wait_time = wait_time
