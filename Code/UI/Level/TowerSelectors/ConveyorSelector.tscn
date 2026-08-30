@@ -3,13 +3,15 @@
 [ext_resource type="Theme" uid="uid://djk57ukxd5083" path="res://Styles/GATOTheme.tres" id="1_0fpnr"]
 [ext_resource type="Texture2D" uid="uid://dqxewnrhv0kvq" path="res://Graphics/conveyor.png" id="1_dyv6y"]
 [ext_resource type="Script" uid="uid://c7gmejeofv84b" path="res://Code/UI/Level/TowerSelectors/ConveyorSelector.gd" id="2_ne72l"]
+[ext_resource type="PackedScene" uid="uid://chlj85f22rb4l" path="res://Code/UI/Level/PlantHolder.tscn" id="4_kfrbp"]
+[ext_resource type="Shader" uid="uid://fa08yi6uu4fh" path="res://Shaders/PlantHolder.gdshader" id="5_15pbe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckxye"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(0.101960786, 0.101960786, 0.1254902, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_15pbe"]
@@ -33,7 +35,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_kfrbp"]
 resource_name = "new_animation"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -54,6 +56,9 @@ _data = {
 &"new_animation": SubResource("Animation_kfrbp")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mq6rq"]
+shader = ExtResource("5_15pbe")
+
 [node name="ConveyorSelector" type="Control" unique_id=1094233760]
 layout_mode = 3
 anchors_preset = 15
@@ -66,19 +71,51 @@ script = ExtResource("2_ne72l")
 
 [node name="Panel" type="Panel" parent="." unique_id=1671663968]
 layout_mode = 0
-offset_right = 320.0
-offset_bottom = 68.0
+offset_right = 324.0
+offset_bottom = 72.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ckxye")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1606431847]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 160.0
-offset_bottom = 34.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 162.0
+offset_bottom = 36.0
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_15pbe")
 stretch_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=837981908]
 libraries/ = SubResource("AnimationLibrary_15pbe")
+autoplay = &"new_animation"
+
+[node name="ConveyorStart" type="Marker2D" parent="." unique_id=1040860340]
+position = Vector2(320, 4)
+
+[node name="PlantHolder" parent="ConveyorStart" unique_id=780523024 instance=ExtResource("4_kfrbp")]
+material = SubResource("ShaderMaterial_mq6rq")
+offset_right = 34.0
+offset_bottom = 64.0
+cost_visible = false
+
+[node name="PlantHolder2" parent="ConveyorStart" unique_id=2020225411 instance=ExtResource("4_kfrbp")]
+material = SubResource("ShaderMaterial_mq6rq")
+offset_left = 52.0
+offset_right = 86.0
+offset_bottom = 64.0
+cost_visible = false
+
+[node name="PlantHolder3" parent="ConveyorStart" unique_id=1046378052 instance=ExtResource("4_kfrbp")]
+material = SubResource("ShaderMaterial_mq6rq")
+offset_left = 120.0
+offset_right = 154.0
+offset_bottom = 64.0
+cost_visible = false
+
+[node name="ConveyorEnd" type="Marker2D" parent="." unique_id=540782553]
+position = Vector2(4, 4)
+
+[node name="ButtonSpawnTimer" type="Timer" parent="." unique_id=112415851]
+wait_time = 3.5
+
+[connection signal="timeout" from="ButtonSpawnTimer" to="." method="_on_button_spawn_timer_timeout"]

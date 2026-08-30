@@ -1,7 +1,8 @@
 class_name PlantHolder extends Control
 
 @export var plant: PlantData
-@export var plant_scene: PackedScene = load("res://Code/Plants/Plant.tscn")
+@export var plant_scene: PackedScene = preload("uid://b8ps18euscuwr")
+@export var cost_visible: bool = true
 
 @onready var index: int = get_index()
 @onready var plant_delay: Timer = $PlantDelay
@@ -16,6 +17,8 @@ var wait_time: float = 1
 func _ready():
 	if not is_instance_valid(plant):
 		plant = plant_scene.instantiate().plant_data
+	
+	cost.set_visible(cost_visible)
 	
 	wait_time = plant.plant_cooldown
 	plant_delay.wait_time = wait_time
