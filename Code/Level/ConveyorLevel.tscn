@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b6ax1g5nktl"]
+
+[ext_resource type="PackedScene" uid="uid://beg53cvd5kur8" path="res://Code/Level/level.tscn" id="1_ocnxp"]
+[ext_resource type="Script" uid="uid://b0cgxxedeaflw" path="res://Code/Level/ConveyorLevel.gd" id="2_jungy"]
+[ext_resource type="PackedScene" uid="uid://1i8ml8xa60ex" path="res://Code/UI/Level/TowerSelectors/ConveyorSelector.tscn" id="3_f6bmw"]
+
+[node name="ConveyorLevel" unique_id=105159579 instance=ExtResource("1_ocnxp")]
+script = ExtResource("2_jungy")
+unlocks = null
+
+[node name="ConveyorSelector" parent="GameInterface" parent_id_path=PackedInt32Array(528399307) index="1" unique_id=1094233760 instance=ExtResource("3_f6bmw")]
+
+[node name="EnemyShowcaseTrailer" type="Timer" parent="." index="14" unique_id=735332015]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="EnemyShowcaseTrailer" to="." method="_on_enemy_showcase_trailer_timeout"]

@@ -3,7 +3,9 @@
 [ext_resource type="Theme" uid="uid://djk57ukxd5083" path="res://Styles/GATOTheme.tres" id="1_0fpnr"]
 [ext_resource type="Texture2D" uid="uid://dqxewnrhv0kvq" path="res://Graphics/conveyor.png" id="1_dyv6y"]
 [ext_resource type="Script" uid="uid://c7gmejeofv84b" path="res://Code/UI/Level/TowerSelectors/ConveyorSelector.gd" id="2_ne72l"]
+[ext_resource type="PackedScene" uid="uid://chwe3fq8rfeym" path="res://Code/Plants/MaxCap.tscn" id="3_wcinm"]
 [ext_resource type="PackedScene" uid="uid://chlj85f22rb4l" path="res://Code/UI/Level/PlantHolder.tscn" id="4_kfrbp"]
+[ext_resource type="PackedScene" uid="uid://sgd6sq2s3osf" path="res://Code/Plants/dragon.tscn" id="4_u8l24"]
 [ext_resource type="Shader" uid="uid://fa08yi6uu4fh" path="res://Shaders/PlantHolder.gdshader" id="5_15pbe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckxye"]
@@ -66,8 +68,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_0fpnr")
 script = ExtResource("2_ne72l")
+available_towers = Array[PackedScene]([ExtResource("3_wcinm"), ExtResource("4_u8l24")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1671663968]
 layout_mode = 0
@@ -117,5 +121,6 @@ position = Vector2(4, 4)
 
 [node name="ButtonSpawnTimer" type="Timer" parent="." unique_id=112415851]
 wait_time = 3.5
+autostart = true
 
 [connection signal="timeout" from="ButtonSpawnTimer" to="." method="_on_button_spawn_timer_timeout"]

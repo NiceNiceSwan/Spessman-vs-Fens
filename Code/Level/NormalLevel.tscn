@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b6adntembm034"]
+
+[ext_resource type="PackedScene" uid="uid://beg53cvd5kur8" path="res://Code/Level/level.tscn" id="1_oy8qe"]
+[ext_resource type="PackedScene" uid="uid://bsqpki536hndq" path="res://Code/UI/PlantSelect/PlantSelector.tscn" id="2_087dd"]
+[ext_resource type="PackedScene" uid="uid://cuwbueber5wge" path="res://Code/UI/Level/TowerSelectors/DefaultSelector.tscn" id="2_nc1ic"]
+[ext_resource type="Script" uid="uid://bljydyr5c6df" path="res://Code/Level/NormalLevel.gd" id="2_r38g7"]
+
+[node name="NormalLevel" unique_id=105159579 instance=ExtResource("1_oy8qe")]
+script = ExtResource("2_r38g7")
+unlocks = null
+
+[node name="DefaultSelector" parent="GameInterface" parent_id_path=PackedInt32Array(528399307) index="1" unique_id=1722217135 instance=ExtResource("2_nc1ic")]
+
+[node name="PlantSelector" parent="." index="13" unique_id=703250630 instance=ExtResource("2_087dd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 640.0
+offset_right = 1920.0
+offset_bottom = 768.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="play_button_pressed" from="PlantSelector" to="." method="_on_plant_selector_play_button_pressed"]

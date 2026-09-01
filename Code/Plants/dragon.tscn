@@ -1,25 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://sgd6sq2s3osf"]
+[gd_scene format=3 uid="uid://sgd6sq2s3osf"]
 
 [ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="1_33qf2"]
-[ext_resource type="Script" path="res://Code/Plants/Dragon.gd" id="2_07p2u"]
+[ext_resource type="Script" uid="uid://cebtkiw5m7d44" path="res://Code/Plants/Dragon.gd" id="2_07p2u"]
 [ext_resource type="Resource" uid="uid://chmfycdgjaj5c" path="res://Resources/PlantBehaviors/ShooterResources/Dragon.tres" id="3_ju522"]
 [ext_resource type="PackedScene" uid="uid://brwnmd6g8jmnt" path="res://Code/PlantBehaviors/Firing.tscn" id="3_vm3r2"]
+[ext_resource type="Resource" uid="uid://bm8ljk4qt5hfn" path="res://Resources/PlantData/Dragon.tres" id="3_w4bb0"]
 [ext_resource type="SpriteFrames" uid="uid://of1xhjpc8dvk" path="res://Graphics/Animated/nom.tres" id="4_kai1o"]
 
-[node name="Dragon" instance=ExtResource("1_33qf2")]
+[node name="Dragon" unique_id=2051200747 instance=ExtResource("1_33qf2")]
 script = ExtResource("2_07p2u")
-plant_data = null
+plant_data = ExtResource("3_w4bb0")
 
 [node name="Firing" parent="." index="0"]
 resource = ExtResource("3_ju522")
 
-[node name="FiringNorth" parent="Firing" index="3" instance=ExtResource("3_vm3r2")]
+[node name="FiringNorth" parent="Firing" index="3" unique_id=1425102382 instance=ExtResource("3_vm3r2")]
 position = Vector2(0, -128)
 resource = ExtResource("3_ju522")
 
-[node name="FiringSouth" parent="Firing" index="4" instance=ExtResource("3_vm3r2")]
+[node name="FiringSouth" parent="Firing" index="4" unique_id=1905400332 instance=ExtResource("3_vm3r2")]
 position = Vector2(0, 128)
 resource = ExtResource("3_ju522")
 
-[node name="AnimatedSprite" parent="." index="1"]
+[node name="AnimatedSprite" parent="." index="1" unique_id=893975618]
 sprite_frames = ExtResource("4_kai1o")

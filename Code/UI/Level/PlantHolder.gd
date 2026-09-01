@@ -4,7 +4,6 @@ class_name PlantHolder extends Control
 @export var plant_scene: PackedScene = preload("uid://b8ps18euscuwr")
 @export var cost_visible: bool = true
 
-@onready var index: int = get_index()
 @onready var plant_delay: Timer = $PlantDelay
 @onready var buy_button: Button = $Button
 @onready var texture_rect: TextureRect = $Button/VBoxContainer/TextureRect
@@ -53,10 +52,10 @@ func reload() -> void:
 	texture_rect.texture = plant.sprite_frames.get_frame_texture("default", 0)
 
 func _on_button_pressed():
-	Signals.plant_selected.emit(plant, plant_scene, index)
+	Signals.plant_selected.emit(plant, plant_scene, get_index())
 
 func _on_plant_placed(plant_index: int):
-	if plant_index == index:
+	if plant_index == get_index():
 		plant_delay.start()
 		buy_button.set_disabled(true)
 		texture_rect.set_modulate(Color(0.3, 0.3, 0.3, 1))

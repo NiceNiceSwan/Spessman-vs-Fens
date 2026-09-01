@@ -55,7 +55,7 @@ func _handle_jumping_out(delta: float) -> void:
 
 func _on_click_area_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		get_tree().current_scene.add_money(money)
+		Signals.add_money.emit(money)
 		queue_free()
 
 ## Called when the currency was spawned on the ground, and must play a jump out animation

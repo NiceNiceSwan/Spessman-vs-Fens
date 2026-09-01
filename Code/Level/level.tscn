@@ -5,14 +5,12 @@
 [ext_resource type="Resource" uid="uid://ccismut2qmgk6" path="res://Resources/PlantData/Economist.tres" id="3_jpwec"]
 [ext_resource type="PackedScene" uid="uid://drv8t61jomhsi" path="res://Code/UI/Level/LevelUI.tscn" id="5_4owyg"]
 [ext_resource type="PackedScene" uid="uid://b2oxhvddtuy3c" path="res://Code/cleanbot.tscn" id="5_v7ary"]
-[ext_resource type="PackedScene" uid="uid://cuwbueber5wge" path="res://Code/UI/Level/TowerSelectors/DefaultSelector.tscn" id="5_vosf3"]
 [ext_resource type="Texture2D" uid="uid://cxp4bfh5ox5ao" path="res://Graphics/reinforced_window.png" id="6_2x40j"]
 [ext_resource type="Texture2D" uid="uid://ufnh6gx67nuk" path="res://Graphics/tile_map.png" id="6_knfsg"]
 [ext_resource type="AudioStream" uid="uid://dmchqstatlkbr" path="res://Sound/plant_removed.ogg" id="7_qjtgt"]
 [ext_resource type="Texture2D" uid="uid://cm2tkcginbim4" path="res://Graphics/reinforced_plasma_window.png" id="7_tvjo3"]
 [ext_resource type="Script" uid="uid://d1kklklaj85y4" path="res://Code/Level/PlayerCamera.gd" id="8_ejlj1"]
 [ext_resource type="Texture2D" uid="uid://d3x43iva51y1j" path="res://Graphics/reinforced_wall.png" id="8_ricko"]
-[ext_resource type="PackedScene" uid="uid://bsqpki536hndq" path="res://Code/UI/PlantSelect/PlantSelector.tscn" id="9_lhbbs"]
 [ext_resource type="Texture2D" uid="uid://cinsa4wepqguj" path="res://Graphics/wall.png" id="9_tvjo3"]
 [ext_resource type="Texture2D" uid="uid://d3fqnq3pifldy" path="res://Graphics/tile_decal.png" id="10_ricko"]
 [ext_resource type="Script" uid="uid://dymp1y24n2611" path="res://Code/Level/EnemyPreviewArea.gd" id="10_svqn5"]
@@ -1457,8 +1455,6 @@ visible = false
 
 [node name="LevelUI" parent="GameInterface" unique_id=1367250410 instance=ExtResource("5_4owyg")]
 
-[node name="PlantSelector" parent="GameInterface" unique_id=1722217135 instance=ExtResource("5_vosf3")]
-
 [node name="Tiles" type="Node2D" parent="." unique_id=378408833]
 position = Vector2(64, 64)
 scale = Vector2(4, 4)
@@ -1515,16 +1511,6 @@ script = ExtResource("8_ejlj1")
 one_shot = true
 autostart = true
 
-[node name="PlantSelector" parent="." unique_id=703250630 instance=ExtResource("9_lhbbs")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 640.0
-offset_right = 1920.0
-offset_bottom = 768.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="EnemyPreviewArea" type="Area2D" parent="." unique_id=1560097409]
 position = Vector2(1536, 64)
 collision_layer = 0
@@ -1544,4 +1530,3 @@ shape = SubResource("RectangleShape2D_ckxye")
 [connection signal="timeout" from="WaveTimeout" to="." method="_on_wave_timeout_timeout"]
 [connection signal="reached_target" from="PlayerCamera" to="." method="_on_player_camera_reached_target"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_game_start_timer_timeout"]
-[connection signal="play_button_pressed" from="PlantSelector" to="." method="_on_plant_selector_play_button_pressed"]

@@ -28,18 +28,17 @@ var should_show_new_unlock: bool = false
 @onready var wave_timeout: Timer = $WaveTimeout
 @onready var enemy_spawn_path: Path2D = $EnemySpawnPath
 @onready var player_camera: PlayerCamera = $PlayerCamera
-@onready var plant_selector: PlantSelector = $PlantSelector
 @onready var enemy_preview_area: EnemyPreview = $EnemyPreviewArea
 @onready var game_interface: CanvasLayer = $GameInterface
 @onready var user_interface: UserInterface =  $GameInterface/LevelUI
-@onready var default_selector: DefaultSelector = $GameInterface/PlantSelector
 
 func _ready():
 	Signals.plant_selected.connect(select_plant)
+	Signals.add_money.connect(add_money)
+	Signals.money_changed.emit(money)
 	plant_grid.resize(9)
 	for i in 9:
 		plant_grid[i].resize(5)
-	default_selector.update_money(money)
 	
 	if level_data:
 		waves = level_data.waves
@@ -144,13 +143,12 @@ func add_money(_money: int):
 	Signals.money_changed.emit(money)
 
 func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int):
-	if money >= plant.cost:
-		var plant_image: AnimatedSprite2D = load("uid://c1d4hmfthef4a").instantiate()
-		plant_image.sprite_frames = plant.sprite_frames
-		add_child(plant_image)
-		selected_plant = plant
-		selected_plant_scene = plant_scene
-		selected_plant_index = plant_index
+	var plant_image: AnimatedSprite2D = load("uid://c1d4hmfthef4a").instantiate()
+	plant_image.sprite_frames = plant.sprite_frames
+	add_child(plant_image)
+	selected_plant = plant
+	selected_plant_scene = plant_scene
+	selected_plant_index = plant_index
 
 func _spawn_enemy(enemy_scene: PackedScene, enemy_data: EnemyResource):
 	if enemy_scene == null:
@@ -254,14 +252,9 @@ func _on_level_ui_won_timer_expired():
 func _on_game_start_timer_timeout() -> void:
 	player_camera.set_target($SelectorTarget.global_position)
 
+## What to do when the camera shifts to its target position
+## empty function for overwriting by subtypes, because
+## normal level needs to wait for the player to select the towers,
+## while a conveyor level just waits a few secs
 func _on_player_camera_reached_target() -> void:
-	if not plants_selected:
-		plant_selector.slide_panels_in()
-		return
-	_start_game()
-
-func _on_plant_selector_play_button_pressed(selected_plants: Array[PlantSelectButton]) -> void:
-	player_camera.set_target(Vector2(0, 0))
-	default_selector.load_plant_data(selected_plants)
-	plant_selector.queue_free()
-	plants_selected = true
+	pass
