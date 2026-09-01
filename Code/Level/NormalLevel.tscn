@@ -5,13 +5,28 @@
 [ext_resource type="PackedScene" uid="uid://cuwbueber5wge" path="res://Code/UI/Level/TowerSelectors/DefaultSelector.tscn" id="2_nc1ic"]
 [ext_resource type="Script" uid="uid://bljydyr5c6df" path="res://Code/Level/NormalLevel.gd" id="2_r38g7"]
 
+[sub_resource type="Curve2D" id="Curve2D_r38g7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 64, -32, 0, 0, 0, 0, 1216, -32)
+}
+point_count = 2
+
 [node name="NormalLevel" unique_id=105159579 instance=ExtResource("1_oy8qe")]
 script = ExtResource("2_r38g7")
 unlocks = null
 
+[node name="CurrencyPath" type="Path2D" parent="." index="2" unique_id=473563858]
+curve = SubResource("Curve2D_r38g7")
+
+[node name="CurrencySpawnLocation" type="PathFollow2D" parent="CurrencyPath" index="0" unique_id=908946518]
+position = Vector2(64, -32)
+
+[node name="CurrencyTimer" type="Timer" parent="." index="3" unique_id=207380343]
+wait_time = 7.0
+
 [node name="DefaultSelector" parent="GameInterface" parent_id_path=PackedInt32Array(528399307) index="1" unique_id=1722217135 instance=ExtResource("2_nc1ic")]
 
-[node name="PlantSelector" parent="." index="13" unique_id=703250630 instance=ExtResource("2_087dd")]
+[node name="PlantSelector" parent="." index="14" unique_id=703250630 instance=ExtResource("2_087dd")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

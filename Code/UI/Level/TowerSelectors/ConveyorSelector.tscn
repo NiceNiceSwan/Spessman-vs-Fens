@@ -4,9 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqxewnrhv0kvq" path="res://Graphics/conveyor.png" id="1_dyv6y"]
 [ext_resource type="Script" uid="uid://c7gmejeofv84b" path="res://Code/UI/Level/TowerSelectors/ConveyorSelector.gd" id="2_ne72l"]
 [ext_resource type="PackedScene" uid="uid://chwe3fq8rfeym" path="res://Code/Plants/MaxCap.tscn" id="3_wcinm"]
-[ext_resource type="PackedScene" uid="uid://chlj85f22rb4l" path="res://Code/UI/Level/PlantHolder.tscn" id="4_kfrbp"]
 [ext_resource type="PackedScene" uid="uid://sgd6sq2s3osf" path="res://Code/Plants/dragon.tscn" id="4_u8l24"]
-[ext_resource type="Shader" uid="uid://fa08yi6uu4fh" path="res://Shaders/PlantHolder.gdshader" id="5_15pbe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckxye"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -58,9 +56,6 @@ _data = {
 &"new_animation": SubResource("Animation_kfrbp")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mq6rq"]
-shader = ExtResource("5_15pbe")
-
 [node name="ConveyorSelector" type="Control" unique_id=1094233760]
 layout_mode = 3
 anchors_preset = 15
@@ -95,26 +90,6 @@ autoplay = &"new_animation"
 
 [node name="ConveyorStart" type="Marker2D" parent="." unique_id=1040860340]
 position = Vector2(320, 4)
-
-[node name="PlantHolder" parent="ConveyorStart" unique_id=780523024 instance=ExtResource("4_kfrbp")]
-material = SubResource("ShaderMaterial_mq6rq")
-offset_right = 34.0
-offset_bottom = 64.0
-cost_visible = false
-
-[node name="PlantHolder2" parent="ConveyorStart" unique_id=2020225411 instance=ExtResource("4_kfrbp")]
-material = SubResource("ShaderMaterial_mq6rq")
-offset_left = 52.0
-offset_right = 86.0
-offset_bottom = 64.0
-cost_visible = false
-
-[node name="PlantHolder3" parent="ConveyorStart" unique_id=1046378052 instance=ExtResource("4_kfrbp")]
-material = SubResource("ShaderMaterial_mq6rq")
-offset_left = 120.0
-offset_right = 154.0
-offset_bottom = 64.0
-cost_visible = false
 
 [node name="ConveyorEnd" type="Marker2D" parent="." unique_id=540782553]
 position = Vector2(4, 4)

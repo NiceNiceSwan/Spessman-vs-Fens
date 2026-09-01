@@ -1,9 +1,13 @@
 class_name Level extends Node2D
 
+const PLANT_IMAGE_SCENE: PackedScene = preload("uid://c1d4hmfthef4a")
+const DEFAULT_ENEMY_SCENE: PackedScene = preload("uid://b00k3o2qlcw1i")
+const NEW_UNLOCK_SCENE: PackedScene = preload("uid://h4enakc44q1a")
+const LEVEL_SELECTOR_SCENE: PackedScene = preload("uid://bavn0ly1fcl5v")
+
 @export var level_data: LevelResource
 @export var unlocks: Unlockable
 
-var money: int = 500
 var selected_plant: PlantData
 var selected_plant_scene: PackedScene
 var selected_plant_index: int
@@ -23,7 +27,6 @@ var should_show_new_unlock: bool = false
 
 ## node used to hold all spawned enemies
 @onready var enemies: Node = $Enemies
-@onready var currency_timer: Timer = $CurrencyTimer
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var wave_timeout: Timer = $WaveTimeout
 @onready var enemy_spawn_path: Path2D = $EnemySpawnPath
@@ -34,8 +37,6 @@ var should_show_new_unlock: bool = false
 
 func _ready():
 	Signals.plant_selected.connect(select_plant)
-	Signals.add_money.connect(add_money)
-	Signals.money_changed.emit(money)
 	plant_grid.resize(9)
 	for i in 9:
 		plant_grid[i].resize(5)
@@ -44,7 +45,6 @@ func _ready():
 		waves = level_data.waves
 		unlocks = level_data.unlocks
 	
-	#var enemies_preview: Array[EnemyResource]
 	var enemies_preview: Dictionary[EnemyResource, int]
 	for wave in waves:
 		for enemy_sequence: EnemySequence in wave.enemy_sequences:
@@ -78,7 +78,6 @@ func _buy_plant(plant_to_spawn: PlantData, coordinates: Vector2) -> Plant:
 	plant.plant_data = plant_to_spawn
 	plant.global_position = coordinates
 	add_child(plant)
-	add_money(-selected_plant.cost)
 	plant.plant_died.connect(kill_plant)
 	Signals.plant_placed.emit(selected_plant_index)
 	return plant
@@ -130,20 +129,8 @@ func is_mouse_within_bounds(mouse_position: Vector2) -> bool:
 	
 	return true
 
-func _on_currency_timer_timeout():
-	var currency = load("res://Code/Currency.tscn").instantiate()
-	var currency_spawn_location: PathFollow2D = $CurrencyPath/CurrencySpawnLocation
-	currency_spawn_location.set_progress_ratio(randf())
-	
-	currency.global_position = currency_spawn_location.global_position
-	add_child(currency)
-
-func add_money(_money: int):
-	money += _money
-	Signals.money_changed.emit(money)
-
 func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int):
-	var plant_image: AnimatedSprite2D = load("uid://c1d4hmfthef4a").instantiate()
+	var plant_image: AnimatedSprite2D = PLANT_IMAGE_SCENE.instantiate()
 	plant_image.sprite_frames = plant.sprite_frames
 	add_child(plant_image)
 	selected_plant = plant
@@ -152,7 +139,7 @@ func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int):
 
 func _spawn_enemy(enemy_scene: PackedScene, enemy_data: EnemyResource):
 	if enemy_scene == null:
-		enemy_scene = load("res://Code/Enemy.tscn")
+		enemy_scene = DEFAULT_ENEMY_SCENE
 	
 	var enemy: Enemy = enemy_scene.instantiate()
 	enemy.enemy_resource = enemy_data
@@ -235,19 +222,18 @@ func _win() -> void:
 
 func _start_game() -> void:
 	wave_timeout.start()
-	currency_timer.start()
 	game_interface.set_visible(true)
 	enemy_preview_area.queue_free()
 
 func _on_level_ui_won_timer_expired():
 	if should_show_new_unlock:
-		var new_unlock: NewUnlock = load("res://Code/UI/NewUnlock.tscn").instantiate()
+		var new_unlock: NewUnlock = NEW_UNLOCK_SCENE.instantiate()
 		new_unlock.unlocked_plant = unlocks
 		get_tree().root.add_child(new_unlock)
 		get_tree().current_scene.queue_free()
 		get_tree().current_scene = new_unlock
 		return
-	get_tree().change_scene_to_packed(load("res://Code/UI/LevelSelector.tscn"))
+	get_tree().change_scene_to_packed(LEVEL_SELECTOR_SCENE)
 
 func _on_game_start_timer_timeout() -> void:
 	player_camera.set_target($SelectorTarget.global_position)

@@ -21,12 +21,6 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_jped0"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 64, -32, 0, 0, 0, 0, 1216, -32)
-}
-point_count = 2
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2d1yl"]
 texture = ExtResource("6_knfsg")
 texture_region_size = Vector2i(32, 32)
@@ -1441,15 +1435,6 @@ position = Vector2(640, 0)
 position = Vector2(1344, 128)
 curve = SubResource("Curve2D_7k82x")
 
-[node name="CurrencyPath" type="Path2D" parent="." unique_id=247890787]
-curve = SubResource("Curve2D_jped0")
-
-[node name="CurrencySpawnLocation" type="PathFollow2D" parent="CurrencyPath" unique_id=82620964]
-position = Vector2(64, -32)
-
-[node name="CurrencyTimer" type="Timer" parent="." unique_id=835074076]
-wait_time = 7.0
-
 [node name="GameInterface" type="CanvasLayer" parent="." unique_id=528399307]
 visible = false
 
@@ -1523,7 +1508,6 @@ shape = SubResource("RectangleShape2D_ckxye")
 
 [node name="Enemies" type="Node" parent="." unique_id=258563773]
 
-[connection signal="timeout" from="CurrencyTimer" to="." method="_on_currency_timer_timeout"]
 [connection signal="plant_remover_selected" from="GameInterface/LevelUI" to="." method="_on_level_ui_plant_remover_selected"]
 [connection signal="won_timer_expired" from="GameInterface/LevelUI" to="." method="_on_level_ui_won_timer_expired"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
