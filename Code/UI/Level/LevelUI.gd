@@ -1,5 +1,7 @@
 class_name UserInterface extends Control
 
+const MAIN_MENU_SCENE: PackedScene = preload("uid://cvtgxw33ajkq5")
+
 @onready var pause_menu: PauseMenu = $PauseMenu
 @onready var wave_progress_bar: ProgressBar = $WaveBarHolder/WaveProgressBar
 @onready var announcement_holder: VBoxContainer = $AnnouncementHolder
@@ -10,6 +12,7 @@ class_name UserInterface extends Control
 @onready var win_timer: Timer = $WinTimer
 @onready var plant_remover_sprite: AnimatedSprite2D = $PlantRemoverContainer/PlantRemover/PlantRemoverSprite
 @onready var plant_remover_container: PanelContainer = $PlantRemoverContainer
+@onready var plant_remover_sound: AudioStreamPlayer = $PlantRemoverContainer/AudioStreamPlayer
 
 signal plant_remover_selected
 signal won_timer_expired
@@ -30,7 +33,7 @@ func _on_pause_menu_button_pressed() -> void:
 func _on_plant_remover_pressed() -> void:
 	plant_remover_selected.emit()
 	plant_remover_sprite.set_animation("ready")
-	$PlantRemoverContainer/AudioStreamPlayer.play()
+	plant_remover_sound.play()
 
 func on_plant_removed() -> void:
 	plant_remover_sprite.set_animation("default")
@@ -47,12 +50,12 @@ func announce_wave() -> void:
 	announcement_label.label_settings.font_color = Color(1, 0, 0, 1)
 	announcement_holder.modulate = Color(0, 0, 0, 0)
 	
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(announcement_holder, "modulate", Color(1, 1, 1, 1), 0.3) \
 	.set_trans(Tween.TRANS_QUAD) \
 	.set_ease(Tween.EASE_OUT)
 	
-	tween.finished.connect(func(): announcement_timer.start())
+	tween.finished.connect(func() -> void: announcement_timer.start())
 
 func announce_defeat() -> void:
 	announcement_holder.set_visible(true)
@@ -61,18 +64,18 @@ func announce_defeat() -> void:
 	announcement_label.label_settings.font_color = Color(1, 0, 0, 1)
 	announcement_holder.modulate = Color(0, 0, 0, 0)
 	
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(announcement_holder, "modulate", Color(1, 1, 1, 1), 0.8) \
 	.set_trans(Tween.TRANS_QUAD) \
 	.set_ease(Tween.EASE_OUT)
 	
-	tween.finished.connect(func(): game_over_timer.start())
+	tween.finished.connect(func() -> void: game_over_timer.start())
 
 func _on_announcement_timer_timeout() -> void:
 	announcement_holder.set_visible(false)
 
 func _on_game_over_timer_timeout() -> void:
-	get_tree().change_scene_to_packed(load("res://Code/UI/MainMenu.tscn"))
+	get_tree().change_scene_to_packed(MAIN_MENU_SCENE)
 
 func announce_victory() -> void:
 	announcement_holder.set_visible(true)
@@ -80,12 +83,12 @@ func announce_victory() -> void:
 	announcement_label.label_settings.font_color = Color(0, 1, 0, 1)
 	announcement_holder.modulate = Color(0, 0, 0, 0)
 	
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(announcement_holder, "modulate", Color(1, 1, 1, 1), 0.8) \
 	.set_trans(Tween.TRANS_QUAD) \
 	.set_ease(Tween.EASE_OUT)
 	
-	tween.finished.connect(func(): win_timer.start())
+	tween.finished.connect(func() -> void: win_timer.start())
 
 func _on_win_timer_timeout() -> void:
 	won_timer_expired.emit()

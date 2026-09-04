@@ -12,10 +12,10 @@ var plant_cooldown: float= 1
 
 signal plant_died(position: Vector2)
 
-func _ready():
+func _ready() -> void:
 	initialize()
 
-func initialize():
+func initialize() -> void:
 	_name = plant_data.name
 	health = plant_data.max_health
 	max_health = health
@@ -26,10 +26,10 @@ func initialize():
 func take_damage(damage: float) -> void:
 	health -= damage
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if health <= 0:
 		_die()
 
-func _die():
+func _die() -> void:
 	plant_died.emit(global_position)
 	queue_free()

@@ -16,7 +16,7 @@ signal reloaded
 signal fired
 signal detected_enemy
 
-func _ready():
+func _ready() -> void:
 	if not resource:
 		push_warning("Instantiating hitscan node without any data!")
 		return
@@ -34,14 +34,17 @@ func _ready():
 	
 	detection_ray.target_position.x = min(Defines.TILE_SIZE * _range + Defines.TILE_MAP_X_OFFSET, max_ray_range)
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if detection_ray.is_colliding():
 		detected_enemy.emit()
 		if is_instance_valid(detection_ray.get_collider()):
-			var enemy: Enemy = detection_ray.get_collider().get_parent()
-			fire(enemy)
+			var enemy: Enemy
+			var collider: Area2D = detection_ray.get_collider()
+			if collider is Area2D:
+				enemy = collider.get_parent()
+				fire(enemy)
 
-func fire(enemy: Enemy, forced: bool = false, play_sound: bool = true):
+func fire(enemy: Enemy, forced: bool = false, play_sound: bool = true) -> void:
 	if not ready_to_fire and not forced:
 		return
 	
@@ -53,6 +56,6 @@ func fire(enemy: Enemy, forced: bool = false, play_sound: bool = true):
 	firing_timer.start()
 	fired.emit()
 
-func _on_firing_timer_timeout():
+func _on_firing_timer_timeout() -> void:
 	ready_to_fire = true
 	reloaded.emit()

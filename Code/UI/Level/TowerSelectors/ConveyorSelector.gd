@@ -32,8 +32,11 @@ func _on_button_spawn_timer_timeout() -> void:
 	new_plant_holder.cost_visible = false
 	new_plant_holder.plant_scene = plant_to_spawn
 	new_plant_holder.position = Vector2(0, 0)
-	new_plant_holder.material = ShaderMaterial.new()
-	new_plant_holder.material.set_shader(FADE_IN_SHADER)
+	
+	var plant_holder_material: ShaderMaterial = ShaderMaterial.new()
+	plant_holder_material.set_shader(FADE_IN_SHADER)
+	new_plant_holder.material = plant_holder_material
+	
 	conveyor_start.add_child(new_plant_holder)
 
 func _on_tower_placed(plant_slot: int) -> void:

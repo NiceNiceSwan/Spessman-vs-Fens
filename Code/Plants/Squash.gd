@@ -24,7 +24,7 @@ func _play_squash_animation():
 	target_position.x += 96
 	target_position.y -= 96
 	
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(animated_sprite, "position", target_position, 0.5) \
 	.set_trans(Tween.TRANS_QUAD) \
 	.set_ease(Tween.EASE_OUT)

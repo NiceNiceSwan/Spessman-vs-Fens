@@ -23,6 +23,7 @@ var status_effects: Array[StatusEffect]
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var status_effects_holder: Node = $StatusEffects
 @onready var hitbox_shape: CollisionShape2D = $Hitbox/HitboxShape
+@onready var hit_sound: AudioStreamPlayer = $HitSound
 
 signal died
 signal game_over
@@ -38,15 +39,16 @@ func _ready() -> void:
 	
 	initialize()
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	if global_position.x > (1280+128) and not has_entered_board:
 		_enable_hitbox()
 	
 	if detection_ray.is_colliding() and not attacking:
 		attacking = true
-		target_plant = detection_ray.get_collider().get_parent()
-		attack_timer.start(attack_delay * attack_speed_modifier)
-		return
+		var collider_area: Area2D = detection_ray.get_collider()
+		if collider_area is Area2D:
+			target_plant = collider_area.get_parent()
+			attack_timer.start(attack_delay * attack_speed_modifier)
 
 func _physics_process(delta: float) -> void:
 	if not attacking:
@@ -77,10 +79,10 @@ func on_hit(_damage: float) -> void:
 	health -= _damage
 	if health <= 0:
 		die()
-	$HitSound.play()
+	hit_sound.play()
 
 func hit_animation() -> void:
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(sprite, "modulate", Color(1, 0.2, 0.2, 1), 0.05) \
 	.set_trans(Tween.TRANS_QUAD) \
 	.set_ease(Tween.EASE_OUT)

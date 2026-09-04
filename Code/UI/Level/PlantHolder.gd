@@ -13,9 +13,10 @@ class_name PlantHolder extends Control
 
 var wait_time: float = 1
 
-func _ready():
+func _ready() -> void:
 	if not is_instance_valid(plant):
-		plant = plant_scene.instantiate().plant_data
+		var plant_scene_instantiated: Plant = plant_scene.instantiate()
+		plant = plant_scene_instantiated.plant_data
 	
 	cost.set_visible(cost_visible)
 	
@@ -51,15 +52,15 @@ func reload() -> void:
 	cost.text = str(plant.cost)
 	texture_rect.texture = plant.sprite_frames.get_frame_texture("default", 0)
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	Signals.plant_selected.emit(plant, plant_scene, get_index())
 
-func _on_plant_placed(plant_index: int):
+func _on_plant_placed(plant_index: int) -> void:
 	if plant_index == get_index():
 		plant_delay.start()
 		buy_button.set_disabled(true)
 		texture_rect.set_modulate(Color(0.3, 0.3, 0.3, 1))
 
-func _on_plant_delay_timeout():
+func _on_plant_delay_timeout() -> void:
 	buy_button.set_disabled(false)
 	texture_rect.set_modulate(Color(Color.WHITE))

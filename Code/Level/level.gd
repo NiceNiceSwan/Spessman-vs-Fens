@@ -34,8 +34,10 @@ var should_show_new_unlock: bool = false
 @onready var enemy_preview_area: EnemyPreview = $EnemyPreviewArea
 @onready var game_interface: CanvasLayer = $GameInterface
 @onready var user_interface: UserInterface =  $GameInterface/LevelUI
+@onready var tower_remove_sound: AudioStreamPlayer = $TowerRemoveSound
+@onready var selector_target: Marker2D = $SelectorTarget
 
-func _ready():
+func _ready() -> void:
 	Signals.plant_selected.connect(select_plant)
 	plant_grid.resize(9)
 	for i in 9:
@@ -66,7 +68,7 @@ func _normalise_mouse_position_to_grid(mouse_position: Vector2) -> Vector2:
 	mouse_position.y -= (int(mouse_position.y) % Defines.TILE_SIZE)
 	return mouse_position
 
-func _input(event: InputEvent):
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("alt_click"):
 		_handle_alt_click()
 	
@@ -82,7 +84,7 @@ func _buy_plant(plant_to_spawn: PlantData, coordinates: Vector2) -> Plant:
 	Signals.plant_placed.emit(selected_plant_index)
 	return plant
 
-func _handle_click():
+func _handle_click() -> void:
 	if not selected_plant and not remove_plant:
 		return
 	
@@ -105,7 +107,7 @@ func _handle_click():
 			remove_plant = false
 			plant_grid[grid_coordinates.x][grid_coordinates.y] = null
 			user_interface.on_plant_removed()
-			$PlantRemoveSound.play()
+			tower_remove_sound.play()
 		return
 	
 	if remove_plant:
@@ -115,7 +117,7 @@ func _handle_click():
 	selected_plant = null
 	remove_plant = false
 
-func _handle_alt_click():
+func _handle_alt_click() -> void:
 	remove_plant = false
 	user_interface.on_plant_removed()
 	selected_plant = null
@@ -129,7 +131,7 @@ func is_mouse_within_bounds(mouse_position: Vector2) -> bool:
 	
 	return true
 
-func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int):
+func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int) -> void:
 	var plant_image: AnimatedSprite2D = PLANT_IMAGE_SCENE.instantiate()
 	plant_image.sprite_frames = plant.sprite_frames
 	add_child(plant_image)
@@ -137,7 +139,7 @@ func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int):
 	selected_plant_scene = plant_scene
 	selected_plant_index = plant_index
 
-func _spawn_enemy(enemy_scene: PackedScene, enemy_data: EnemyResource):
+func _spawn_enemy(enemy_scene: PackedScene, enemy_data: EnemyResource) -> void:
 	if enemy_scene == null:
 		enemy_scene = DEFAULT_ENEMY_SCENE
 	
@@ -145,7 +147,7 @@ func _spawn_enemy(enemy_scene: PackedScene, enemy_data: EnemyResource):
 	enemy.enemy_resource = enemy_data
 	var enemy_spawn_curve: Curve2D = enemy_spawn_path.get_curve()
 	
-	var spawn_point = randi_range(0, 4)
+	var spawn_point: int = randi_range(0, 4)
 	
 	enemy.global_position = enemy_spawn_curve.get_point_position(spawn_point)
 	enemy.global_position.x += enemy_spawn_path.global_position.x
@@ -155,7 +157,7 @@ func _spawn_enemy(enemy_scene: PackedScene, enemy_data: EnemyResource):
 	enemies.add_child(enemy)
 	enemy.initialize()
 
-func _on_enemy_spawn_timer_timeout():
+func _on_enemy_spawn_timer_timeout() -> void:
 	enemy_spawn_timer.set_wait_time(0.25)
 	var wave: Wave = waves[wave_counter]
 	var enemy_sequence: EnemySequence = wave.enemy_sequences[enemy_sequence_counter]
@@ -176,7 +178,7 @@ func _on_enemy_spawn_timer_timeout():
 	enemy_spawn_timer.stop()
 	wave_timeout.start()
 
-func kill_plant(_position: Vector2):
+func kill_plant(_position: Vector2) -> void:
 	_position.x /= 128
 	_position.x -= 1
 	_position.y /= 128
@@ -186,13 +188,13 @@ func kill_plant(_position: Vector2):
 func _on_level_ui_plant_remover_selected() -> void:
 	remove_plant = true
 
-func _on_enemy_death():
+func _on_enemy_death() -> void:
 	enemy_death_counter += 1
 	user_interface.update_progress_bar(enemy_death_counter)
 	if enemy_death_counter == total_enemies_in_level:
 		_win()
 
-func _on_wave_timeout_timeout():
+func _on_wave_timeout_timeout() -> void:
 	if wave_counter >= waves.size() - 1:
 		return
 	
@@ -225,10 +227,10 @@ func _start_game() -> void:
 	game_interface.set_visible(true)
 	enemy_preview_area.queue_free()
 
-func _on_level_ui_won_timer_expired():
+func _on_level_ui_won_timer_expired() -> void:
 	if should_show_new_unlock:
 		var new_unlock: NewUnlock = NEW_UNLOCK_SCENE.instantiate()
-		new_unlock.unlocked_plant = unlocks
+		new_unlock.unlock = unlocks
 		get_tree().root.add_child(new_unlock)
 		get_tree().current_scene.queue_free()
 		get_tree().current_scene = new_unlock
@@ -236,7 +238,7 @@ func _on_level_ui_won_timer_expired():
 	get_tree().change_scene_to_packed(LEVEL_SELECTOR_SCENE)
 
 func _on_game_start_timer_timeout() -> void:
-	player_camera.set_target($SelectorTarget.global_position)
+	player_camera.set_target(selector_target.global_position)
 
 ## What to do when the camera shifts to its target position
 ## empty function for overwriting by subtypes, because

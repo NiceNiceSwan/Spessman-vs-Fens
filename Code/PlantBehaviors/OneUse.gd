@@ -21,7 +21,7 @@ signal finished_arming
 signal explode
 signal wants_to_explode
 
-func _ready():
+func _ready() -> void:
 	if not resource:
 		push_warning("Instantiating OneUse without any data!")
 		arming_timer.start()
@@ -61,20 +61,21 @@ func _physics_process(_delta: float) -> void:
 			return
 		_detonate()
 
-func _prepare_explosion():
+func _prepare_explosion() -> void:
 	wants_to_explode.emit()
 
-func _detonate():
+func _detonate() -> void:
 	if exploded:
 		return
 	exploded = true
 
-	for enemy in explosion_area.get_overlapping_areas():
-		enemy.get_parent().on_hit(damage)
+	for detected_area: Area2D in explosion_area.get_overlapping_areas():
+		var enemy: Enemy = detected_area.get_parent()
+		enemy.on_hit(damage)
 	
 	explode.emit()
 	
-func _on_arming_timer_timeout():
+func _on_arming_timer_timeout() -> void:
 	if instant_explosion:
 		_detonate()
 	armed = true

@@ -18,7 +18,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var tower_to_track: Plant
 	if detection_ray.is_colliding():
-		tower_to_track = detection_ray.get_collider().get_parent()
+		var detected_area: Area2D = detection_ray.get_collider()
+		tower_to_track = detected_area.get_parent()
 		if (tower_to_track.health / tower_to_track.max_health) <= healing_threshold:
 			heal()
 

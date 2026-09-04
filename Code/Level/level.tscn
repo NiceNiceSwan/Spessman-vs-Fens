@@ -1484,7 +1484,7 @@ position = Vector2(0, 640)
 wait_time = 20.0
 one_shot = true
 
-[node name="PlantRemoveSound" type="AudioStreamPlayer" parent="." unique_id=464712295]
+[node name="TowerRemoveSound" type="AudioStreamPlayer" parent="." unique_id=464712295]
 stream = ExtResource("7_qjtgt")
 bus = &"SFX"
 
@@ -1508,8 +1508,6 @@ shape = SubResource("RectangleShape2D_ckxye")
 
 [node name="Enemies" type="Node" parent="." unique_id=258563773]
 
-[connection signal="plant_remover_selected" from="GameInterface/LevelUI" to="." method="_on_level_ui_plant_remover_selected"]
-[connection signal="won_timer_expired" from="GameInterface/LevelUI" to="." method="_on_level_ui_won_timer_expired"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="WaveTimeout" to="." method="_on_wave_timeout_timeout"]
 [connection signal="reached_target" from="PlayerCamera" to="." method="_on_player_camera_reached_target"]
