@@ -17,7 +17,7 @@ var starting_position: Vector2
 
 signal killed_enemy
 
-func _ready():
+func _ready() -> void:
 	if not projectile_data:
 		push_warning("Projectile initialized without any data! Using default values!")
 		return
@@ -33,7 +33,7 @@ func _ready():
 	if animated_sprite.sprite_frames:
 		animated_sprite.play()
 
-func _process(delta):
+func _process(delta: float) -> void:
 	#position += Vector2(speed, 0) * delta
 	position += speed * delta * Vector2.RIGHT.rotated(rotation)
 	#Vector2.UP.rotated(rotation)
@@ -51,10 +51,10 @@ func _hit() -> float:
 		queue_free()
 	return damage
 
-func _on_life_timer_timeout():
+func _on_life_timer_timeout() -> void:
 	queue_free()
 
-func _on_area_entered(area: Area2D):
+func _on_area_entered(area: Area2D) -> void:
 	if health <= 0:
 		return
 	

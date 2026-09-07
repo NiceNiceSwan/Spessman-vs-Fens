@@ -12,7 +12,7 @@ func _ready() -> void:
 		else:
 			plant_holder.set_visible(false)
 
-func update_money(money: int):
+func update_money(money: int) -> void:
 	money_amount.text = str(money)
 
 func load_plant_data(plant_data: Array[PlantSelectButton]) -> void:

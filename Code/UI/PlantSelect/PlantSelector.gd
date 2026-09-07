@@ -53,7 +53,7 @@ func setup_default_plants() -> void:
 		selected_plants.append(plant_button)
 	view_timer.start()
 
-func on_plant_selected(button: PlantSelectButton):
+func on_plant_selected(button: PlantSelectButton) -> void:
 	if number_of_plants >= 7:
 		return
 	
@@ -64,7 +64,7 @@ func on_plant_selected(button: PlantSelectButton):
 	if number_of_plants >= 7:
 		play_button.set_disabled(false)
 
-func on_plant_unselected(button: PlantSelectButton):
+func on_plant_unselected(button: PlantSelectButton) -> void:
 	play_button.set_disabled(true)
 	button.return_back()
 	number_of_plants -= 1
@@ -72,7 +72,7 @@ func on_plant_unselected(button: PlantSelectButton):
 	for index in selected_plants.size():
 		selected_plants[index].shift_left(index * 64)
 
-func _on_pause_menu_button_pressed():
+func _on_pause_menu_button_pressed() -> void:
 	if not get_tree().is_paused():
 		get_tree().set_pause(true)
 		pause_menu.set_visible(true)

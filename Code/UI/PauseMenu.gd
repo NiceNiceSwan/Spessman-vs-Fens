@@ -1,5 +1,7 @@
 class_name PauseMenu extends Control
 
+const MAIN_MENU_SCENE: PackedScene = preload("uid://cvtgxw33ajkq5")
+
 @onready var settings_menu: SettingsMenu = $SettingsMenu
 @onready var options_container: VBoxContainer = $OptionsContainer
 
@@ -41,4 +43,4 @@ func _on_settings_menu_exiting() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().set_pause(false)
-	get_tree().change_scene_to_packed(load("uid://cvtgxw33ajkq5"))
+	get_tree().change_scene_to_packed(MAIN_MENU_SCENE)

@@ -1,25 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3np1cef23mrd"]
+[gd_scene format=3 uid="uid://d3np1cef23mrd"]
 
-[ext_resource type="Script" path="res://Code/Currency.gd" id="1_knbc6"]
+[ext_resource type="Script" uid="uid://dy54hkr2cmck1" path="res://Code/Currency.gd" id="1_knbc6"]
 [ext_resource type="Texture2D" uid="uid://dbi25dn27krlh" path="res://Graphics/burger_1.png" id="2_d3aps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kgnt"]
 size = Vector2(60, 64)
 
-[node name="Currency" type="Node2D"]
+[node name="Currency" type="Node2D" unique_id=1505469676]
 script = ExtResource("1_knbc6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=478964366]
 texture = ExtResource("2_d3aps")
 
-[node name="ClickArea" type="Area2D" parent="."]
+[node name="ClickArea" type="Area2D" parent="." unique_id=1591263138]
 collision_layer = 8
 collision_mask = 0
 
-[node name="ClickAreaHitbox" type="CollisionShape2D" parent="ClickArea"]
+[node name="ClickAreaHitbox" type="CollisionShape2D" parent="ClickArea" unique_id=147455089]
 shape = SubResource("RectangleShape2D_1kgnt")
 
-[node name="LifeTimer" type="Timer" parent="."]
+[node name="LifeTimer" type="Timer" parent="." unique_id=1208789944]
 
 [connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

@@ -17,7 +17,7 @@ var starting_position: Vector2
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var status_effects: Node = $StatusEffects
 
-func _ready():
+func _ready() -> void:
 	if not projectile_data:
 		push_warning("Healing Projectile initialized without any data! Using default values!")
 		return
@@ -34,7 +34,7 @@ func _ready():
 	
 	starting_position = position
 
-func _process(delta):
+func _process(delta: float) -> void:
 	position += Vector2(speed, 0) * delta
 	starting_position += Vector2(speed, 0) * delta
 	var maximum_range: float = _range * Defines.TILE_SIZE + Defines.TILE_MAP_X_OFFSET
@@ -44,10 +44,10 @@ func _process(delta):
 	if rotates:
 		rotation_degrees += 360 * delta
 
-func _on_life_timer_timeout():
+func _on_life_timer_timeout() -> void:
 	queue_free()
 
-func _on_area_entered(area: Area2D):
+func _on_area_entered(area: Area2D) -> void:
 	if not parent_area:
 		parent_area = area
 		return

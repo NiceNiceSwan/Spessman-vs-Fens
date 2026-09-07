@@ -5,7 +5,7 @@ class_name ShootingStar extends Shooter
 @onready var firing_down_right: Firing = $FiringDownRight
 @onready var firing_down: Firing = $FiringDown
 
-func _ready():
+func _ready() -> void:
 	super()
 	
 	firing_node.fired.connect(_coordinate_fire)
@@ -14,7 +14,7 @@ func _ready():
 	firing_down_right.fired.connect(_coordinate_fire)
 	firing_down.fired.connect(_coordinate_fire)
 
-func _coordinate_fire():
+func _coordinate_fire() -> void:
 	firing_node.fire(false, false)
 	firing_up.fire(false, false)
 	firing_up_right.fire(false, false)

@@ -25,7 +25,7 @@ signal expired
 func _ready() -> void:
 	duration.wait_time = duration_time
 
-func _process(_delta: float):
+func _process(_delta: float) -> void:
 	pass
 
 ## Applies the status effect to the provided [Enemy]. 

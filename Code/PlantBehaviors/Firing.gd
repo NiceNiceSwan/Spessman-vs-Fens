@@ -22,7 +22,7 @@ signal reloaded
 signal fired
 signal detected_enemy
 
-func _ready():
+func _ready() -> void:
 	if not resource:
 		push_warning("Instantiating firing node without any data!")
 		return
@@ -39,7 +39,7 @@ func _ready():
 	
 	detection_ray.target_position.x = Defines.TILE_SIZE * _range + Defines.TILE_MAP_X_OFFSET
 
-func _process(delta: float):
+func _process(delta: float) -> void:
 	if detection_ray.is_colliding():
 		detected_enemy.emit()
 		if fire_delay_milliseconds > 0:
@@ -48,7 +48,7 @@ func _process(delta: float):
 		
 		fire()
 
-func fire(forced: bool = false, play_sound: bool = true):
+func fire(forced: bool = false, play_sound: bool = true) -> void:
 	if not ready_to_fire and not forced:
 		return
 	

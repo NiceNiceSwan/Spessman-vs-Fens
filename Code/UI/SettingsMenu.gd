@@ -16,7 +16,7 @@ func _input(event: InputEvent) -> void:
 		exiting.emit()
 
 func _on_apply_button_pressed() -> void:
-	var config = ConfigFile.new()
+	var config: ConfigFile = ConfigFile.new()
 	var master_volume: float = master_volume_slider.get_value()
 	var sfx_volume: float = SFX_volume_slider.get_value()
 	config.load("user://settings.cfg")

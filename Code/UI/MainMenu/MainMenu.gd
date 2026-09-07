@@ -6,8 +6,8 @@ const LEVEL = preload("uid://bavn0ly1fcl5v")
 @onready var settings_menu: SettingsMenu = $SettingsMenu
 @onready var load_game: Button = $VBoxContainer/LoadGame
 
-func _ready():
-	var config = ConfigFile.new()
+func _ready() -> void:
+	var config: ConfigFile = ConfigFile.new()
 	var master_volume: float = -10
 	var sfx_volume: float = -10
 	if config.load("user://settings.cfg"):
@@ -24,20 +24,20 @@ func _ready():
 	if SaveData.game_save_exists():
 		load_game.set_disabled(false)
 
-func _on_new_game_pressed():
+func _on_new_game_pressed() -> void:
 	get_tree().change_scene_to_packed(LEVEL)
 
-func _on_load_game_pressed():
+func _on_load_game_pressed() -> void:
 	SaveData.load_game()
 	get_tree().change_scene_to_packed(LEVEL)
 
-func _on_settings_pressed():
+func _on_settings_pressed() -> void:
 	button_container.set_visible(false)
 	settings_menu.set_visible(true)
 	
-func _on_settings_menu_exiting():
+func _on_settings_menu_exiting() -> void:
 	button_container.set_visible(true)
 	settings_menu.set_visible(false)
 
-func _on_quit_pressed():
+func _on_quit_pressed() -> void:
 	get_tree().quit()

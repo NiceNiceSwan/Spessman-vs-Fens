@@ -14,7 +14,7 @@ func _ready() -> void:
 	Signals.money_changed.emit(money)
 	super()
 
-func add_money(_money: int):
+func add_money(_money: int) -> void:
 	money += _money
 	Signals.money_changed.emit(money)
 
@@ -22,7 +22,7 @@ func _buy_plant(plant_to_spawn: PlantData, coordinates: Vector2) -> Plant:
 	add_money(-selected_plant.cost)
 	return super(plant_to_spawn, coordinates)
 
-func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int):
+func select_plant(plant: PlantData, plant_scene: PackedScene, plant_index: int) -> void:
 	if money < plant.cost:
 		return
 	
@@ -33,7 +33,7 @@ func _start_game() -> void:
 	super()
 
 func _on_currency_timer_timeout() -> void:
-	var currency = CURRENCY_SCENE.instantiate()
+	var currency: Currency = CURRENCY_SCENE.instantiate()
 	currency_spawn_location.set_progress_ratio(randf())
 	
 	currency.global_position = currency_spawn_location.global_position

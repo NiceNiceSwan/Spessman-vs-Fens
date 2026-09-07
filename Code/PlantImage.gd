@@ -11,7 +11,7 @@ func is_within_bounds(_position: Vector2) -> bool:
 	
 	return true
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	global_position = get_viewport().get_mouse_position()
 	visible = true
 	if not is_within_bounds(global_position):
@@ -30,5 +30,5 @@ func _process(_delta):
 		queue_free()
 
 
-func _on_no_click_timer_timeout():
+func _on_no_click_timer_timeout() -> void:
 	can_be_closed = true

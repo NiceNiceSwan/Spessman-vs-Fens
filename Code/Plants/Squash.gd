@@ -6,15 +6,15 @@ var is_tweening: bool = false
 
 @onready var death_timeout: Timer = $DeathTimeout
 
-func _ready():
+func _ready() -> void:
 	super()
 	animated_sprite.set_animation("default")
 	animated_sprite.stop()
 
-func _on_one_use_wants_to_explode():
+func _on_one_use_wants_to_explode() -> void:
 	_play_squash_animation()
 
-func _play_squash_animation():
+func _play_squash_animation() -> void:
 	if is_tweening:
 		return
 
@@ -36,11 +36,11 @@ func _play_squash_animation():
 	.set_trans(Tween.TRANS_QUAD) \
 	.set_ease(Tween.EASE_OUT)
 	
-	tween.finished.connect(func(): one_use_node._detonate())
+	tween.finished.connect(func() -> void: one_use_node._detonate())
 
-func _on_one_use_explode():
+func _on_one_use_explode() -> void:
 	plant_died.emit(global_position)
 	death_timeout.start()
 
-func _on_death_timeout_timeout():
+func _on_death_timeout_timeout() -> void:
 	_die()
