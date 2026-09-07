@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TowerPreset" format=3 uid="uid://ch1tg0ackgov8"]
+
+[ext_resource type="Script" uid="uid://cwf1i3mpscq26" path="res://Resources/TowerPresets/TowerPreset.gd" id="1_a6d4c"]
+[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="2_xstgx"]
+[ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/Explosive.tscn" id="3_yxtt7"]
+[ext_resource type="PackedScene" uid="uid://e8hsqeq0jixr" path="res://Code/Plants/HitSponge.tscn" id="4_7d0b8"]
+
+[resource]
+script = ExtResource("1_a6d4c")
+tower_selection = Array[PackedScene]([ExtResource("2_xstgx"), ExtResource("3_yxtt7"), ExtResource("4_7d0b8")])
+metadata/_custom_type_script = "uid://cwf1i3mpscq26"

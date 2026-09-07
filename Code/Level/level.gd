@@ -3,7 +3,7 @@ class_name Level extends Node2D
 const PLANT_IMAGE_SCENE: PackedScene = preload("uid://c1d4hmfthef4a")
 const DEFAULT_ENEMY_SCENE: PackedScene = preload("uid://b00k3o2qlcw1i")
 const NEW_UNLOCK_SCENE: PackedScene = preload("uid://h4enakc44q1a")
-const LEVEL_SELECTOR_SCENE: PackedScene = preload("uid://bavn0ly1fcl5v")
+var LEVEL_SELECTOR_SCENE: PackedScene = load("uid://bavn0ly1fcl5v")
 
 @export var level_data: LevelResource
 @export var unlocks: Unlockable
@@ -245,4 +245,7 @@ func _on_game_start_timer_timeout() -> void:
 ## normal level needs to wait for the player to select the towers,
 ## while a conveyor level just waits a few secs
 func _on_player_camera_reached_target() -> void:
+	pass
+
+func _initialize_preset_towers(_towers: TowerPreset) -> void:
 	pass

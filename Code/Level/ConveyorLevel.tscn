@@ -6,11 +6,12 @@
 
 [node name="ConveyorLevel" unique_id=105159579 instance=ExtResource("1_ocnxp")]
 script = ExtResource("2_jungy")
+level_data = null
 unlocks = null
 
 [node name="ConveyorSelector" parent="GameInterface" parent_id_path=PackedInt32Array(528399307) index="1" unique_id=1094233760 instance=ExtResource("3_f6bmw")]
 
-[node name="EnemyShowcaseTrailer" type="Timer" parent="." index="14" unique_id=735332015]
+[node name="EnemyShowcaseTrailer" type="Timer" parent="." index="12" unique_id=735332015]
 wait_time = 0.5
 one_shot = true
 

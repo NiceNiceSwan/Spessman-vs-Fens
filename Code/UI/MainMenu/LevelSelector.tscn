@@ -7,9 +7,11 @@
 [ext_resource type="Resource" uid="uid://civg6gi37v7m1" path="res://Resources/Levels/Level_3.tres" id="5_m0vv3"]
 [ext_resource type="Resource" uid="uid://beslrg6ywrpx5" path="res://Resources/Levels/Level_4.tres" id="6_8q4c1"]
 [ext_resource type="Resource" uid="uid://ba4xs7bh3gfvq" path="res://Resources/Levels/Level_5.tres" id="7_5jwpl"]
+[ext_resource type="Resource" uid="uid://ch1tg0ackgov8" path="res://Resources/TowerPresets/Level5.tres" id="7_et83p"]
 [ext_resource type="Resource" uid="uid://dfds1j7kvt2ck" path="res://Resources/Levels/Level_6.tres" id="8_2pucx"]
 [ext_resource type="Resource" uid="uid://nrtx2xy82loe" path="res://Resources/Levels/Level_7.tres" id="9_6n4lk"]
 [ext_resource type="Resource" uid="uid://tsyggayo1cwa" path="res://Resources/Levels/Level_8.tres" id="10_2vxfg"]
+[ext_resource type="Resource" uid="uid://cmq4r4syitbmd" path="res://Resources/TowerPresets/Level10.tres" id="12_quehd"]
 
 [node name="LevelSelector" type="Control" unique_id=1539301138]
 layout_mode = 3
@@ -64,6 +66,14 @@ layout_mode = 2
 level_name = "Level 4"
 level_data = ExtResource("6_8q4c1")
 
+[node name="LevelHolder5" parent="VBoxContainer/HBoxContainer" unique_id=207524003 instance=ExtResource("1_e7sr5")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+level_name = "Level 5"
+level_type = 1
+tower_selection = ExtResource("7_et83p")
+level_data = ExtResource("6_8q4c1")
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1147153081]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
@@ -72,25 +82,33 @@ alignment = 1
 [node name="LevelHolder" parent="VBoxContainer/HBoxContainer2" unique_id=1928124721 instance=ExtResource("1_e7sr5")]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-level_name = "Level 5"
+level_name = "Level 6"
 level_data = ExtResource("7_5jwpl")
 
 [node name="LevelHolder2" parent="VBoxContainer/HBoxContainer2" unique_id=2004667507 instance=ExtResource("1_e7sr5")]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-level_name = "Level 6"
+level_name = "Level 7"
 level_data = ExtResource("8_2pucx")
 
 [node name="LevelHolder3" parent="VBoxContainer/HBoxContainer2" unique_id=993410550 instance=ExtResource("1_e7sr5")]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-level_name = "Level 7"
+level_name = "Level 8"
 level_data = ExtResource("9_6n4lk")
 
 [node name="LevelHolder4" parent="VBoxContainer/HBoxContainer2" unique_id=1760541505 instance=ExtResource("1_e7sr5")]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-level_name = "Level 8"
+level_name = "Level 9"
+level_data = ExtResource("10_2vxfg")
+
+[node name="LevelHolder5" parent="VBoxContainer/HBoxContainer2" unique_id=1714332620 instance=ExtResource("1_e7sr5")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+level_name = "Level 10"
+level_type = 1
+tower_selection = ExtResource("12_quehd")
 level_data = ExtResource("10_2vxfg")
 
 [node name="Return" type="Button" parent="." unique_id=2021404422]

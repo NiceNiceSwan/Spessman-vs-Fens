@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TowerPreset" format=3 uid="uid://cmq4r4syitbmd"]
+
+[ext_resource type="Script" uid="uid://cwf1i3mpscq26" path="res://Resources/TowerPresets/TowerPreset.gd" id="1_nkupf"]
+[ext_resource type="PackedScene" uid="uid://bk1deg1kexh5h" path="res://Code/Plants/Shooter.tscn" id="2_3v0f8"]
+[ext_resource type="PackedScene" uid="uid://buincjudjy1ik" path="res://Code/Plants/Explosive.tscn" id="3_1snpc"]
+[ext_resource type="PackedScene" uid="uid://e8hsqeq0jixr" path="res://Code/Plants/HitSponge.tscn" id="4_hq7kn"]
+[ext_resource type="PackedScene" uid="uid://drhb7h3lugbaw" path="res://Code/Plants/Devourer.tscn" id="5_vwubj"]
+[ext_resource type="PackedScene" uid="uid://dr7qn7ups4xpk" path="res://Code/Plants/SlowingShooter.tscn" id="6_cjyrk"]
+[ext_resource type="PackedScene" uid="uid://v6u1keu8e2hi" path="res://Code/Plants/Repeater.tscn" id="7_g4lvy"]
+[ext_resource type="PackedScene" uid="uid://dv0nkl87p1qfv" path="res://Code/Plants/Squash.tscn" id="8_hdjj1"]
+
+[resource]
+script = ExtResource("1_nkupf")
+tower_selection = Array[PackedScene]([ExtResource("2_3v0f8"), ExtResource("3_1snpc"), ExtResource("4_hq7kn"), ExtResource("5_vwubj"), ExtResource("6_cjyrk"), ExtResource("7_g4lvy"), ExtResource("8_hdjj1")])
+metadata/_custom_type_script = "uid://cwf1i3mpscq26"

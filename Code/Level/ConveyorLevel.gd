@@ -12,3 +12,6 @@ func _on_player_camera_reached_target() -> void:
 		enemy_showcase_trailer.start()
 		return
 	_start_game()
+
+func _initialize_preset_towers(towers: TowerPreset) -> void:
+	conveyor_selector.available_towers = towers.tower_selection

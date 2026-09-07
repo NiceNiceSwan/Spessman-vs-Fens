@@ -9,7 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://rhhnip7kmuf1" path="res://Styles/StyleBoxes/select_button_border.tres" id="7_bph2v"]
 [ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="7_usm4a"]
 
-[sub_resource type="Resource" id="Resource_bph2v"]
+[sub_resource type="Resource" id="Resource_7qus5"]
 script = ExtResource("2_3huq4")
 metadata/_custom_type_script = "uid://dn61oer81nccm"
 
@@ -30,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_os746")
-plant_data = SubResource("Resource_bph2v")
+plant_data = SubResource("Resource_7qus5")
 unlock_data = ExtResource("3_3huq4")
 
 [node name="SelectButton" type="Button" parent="." unique_id=1242001575]
