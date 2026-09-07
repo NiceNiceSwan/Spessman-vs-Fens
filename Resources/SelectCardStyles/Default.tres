@@ -1,7 +1,13 @@
 [gd_resource type="Resource" script_class="SelectButtonStyle" format=3 uid="uid://ceshgafsl8ihe"]
 
 [ext_resource type="Script" uid="uid://bjbhhuxwcrcfa" path="res://Resources/SelectCardStyles/SelectButtonStyle.gd" id="1_4o0mb"]
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="1_gsukc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne72l"]
+atlas = ExtResource("1_gsukc")
+region = Rect2(24, 8, 8, 8)
 
 [resource]
 script = ExtResource("1_4o0mb")
+icon = SubResource("AtlasTexture_ne72l")
 metadata/_custom_type_script = "uid://bjbhhuxwcrcfa"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SelectButtonStyle" format=3 uid="uid://bpwqxqyl68sy4"]
+
+[ext_resource type="Texture2D" uid="uid://cpx6rpy3v3wtj" path="res://Graphics/department_icons.png" id="1_bi7vv"]
+[ext_resource type="Script" uid="uid://bjbhhuxwcrcfa" path="res://Resources/SelectCardStyles/SelectButtonStyle.gd" id="1_ctq5u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi7vv"]
+atlas = ExtResource("1_bi7vv")
+region = Rect2(0, 16, 8, 8)
+
+[resource]
+script = ExtResource("1_ctq5u")
+name = "GATO"
+style_id = 8
+background_color = Color(0.77254903, 0.30980393, 0.6313726, 1)
+border_color = Color(0.101960786, 0.101960786, 0.1254902, 1)
+icon = SubResource("AtlasTexture_bi7vv")
+metadata/_custom_type_script = "uid://bjbhhuxwcrcfa"
