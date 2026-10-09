@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantData" format=3 uid="uid://smsyn3usy0hq"]
+
+[ext_resource type="Script" uid="uid://dn61oer81nccm" path="res://Resources/PlantData/PlantData.gd" id="1_c5kqu"]
+[ext_resource type="Resource" uid="uid://dycqcv3eyrox6" path="res://Resources/SelectCardStyles/Science.tres" id="2_fpbf5"]
+[ext_resource type="SpriteFrames" uid="uid://bxsa5s5ij06r7" path="res://Graphics/Animated/immovable_rod.tres" id="3_e0h37"]
+
+[resource]
+script = ExtResource("1_c5kqu")
+ID = 19
+name = "Immovable Rod"
+cost = 125
+sprite_frames = ExtResource("3_e0h37")
+plant_cooldown = 20.0
+description = "Clears an entire lane of enemies."
+select_button_style = ExtResource("2_fpbf5")
+metadata/_custom_type_script = "uid://dn61oer81nccm"

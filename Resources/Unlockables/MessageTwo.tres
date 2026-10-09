@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Unlockable" format=3 uid="uid://bbws21n2vsdi6"]
+
+[ext_resource type="Script" uid="uid://c1jkjv61qyfq8" path="res://Resources/Unlockables/Unlockable.gd" id="1_2slk2"]
+[ext_resource type="Texture2D" uid="uid://l3awffdbbuaj" path="res://Graphics/paper.png" id="2_cgjg8"]
+
+[resource]
+script = ExtResource("1_2slk2")
+name = "A new message!"
+description = "Your defences are formidable, but I have people to throw at the problem. Big people! You got no chance!!!"
+texture = ExtResource("2_cgjg8")
+ID = 15
+metadata/_custom_type_script = "uid://c1jkjv61qyfq8"

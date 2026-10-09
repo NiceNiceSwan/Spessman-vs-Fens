@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bxsa5s5ij06r7"]
+
+[ext_resource type="Texture2D" uid="uid://dvmp5tdm45gih" path="res://Graphics/immovable_rod.png" id="1_ukrl1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2b4v"]
+atlas = ExtResource("1_ukrl1")
+region = Rect2(0, 0, 64, 10)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2b4v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
