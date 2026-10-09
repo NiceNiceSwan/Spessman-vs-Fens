@@ -13,7 +13,6 @@ point_count = 2
 
 [node name="NormalLevel" unique_id=105159579 instance=ExtResource("1_oy8qe")]
 script = ExtResource("2_r38g7")
-unlocks = null
 
 [node name="CurrencyPath" type="Path2D" parent="." index="2" unique_id=473563858]
 curve = SubResource("Curve2D_r38g7")

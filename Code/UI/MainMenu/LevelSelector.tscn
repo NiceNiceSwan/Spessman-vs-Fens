@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bbftve8r1y82r" path="res://Code/UI/MainMenu/LevelSelector.gd" id="1_2cg1l"]
 [ext_resource type="PackedScene" uid="uid://r00t813bi150" path="res://Code/UI/MainMenu/LevelHolder.tscn" id="1_e7sr5"]
+[ext_resource type="Script" uid="uid://bxyy1on021c3p" path="res://Resources/Levels/LevelSets/LevelSet.gd" id="2_i762x"]
 [ext_resource type="Resource" uid="uid://cehu2etroilun" path="res://Resources/Levels/Level_1.tres" id="3_iv4l2"]
 [ext_resource type="Resource" uid="uid://ypr0ir2w8n1m" path="res://Resources/Levels/Level_2.tres" id="4_giwj0"]
 [ext_resource type="Resource" uid="uid://civg6gi37v7m1" path="res://Resources/Levels/Level_3.tres" id="5_m0vv3"]
 [ext_resource type="Resource" uid="uid://beslrg6ywrpx5" path="res://Resources/Levels/Level_4.tres" id="6_8q4c1"]
-[ext_resource type="Resource" uid="uid://ba4xs7bh3gfvq" path="res://Resources/Levels/Level_5.tres" id="7_5jwpl"]
+[ext_resource type="Resource" uid="uid://ba4xs7bh3gfvq" path="res://Resources/Levels/Level_6.tres" id="7_5jwpl"]
 [ext_resource type="Resource" uid="uid://ch1tg0ackgov8" path="res://Resources/TowerPresets/Level5.tres" id="7_et83p"]
-[ext_resource type="Resource" uid="uid://dfds1j7kvt2ck" path="res://Resources/Levels/Level_6.tres" id="8_2pucx"]
-[ext_resource type="Resource" uid="uid://nrtx2xy82loe" path="res://Resources/Levels/Level_7.tres" id="9_6n4lk"]
-[ext_resource type="Resource" uid="uid://tsyggayo1cwa" path="res://Resources/Levels/Level_8.tres" id="10_2vxfg"]
+[ext_resource type="Resource" uid="uid://dfds1j7kvt2ck" path="res://Resources/Levels/Level_8.tres" id="8_2pucx"]
+[ext_resource type="Resource" uid="uid://nrtx2xy82loe" path="res://Resources/Levels/Level_9.tres" id="9_6n4lk"]
+[ext_resource type="Resource" uid="uid://tsyggayo1cwa" path="res://Resources/Levels/Level_10.tres" id="10_2vxfg"]
 [ext_resource type="Resource" uid="uid://cmq4r4syitbmd" path="res://Resources/TowerPresets/Level10.tres" id="12_quehd"]
 
 [node name="LevelSelector" type="Control" unique_id=1539301138]
@@ -21,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2cg1l")
+level_sets = Array[ExtResource("2_i762x")]([null])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=626975320]
 layout_mode = 1
@@ -121,4 +123,30 @@ offset_right = 8.0
 grow_vertical = 0
 text = "Return"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1929263205]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PreviousPageButton" type="Button" parent="HBoxContainer" unique_id=53437855]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+disabled = true
+text = "Previous"
+
+[node name="NextPageButton" type="Button" parent="HBoxContainer" unique_id=679208298]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Next"
+
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="HBoxContainer/PreviousPageButton" to="." method="_on_previous_page_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/NextPageButton" to="." method="_on_next_page_button_pressed"]
